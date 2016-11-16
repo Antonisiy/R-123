@@ -128,6 +128,18 @@
   <ItemGroup>
     <None Include="Resources\rull_4.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rull_value_I.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rull_value_II.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rull_I.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rull_II.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

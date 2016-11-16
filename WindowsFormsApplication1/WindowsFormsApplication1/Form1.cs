@@ -125,5 +125,19 @@ namespace WindowsFormsApplication1
             Draw_circle(img);
             pictureBox6.Image = img;
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Image img = Properties.Resources.rull_I;
+            Draw_circle(img);
+            pictureBox6.Image = img;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            Image img = Properties.Resources.rull_II;
+            Draw_circle(img);
+            pictureBox6.Image = img;
+        }
     }
 }

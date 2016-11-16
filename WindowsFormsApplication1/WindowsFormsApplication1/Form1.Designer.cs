@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,6 +52,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label6
+            // 
+            this.label6.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.label6.Image = global::WindowsFormsApplication1.Properties.Resources.rull_value_I;
+            this.label6.Location = new System.Drawing.Point(803, 605);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(12, 15);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "label6";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label5
+            // 
+            this.label5.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.label5.Image = global::WindowsFormsApplication1.Properties.Resources.rull_value_II;
+            this.label5.Location = new System.Drawing.Point(935, 605);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(13, 15);
+            this.label5.TabIndex = 14;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -204,6 +227,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 762);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -247,6 +272,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

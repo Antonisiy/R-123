@@ -133,9 +133,6 @@
   <data name="Green_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Green_4.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="R" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\R.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="rull_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rull_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -165,5 +162,17 @@
   </data>
   <data name="rull_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rull_4.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rull_I" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rull_I.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rull_II" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rull_II.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rull_value_I" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rull_value_I.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rull_value_II" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rull_value_II.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

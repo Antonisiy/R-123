@@ -113,16 +113,6 @@ namespace WindowsFormsApplication1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap R {
-            get {
-                object obj = ResourceManager.GetObject("R", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap R_123M {
             get {
                 object obj = ResourceManager.GetObject("R_123M", resourceCulture);
@@ -173,6 +163,26 @@ namespace WindowsFormsApplication1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rull_I {
+            get {
+                object obj = ResourceManager.GetObject("rull_I", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rull_II {
+            get {
+                object obj = ResourceManager.GetObject("rull_II", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rull_value_1 {
             get {
                 object obj = ResourceManager.GetObject("rull_value_1", resourceCulture);
@@ -206,6 +216,26 @@ namespace WindowsFormsApplication1.Properties {
         internal static System.Drawing.Bitmap rull_value_4 {
             get {
                 object obj = ResourceManager.GetObject("rull_value_4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rull_value_I {
+            get {
+                object obj = ResourceManager.GetObject("rull_value_I", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rull_value_II {
+            get {
+                object obj = ResourceManager.GetObject("rull_value_II", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
