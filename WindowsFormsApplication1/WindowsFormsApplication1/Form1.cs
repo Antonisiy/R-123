@@ -139,5 +139,14 @@ namespace WindowsFormsApplication1
             Draw_circle(img);
             pictureBox6.Image = img;
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            Draw_mini_circle(pictureBox2);
+            if (pictureBox2.Visible)
+                pictureBox2.Visible = false;
+            else
+                pictureBox2.Visible = true;
+        }
     }
 }
