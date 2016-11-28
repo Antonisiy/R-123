@@ -68,43 +68,55 @@ namespace WindowsFormsApplication1
         private void label1_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_1;
-           // Draw_circle(img);
+            new System.Media.SoundPlayer(
+			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+            // Draw_circle(img);
             pictureBox6.Image = img;
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_2;
-           // Draw_circle(img);
+            new System.Media.SoundPlayer(
+			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+            // Draw_circle(img);
             pictureBox6.Image = img;
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_3;
-           // Draw_circle(img);
-            pictureBox6.Image = img;
+			new System.Media.SoundPlayer(
+			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+			// Draw_circle(img);
+			pictureBox6.Image = img;
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_4;
-           // Draw_circle(img);
-            pictureBox6.Image = img;
+			new System.Media.SoundPlayer(
+			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+			// Draw_circle(img);
+			pictureBox6.Image = img;
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_I;
-           // Draw_circle(img);
-            pictureBox6.Image = img;
+			new System.Media.SoundPlayer(
+			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+			// Draw_circle(img);
+			pictureBox6.Image = img;
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_II;
-           // Draw_circle(img);
-            pictureBox6.Image = img;
+			new System.Media.SoundPlayer(
+			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+			// Draw_circle(img);
+			pictureBox6.Image = img;
         }
 
       
@@ -168,8 +180,10 @@ namespace WindowsFormsApplication1
             g.DrawImage(pictureBox6.Image, 0, 0);
             a = b;
             deg += 10;
-            //g.DrawImage()
-        }
+			//g.DrawImage()
+			new System.Media.SoundPlayer(
+			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+		}
 
         private void pictureBox6_MouseClick(object sender, MouseEventArgs e)
         {
@@ -190,15 +204,10 @@ namespace WindowsFormsApplication1
                 pictureBox2.Visible = false;
             else
                 pictureBox2.Visible = true;
-            //   label7.Parent = this.pictureBox8;
-            label7.BackColor = pictureBox8.BackColor;
-            //label7.Visible = true;
-            //label7.Enabled = true;
-            //label7.Location = new System.Drawing.Point(1031,198);
-            //label7.Size = new System.Drawing.Size(32, 32);
-            //label7.BringToFront();
-           
-        }
+			new System.Media.SoundPlayer(
+			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+
+		}
      
 
         private void label8_Click(object sender, EventArgs e)
@@ -209,7 +218,9 @@ namespace WindowsFormsApplication1
                 pictureBox3.Visible = false;
             else
                 pictureBox3.Visible = true;
-        }
+			new System.Media.SoundPlayer(
+			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+		}
 
         private void label9_Click(object sender, EventArgs e)
         {
@@ -219,7 +230,9 @@ namespace WindowsFormsApplication1
                 pictureBox4.Visible = false;
             else
                 pictureBox4.Visible = true;
-        }
+			new System.Media.SoundPlayer(
+			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+		}
 
         private void label10_Click(object sender, EventArgs e)
         {
@@ -229,7 +242,9 @@ namespace WindowsFormsApplication1
                 pictureBox5.Visible = false;
             else
                 pictureBox5.Visible = true;
-        }
+			new System.Media.SoundPlayer(
+			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+		}
 
 
         private void label11_Click(object sender, EventArgs e)
