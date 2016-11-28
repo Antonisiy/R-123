@@ -64,41 +64,6 @@ namespace WindowsFormsApplication1
             box.Region = rgn;
             box.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Draw_mini_circle(pictureBox2);
-            if (pictureBox2.Visible)
-            pictureBox2.Visible = false;
-            else
-            pictureBox2.Visible = true;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Draw_mini_circle(pictureBox3);
-            if (pictureBox3.Visible)
-                pictureBox3.Visible = false;
-            else
-                pictureBox3.Visible = true;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Draw_mini_circle(pictureBox4);
-            if (pictureBox4.Visible)
-                pictureBox4.Visible = false;
-            else
-                pictureBox4.Visible = true;
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Draw_mini_circle(pictureBox5);
-            if (pictureBox5.Visible)
-                pictureBox5.Visible = false;
-            else
-                pictureBox5.Visible = true;
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -142,14 +107,7 @@ namespace WindowsFormsApplication1
             pictureBox6.Image = img;
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-            Draw_mini_circle(pictureBox2);
-            if (pictureBox2.Visible)
-                pictureBox2.Visible = false;
-            else
-                pictureBox2.Visible = true;
-        }
+      
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -222,6 +180,62 @@ namespace WindowsFormsApplication1
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             //Image img = Properties.Resources.Green_4;
+        }
+
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            Draw_mini_circle(pictureBox2);
+            if (pictureBox2.Visible)
+                pictureBox2.Visible = false;
+            else
+                pictureBox2.Visible = true;
+        }
+     
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+            Draw_mini_circle(pictureBox3);
+            if (pictureBox3.Visible)
+                pictureBox3.Visible = false;
+            else
+                pictureBox3.Visible = true;
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+            Draw_mini_circle(pictureBox4);
+            if (pictureBox4.Visible)
+                pictureBox4.Visible = false;
+            else
+                pictureBox4.Visible = true;
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+            Draw_mini_circle(pictureBox5);
+            if (pictureBox5.Visible)
+                pictureBox5.Visible = false;
+            else
+                pictureBox5.Visible = true;
+        }
+
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+           // Draw_mini_circle(pictureBox5);
+            if (pictureBox8.Visible)
+                pictureBox8.Visible = false;
+            else
+                pictureBox8.Visible = true;
+
+            label7.Enabled = true;
+            label8.Enabled = true;
+            label9.Enabled = true;
+            label10.Enabled = true;
         }
     }
 }
