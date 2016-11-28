@@ -8,6 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using OpenTK;
+using OpenTK.Graphics.OpenGL;
+using OpenTK.Audio;
+using OpenTK.Audio.OpenAL;
+using OpenTK.Input;
+
+
+
 
 namespace WindowsFormsApplication1
 {
@@ -103,42 +111,53 @@ namespace WindowsFormsApplication1
         private void label1_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_1;
-           // Draw_circle(img);
+            new System.Media.SoundPlayer("D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+
+            // Draw_circle(img);
             pictureBox6.Image = img;
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_2;
-           // Draw_circle(img);
+            new System.Media.SoundPlayer("D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+
+            // Draw_circle(img);
             pictureBox6.Image = img;
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_3;
-           // Draw_circle(img);
+            new System.Media.SoundPlayer("D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+
+            // Draw_circle(img);
             pictureBox6.Image = img;
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_4;
-           // Draw_circle(img);
+            new System.Media.SoundPlayer("D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+            // Draw_circle(img);
             pictureBox6.Image = img;
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_I;
-           // Draw_circle(img);
+            new System.Media.SoundPlayer("D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+
+            // Draw_circle(img);
             pictureBox6.Image = img;
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_II;
-           // Draw_circle(img);
+            new System.Media.SoundPlayer("D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+
+            // Draw_circle(img);
             pictureBox6.Image = img;
         }
 
@@ -153,17 +172,8 @@ namespace WindowsFormsApplication1
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Image img = Properties.Resources.Green_4;
-            Bitmap my = new Bitmap(img);
-            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-            PointF mypoint = new PointF(17, 17);
-            mymatrix.RotateAt(250, mypoint);
-            Graphics g = pictureBox7.CreateGraphics();
-            // g.RotateTransform(350.0F);
-            g.Transform = mymatrix;
-            g.DrawImage(img, 0, 0);
-            //g.DrawImage()
-            
+            new System.Media.SoundPlayer("D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+
         }
 
         private void pictureBox7_Paint(object sender, PaintEventArgs e)
@@ -175,26 +185,9 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void pictureBox6_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
-            Image img = Properties.Resources.Green_4;
-            Bitmap my = new Bitmap(img);
-            Graphics g = pictureBox7.CreateGraphics();
-            g.RotateTransform(255.0F);
-            g.DrawImage(img, 0, 0);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Image img = Properties.Resources.Green_4;
-            Bitmap my = new Bitmap(img);
-            Graphics g = pictureBox7.CreateGraphics();
-            //g.RotateTransform(350.0F);
-            g.DrawImage(img, 0, 0);
-        }
-
-        private void pictureBox6_MouseDown(object sender, MouseEventArgs e)
-        {
+            
            // Image img = Properties.Resources.Green_4;
            // Bitmap my_bitmap = new Bitmap(pictureBox6.Image);
             System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -210,10 +203,12 @@ namespace WindowsFormsApplication1
             g.DrawImage(pictureBox6.Image, 0, 0);
             a = b;
             deg += 10;
+            new System.Media.SoundPlayer("D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+
             //g.DrawImage()
         }
 
-        private void pictureBox6_MouseClick(object sender, MouseEventArgs e)
+        private void pictureBox6_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {
         //   Image img = Properties.Resources.Green_4;
 
@@ -223,5 +218,6 @@ namespace WindowsFormsApplication1
         {
             //Image img = Properties.Resources.Green_4;
         }
+
     }
 }
