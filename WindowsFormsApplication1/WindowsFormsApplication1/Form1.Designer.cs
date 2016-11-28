@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,17 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Enabled = false;
-            this.label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
-            this.label7.Location = new System.Drawing.Point(1031, 198);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 32);
-            this.label7.TabIndex = 16;
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // button1
             // 
@@ -111,43 +99,55 @@
             this.label11.TabIndex = 24;
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // label8
+            // label10
             // 
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Enabled = false;
-            this.label8.Image = ((System.Drawing.Image)(resources.GetObject("label8.Image")));
-            this.label8.Location = new System.Drawing.Point(1068, 198);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(32, 32);
-            this.label8.TabIndex = 26;
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
+            this.label10.Location = new System.Drawing.Point(1154, 195);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(32, 32);
+            this.label10.TabIndex = 28;
+            this.label10.Visible = false;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Enabled = false;
-            this.label9.Image = ((System.Drawing.Image)(resources.GetObject("label9.Image")));
-            this.label9.Location = new System.Drawing.Point(1108, 198);
+            this.label9.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
+            this.label9.Location = new System.Drawing.Point(1114, 195);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 32);
             this.label9.TabIndex = 27;
+            this.label9.Visible = false;
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label10
+            // label8
             // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Enabled = false;
-            this.label10.Image = ((System.Drawing.Image)(resources.GetObject("label10.Image")));
-            this.label10.Location = new System.Drawing.Point(1148, 198);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(32, 32);
-            this.label10.TabIndex = 28;
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
+            this.label8.Location = new System.Drawing.Point(1074, 195);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(32, 32);
+            this.label8.TabIndex = 26;
+            this.label8.Visible = false;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
+            this.label7.Location = new System.Drawing.Point(1036, 195);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 29);
+            this.label7.TabIndex = 16;
+            this.label7.Visible = false;
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // pictureBox8
             // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox8.Image = global::WindowsFormsApplication1.Properties.Resources.Panel_1;
-            this.pictureBox8.Location = new System.Drawing.Point(1008, 162);
+            this.pictureBox8.Location = new System.Drawing.Point(1008, 159);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(205, 100);
             this.pictureBox8.TabIndex = 25;
@@ -297,11 +297,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 750);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);

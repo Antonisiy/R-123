@@ -190,6 +190,14 @@ namespace WindowsFormsApplication1
                 pictureBox2.Visible = false;
             else
                 pictureBox2.Visible = true;
+            //   label7.Parent = this.pictureBox8;
+            label7.BackColor = pictureBox8.BackColor;
+            //label7.Visible = true;
+            //label7.Enabled = true;
+            //label7.Location = new System.Drawing.Point(1031,198);
+            //label7.Size = new System.Drawing.Size(32, 32);
+            //label7.BringToFront();
+           
         }
      
 
@@ -226,16 +234,23 @@ namespace WindowsFormsApplication1
 
         private void label11_Click(object sender, EventArgs e)
         {
-           // Draw_mini_circle(pictureBox5);
+            // Draw_mini_circle(pictureBox5);
             if (pictureBox8.Visible)
+            {
                 pictureBox8.Visible = false;
+                label7.Visible = false; 
+                label8.Visible = false;
+                label9.Visible = false;
+                label10.Visible = false;
+            }
             else
+            {
                 pictureBox8.Visible = true;
-
-            label7.Enabled = true;
-            label8.Enabled = true;
-            label9.Enabled = true;
-            label10.Enabled = true;
+                label7.Visible = true;
+                label8.Visible = true;
+                label9.Visible = true;
+                label10.Visible = true;
+            }
         }
     }
 }
