@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Click_Sound.wav" />
+    <None Include="Resources\voltage_control_rull.bmp" />
     <None Include="Resources\Green_II.bmp" />
     <None Include="Resources\Green_I.bmp" />
     <None Include="Resources\open_frenquency_table.bmp" />

@@ -21,7 +21,8 @@ namespace WindowsFormsApplication1
 		}
 
 		float main_rull_deg = 0, volume_rull_deg = 0,
-			  corrector_rull_deg = 0;
+			  corrector_rull_deg = 0,
+			  voltage_control_rull_deg = 0;
 
 		PointF a = new PointF(0, -111);
 
@@ -61,6 +62,7 @@ namespace WindowsFormsApplication1
 			//Volume_rull_Click(sender, e);
 			Draw_circle(Corrector.Image, Corrector);
 			Draw_circle(frenquence_table.Image, frenquence_table);
+			Draw_circle(voltage_control_rull.Image, voltage_control_rull);
 		}
 
 		private void Draw_mini_circle(PictureBox box)
@@ -184,6 +186,27 @@ namespace WindowsFormsApplication1
 				g.DrawImage(Volume_rull.Image, 0, 0);
 				volume_rull_deg += 10;
 			}
+		}
+
+		private void voltage_control_rull_MouseClick(object sender, MouseEventArgs e)
+		{
+			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+			PointF center_picture = new PointF(voltage_control_rull.Image.Width / 2, voltage_control_rull.Image.Height / 2);
+
+			if (e.Button == MouseButtons.Left)
+				voltage_control_rull_deg += 30;
+			else
+				voltage_control_rull_deg -= 30;
+
+			if (voltage_control_rull_deg == 360 || voltage_control_rull_deg == -360)
+				voltage_control_rull_deg = 0;
+
+			mymatrix.RotateAt(voltage_control_rull_deg, center_picture);
+			Graphics g = voltage_control_rull.CreateGraphics();
+			g.Transform = mymatrix;
+			g.DrawImage(voltage_control_rull.Image, 0, 0);
+
+			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
 		}
 
 		private void Main_rull_MouseClick(object sender, MouseEventArgs e)
