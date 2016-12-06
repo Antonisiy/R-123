@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1
         private void Draw_circle(Image image, PictureBox box)
         {
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddEllipse(0, 0, image.Width, image.Height);
+            path.AddEllipse(0, 0, image.Width-1, image.Height-1);
             Region rgn = new Region(path);
             box.Region = rgn;
             box.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -55,6 +55,9 @@ namespace WindowsFormsApplication1
             this.BackgroundImage = new Bitmap(img);
             Image img_2 = Properties.Resources.rull_1;
             Draw_circle(img_2, Main_rull);
+            Image img_3 = Properties.Resources.volume_rull;
+            Draw_circle(img_3, Volume_rull);
+            Volume_rull_Click(sender, e);
         }
 
         private void Draw_mini_circle(PictureBox box)
@@ -241,9 +244,9 @@ namespace WindowsFormsApplication1
         //Volume_Rull
         private void Volume_rull_Click(object sender, EventArgs e)
         {
-            Draw_circle(Corrector.Image, Corrector);
+            Draw_circle(Volume_rull.Image, Volume_rull);
             System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-            PointF center_picture = new PointF(67, 66);
+            PointF center_picture = new PointF(Volume_rull.Image.Width/2, Volume_rull.Image.Height/2);
 
             //PointF b = new PointF(e.Y - 114, e.X - 111);
             //mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
@@ -251,12 +254,12 @@ namespace WindowsFormsApplication1
             //    , center_picture);
 
             mymatrix.RotateAt(volume_rull_deg, center_picture);
-            Graphics g = Corrector.CreateGraphics();
+            Graphics g = Volume_rull.CreateGraphics();
 
             // g.RotateTransform(350.0F);
 
             g.Transform = mymatrix;
-            g.DrawImage(Corrector.Image, 0, 0);
+            g.DrawImage(Volume_rull.Image, 0, 0);
             volume_rull_deg += 10;
         }
     }
