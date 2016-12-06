@@ -20,7 +20,8 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        float main_rool_deg = 60;
+        float main_rool_deg = 60,
+			  corrector_rool_deg = 25;
 
         PointF a = new PointF(0, -111); 
 
@@ -55,7 +56,11 @@ namespace WindowsFormsApplication1
             this.BackgroundImage = new Bitmap(img);
             Image img_2 = Properties.Resources.rull_1;
             Draw_circle(img_2, Main_rull);
-        }
+
+			//////////////////////////
+			Draw_circle(Corrector.Image, Corrector);
+			
+		}
 
         private void Draw_mini_circle(PictureBox box)
         {
@@ -222,8 +227,7 @@ namespace WindowsFormsApplication1
         }
 
 
-
-        //-------------------------------
+		//-------------------------------
 		private void Corrector_Click(object sender, EventArgs e)
 		{
             Draw_circle(Corrector.Image, Corrector);
@@ -235,15 +239,17 @@ namespace WindowsFormsApplication1
 			//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
 			//    , center_picture);
 
-			mymatrix.RotateAt(main_rool_deg, center_picture);
+			mymatrix.RotateAt(corrector_rool_deg, center_picture);
 			Graphics g = Corrector.CreateGraphics();
 
 			// g.RotateTransform(350.0F);
 
 			g.Transform = mymatrix;
 			g.DrawImage(Corrector.Image, 0, 0);
-			main_rool_deg += 10;
-
+			corrector_rool_deg += 25;
+			if (corrector_rool_deg > 50)
+				corrector_rool_deg = 0;
+			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
 		}
 	}
 }
