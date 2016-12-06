@@ -214,10 +214,31 @@ namespace WindowsFormsApplication1
             }
         }
 
+		//-------------------------------
+		//Volume_Rull
+		private void Volume_rull_Click(object sender, EventArgs e)
+		{
+			Draw_circle(Volume_rull.Image, Volume_rull);
+			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+			PointF center_picture = new PointF(Volume_rull.Image.Width / 2, Volume_rull.Image.Height / 2);
 
+			//PointF b = new PointF(e.Y - 114, e.X - 111);
+			//mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
+			//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
+			//    , center_picture);
 
-        //-------------------------------
-		private void Corrector_Click(object sender, EventArgs e)
+			mymatrix.RotateAt(volume_rull_deg, center_picture);
+			Graphics g = Volume_rull.CreateGraphics();
+
+			// g.RotateTransform(350.0F);
+
+			g.Transform = mymatrix;
+			g.DrawImage(Volume_rull.Image, 0, 0);
+			volume_rull_deg += 10;
+		}
+
+//-------------------------------
+private void Corrector_Click(object sender, EventArgs e)
 		{
 			Draw_circle(Corrector.Image, Corrector);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -228,16 +249,16 @@ namespace WindowsFormsApplication1
 			//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
 			//    , center_picture);
 
-			mymatrix.RotateAt(corrector_rool_deg, center_picture);
+			mymatrix.RotateAt(corrector_rull_deg, center_picture);
 			Graphics g = Corrector.CreateGraphics();
 
 			// g.RotateTransform(350.0F);
 
 			g.Transform = mymatrix;
 			g.DrawImage(Corrector.Image, 0, 0);
-			corrector_rool_deg += 25;
-			if (corrector_rool_deg > 50)
-				corrector_rool_deg = 0;
+			corrector_rull_deg += 25;
+			if (corrector_rull_deg > 50)
+				corrector_rull_deg = 0;
 			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
 
 		}
