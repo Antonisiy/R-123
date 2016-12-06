@@ -58,7 +58,7 @@ namespace WindowsFormsApplication1
             Draw_circle(img_2, Main_rull);
 			Image img_3 = Properties.Resources.volume_rull;
 			Draw_circle(img_3, Volume_rull);
-			Volume_rull_Click(sender, e);
+			//Volume_rull_Click(sender, e);
 			Draw_circle(Corrector.Image, Corrector);
             Draw_circle(frenquence_table.Image, frenquence_table);
         }
@@ -238,19 +238,10 @@ namespace WindowsFormsApplication1
                 frenquence_table.Visible = true;
             }
 
-            if (open_frenquence_table.Visible)
-            {
-                open_frenquence_table.Visible = false;
-            }
-            else
-            {
-                open_frenquence_table.Visible = true;
-            }
+		//-------------------------------
+		//Volume_Rull
 
-        }
-        //-------------------------------
-        //Volume_Rull
-        private void Volume_rull_Click(object sender, EventArgs e)
+		private void Volume_rull_Click(object sender, EventArgs e)
 		{
 			Draw_circle(Volume_rull.Image, Volume_rull);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -260,15 +251,43 @@ namespace WindowsFormsApplication1
 			//mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
 			//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
 			//    , center_picture);
+			
+			
+			if(e.Button == MouseButtons.Left)
+			{
+				mymatrix.RotateAt(volume_rull_deg, center_picture);
+				Graphics g = Volume_rull.CreateGraphics();
 
-			mymatrix.RotateAt(volume_rull_deg, center_picture);
-			Graphics g = Volume_rull.CreateGraphics();
+				// g.RotateTransform(350.0F);
 
-			// g.RotateTransform(350.0F);
+				g.Transform = mymatrix;
+				g.DrawImage(Volume_rull.Image, 0, 0);
+				volume_rull_deg += 10;
+				Volume_rull_MouseDown(sender, e);
+			}
+		}
 
-			g.Transform = mymatrix;
-			g.DrawImage(Volume_rull.Image, 0, 0);
-			volume_rull_deg += 10;
+		//-------------------------------
+		//Volume_Rull
+		private void Volume_rull_Click(object sender, EventArgs e)
+		{
+		//	Draw_circle(Volume_rull.Image, Volume_rull);
+		//	System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+		//	PointF center_picture = new PointF(Volume_rull.Image.Width / 2, Volume_rull.Image.Height / 2);
+
+		//	//PointF b = new PointF(e.Y - 114, e.X - 111);
+		//	//mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
+		//	//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
+		//	//    , center_picture);
+
+		//	mymatrix.RotateAt(volume_rull_deg, center_picture);
+		//	Graphics g = Volume_rull.CreateGraphics();
+
+		//	// g.RotateTransform(350.0F);
+
+		//	g.Transform = mymatrix;
+		//	g.DrawImage(Volume_rull.Image, 0, 0);
+		//	volume_rull_deg += 10;
 		}
 
 //-------------------------------
