@@ -87,9 +87,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\R.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\R_123M.bmp" />
   </ItemGroup>
   <ItemGroup>

@@ -203,9 +203,6 @@
 			this.pictureBox6.TabIndex = 9;
 			this.pictureBox6.TabStop = false;
 			this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-			this.pictureBox6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox6_MouseClick);
-			this.pictureBox6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox6_MouseClick);
-			this.pictureBox6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox6_MouseDown);
 			// 
 			// pictureBox5
 			// 

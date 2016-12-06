@@ -17,16 +17,14 @@ namespace WindowsFormsApplication1
             Timer timer1 = new Timer();
         public Form1()
         {
-
             InitializeComponent();
-            Image img = Properties.Resources.R_123M;
-            this.BackgroundImage = new Bitmap(img);
-            
-            Image img_2 = Properties.Resources.rull_1;
-            Draw_circle(img_2);
         }
+
         float deg = 60;
-        PointF a = new PointF(0, -111); // Нормальный вектор прошлого полжения вентеля
+
+        PointF a = new PointF(0, -111); 
+
+        // Нормальный вектор прошлого полжения вентеля
         //void timer1_Tick(object sender, EventArgs e)
         //{
         //    angle += 1.6f;
@@ -42,18 +40,21 @@ namespace WindowsFormsApplication1
         //    e.Graphics.TranslateTransform(-image1.Width / 2, -image1.Height / 2);
         //}
 
-        private void Draw_circle(Image image)
+        private void Draw_circle(Image image, PictureBox box)
         {
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
             path.AddEllipse(0, 0, image.Width, image.Height);
             Region rgn = new Region(path);
-            pictureBox6.Region = rgn;
-            pictureBox6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            box.Region = rgn;
+            box.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Image img = Properties.Resources.R_123M;
+            this.BackgroundImage = new Bitmap(img);
+            Image img_2 = Properties.Resources.rull_1;
+            Draw_circle(img_2, pictureBox6);
         }
 
         private void Draw_mini_circle(PictureBox box)
@@ -119,55 +120,29 @@ namespace WindowsFormsApplication1
 			pictureBox6.Image = img;
         }
 
-      
-
-        private void pictureBox6_MouseDown(object sender, MouseEventArgs e)
-        {
-   //        // Image img = Properties.Resources.Green_4;
-   //        // Bitmap my_bitmap = new Bitmap(pictureBox6.Image);
-   //         System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-   //         PointF center_picture = new PointF(111, 114);
-   //         PointF b = new PointF(e.Y - 114, e.X - 111);
-   //         //mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
-   //         //    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
-   //         //    , center_picture);
-   //         mymatrix.RotateAt(deg, center_picture);
-   //         Graphics g = pictureBox6.CreateGraphics();
-   //         // g.RotateTransform(350.0F);
-   //         g.Transform = mymatrix;
-   //         g.DrawImage(pictureBox6.Image, 0, 0);
-   //         a = b;
-   //         deg += 60;
-			////g.DrawImage()
-			//new System.Media.SoundPlayer(
-			//"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
-		}
-
-        private void pictureBox6_MouseClick(object sender, MouseEventArgs e)
-        {
-			
-
-		}
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-			//Image img = Properties.Resources.Green_4;
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(111, 114);
+
 			//PointF b = new PointF(e.Y - 114, e.X - 111);
 			//mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
 			//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
 			//    , center_picture);
+
 			mymatrix.RotateAt(deg, center_picture);
 			Graphics g = pictureBox6.CreateGraphics();
+
 			// g.RotateTransform(350.0F);
+
 			g.Transform = mymatrix;
 			g.DrawImage(pictureBox6.Image, 0, 0);
-			//a = b;
 			deg += 60;
+
 			//g.DrawImage()
-			new System.Media.SoundPlayer(
-			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+			//new System.Media.SoundPlayer(
+			//"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
 		}
 
 
@@ -243,21 +218,22 @@ namespace WindowsFormsApplication1
 
 		private void pictureBox9_Click(object sender, EventArgs e)
 		{
-			Image img = pictureBox9.Image;
-			Draw_circle(img);
-			pictureBox9.Image = img;
+            Draw_circle(pictureBox9.Image, pictureBox9);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(67, 66);
+
 			//PointF b = new PointF(e.Y - 114, e.X - 111);
 			//mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
 			//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
 			//    , center_picture);
+
 			mymatrix.RotateAt(deg, center_picture);
 			Graphics g = pictureBox9.CreateGraphics();
+
 			// g.RotateTransform(350.0F);
+
 			g.Transform = mymatrix;
-			g.DrawImage(img, 0, 0);
-			//a = b;
+			g.DrawImage(pictureBox9.Image, 0, 0);
 			deg += 10;
 
 		}
