@@ -20,10 +20,10 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        float main_rull_deg = 60, volume_rull_deg = 0, antenna_rull_deg = 0,
-			  corrector_rull_deg = 25;
+        float main_rull_deg = 0, volume_rull_deg = 0,
+              corrector_rull_deg = 0, antenna_rull_deg = 0;
 
-		PointF a = new PointF(0, -111); 
+        PointF a = new PointF(0, -111);
 
         // Нормальный вектор прошлого полжения вентеля
         //void timer1_Tick(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
         private void Draw_circle(Image image, PictureBox box)
         {
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddEllipse(0, 0, image.Width-1, image.Height-1);
+            path.AddEllipse(0, 0, image.Width - 1, image.Height - 1);
             Region rgn = new Region(path);
             box.Region = rgn;
             box.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -56,12 +56,11 @@ namespace WindowsFormsApplication1
             this.BackgroundImage = new Bitmap(img);
             Image img_2 = Properties.Resources.rull_1;
             Draw_circle(img_2, Main_rull);
-			Image img_3 = Properties.Resources.volume_rull;
-			Draw_circle(img_3, Volume_rull);
-			Volume_rull_Click(sender, e);
-			Draw_circle(Corrector.Image, Corrector);
+            Image img_3 = Properties.Resources.volume_rull;
+            Draw_circle(img_3, Volume_rull);
+            //Volume_rull_Click(sender, e);
+            Draw_circle(Corrector.Image, Corrector);
             Draw_circle(frenquence_table.Image, frenquence_table);
-            picture_antenna_Click(sender, e);
             Draw_circle(picture_antenna.Image, picture_antenna);
         }
 
@@ -74,86 +73,6 @@ namespace WindowsFormsApplication1
             box.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
 
-
-
-
-        //-------------------------------
-        //Main_rull
-        private void Main_rull_Click(object sender, EventArgs e)
-        {
-            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-            PointF center_picture = new PointF(111, 114);
-
-            //PointF b = new PointF(e.Y - 114, e.X - 111);
-            //mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
-            //    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
-            //    , center_picture);
-
-            mymatrix.RotateAt(main_rull_deg, center_picture);
-            Graphics g = Main_rull.CreateGraphics();
-
-            // g.RotateTransform(350.0F);
-
-            g.Transform = mymatrix;
-            g.DrawImage(Main_rull.Image, 0, 0);
-            main_rull_deg += 60;
-
-            //g.DrawImage()
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            Image img = Properties.Resources.rull_1;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            
-            Main_rull.Image = img;
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            Image img = Properties.Resources.rull_2;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            
-            Main_rull.Image = img;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            Image img = Properties.Resources.rull_3;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-          
-            Main_rull.Image = img;
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            Image img = Properties.Resources.rull_4;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            
-            Main_rull.Image = img;
-        }
-
-        private void label_II_Click(object sender, EventArgs e)
-        {
-            Image img = Properties.Resources.rull_II;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            picture_Lamp_II.Visible = true;
-            picture_Lamp_I.Visible = false;
-            Main_rull.Image = img;
-        }
-
-        private void label_I_Click(object sender, EventArgs e)
-        {
-            Image img = Properties.Resources.rull_I;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            picture_Lamp_II.Visible = false;
-            picture_Lamp_I.Visible = true;
-            Main_rull.Image = img;
-        }
-
-
-      
         //Right angle
         private void Right_Perek_1_CLick(object sender, EventArgs e)
         {
@@ -167,7 +86,7 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
 
         }
-     
+
         private void Right_Perek_2_CLick(object sender, EventArgs e)
         {
             picture_Lamp_I.Visible = true;
@@ -209,7 +128,7 @@ namespace WindowsFormsApplication1
             if (Open_Panel.Visible)
             {
                 Open_Panel.Visible = false;
-                Right_Perek_1.Visible = false; 
+                Right_Perek_1.Visible = false;
                 Right_Perek_2.Visible = false;
                 Right_Perek_3.Visible = false;
                 Right_Perek_4.Visible = false;
@@ -234,82 +153,106 @@ namespace WindowsFormsApplication1
         }
 
 
-		//-------------------------------
-		//Frenquence_table
-		private void open_frenquence_table_Click(object sender, EventArgs e)
-		{
-			if (frenquence_table.Visible)
-			{
-				frenquence_table.Visible = false;
-			}
-			else
-			{
-				frenquence_table.Visible = true;
-			}
-
-            if(open_frenquence_table.Visible)
+        //-------------------------------
+        //Frenquence_table
+        private void open_frenquence_table_Click(object sender, EventArgs e)
+        {
+            if (frenquence_table.Visible)
             {
-                open_frenquence_table.Visible = false;
+                frenquence_table.Visible = false;
             }
             else
             {
-                open_frenquence_table.Visible = true;
+                frenquence_table.Visible = true;
             }
-            }
 
-		//-------------------------------
-		//Volume_Rull
-
-		private void Volume_rull_MouseDown(object sender, MouseEventArgs e)
-		{
-			Draw_circle(Volume_rull.Image, Volume_rull);
-			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-			PointF center_picture = new PointF(Volume_rull.Image.Width / 2, Volume_rull.Image.Height / 2);
-
-			//PointF b = new PointF(e.Y - 114, e.X - 111);
-			//mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
-			//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
-			//    , center_picture);
-			
-			
-			if(e.Button == MouseButtons.Left)
-			{
-				mymatrix.RotateAt(volume_rull_deg, center_picture);
-				Graphics g = Volume_rull.CreateGraphics();
-
-				// g.RotateTransform(350.0F);
-
-				g.Transform = mymatrix;
-				g.DrawImage(Volume_rull.Image, 0, 0);
-				volume_rull_deg += 10;
-				//Volume_rull_MouseDown(sender, e);
-			}
-		}
-
+        }
         //-------------------------------
         //Volume_Rull
-        private void Volume_rull_Click(object sender, EventArgs e)
-		{
-		//	Draw_circle(Volume_rull.Image, Volume_rull);
-		//	System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-		//	PointF center_picture = new PointF(Volume_rull.Image.Width / 2, Volume_rull.Image.Height / 2);
 
-		//	//PointF b = new PointF(e.Y - 114, e.X - 111);
-		//	//mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
-		//	//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
-		//	//    , center_picture);
+        private void Volume_rull_MouseDown(object sender, MouseEventArgs e)
+        {
+            Draw_circle(Volume_rull.Image, Volume_rull);
+            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+            PointF center_picture = new PointF(Volume_rull.Image.Width / 2, Volume_rull.Image.Height / 2);
 
-		//	mymatrix.RotateAt(volume_rull_deg, center_picture);
-		//	Graphics g = Volume_rull.CreateGraphics();
+            if (e.Button == MouseButtons.Left)
+            {
+                mymatrix.RotateAt(volume_rull_deg, center_picture);
+                Graphics g = Volume_rull.CreateGraphics();
 
-		//	// g.RotateTransform(350.0F);
+                g.Transform = mymatrix;
+                g.DrawImage(Volume_rull.Image, 0, 0);
+                volume_rull_deg += 10;
+            }
+        }
 
-		//	g.Transform = mymatrix;
-		//	g.DrawImage(Volume_rull.Image, 0, 0);
-		//	volume_rull_deg += 10;
-		}
+        private void Corrector_MouseClick(object sender, MouseEventArgs e)
+        {
+            Draw_circle(Corrector.Image, Corrector);
+            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+            PointF center_picture = new PointF(67, 66);
 
-        //-------------------------------
+            if (e.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
+            {
+                if (corrector_rull_deg < 50)
+                {
+                    corrector_rull_deg += 25;
+                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+                }
+            }
+            else
+            {
+                if (corrector_rull_deg > 0)
+                {
+                    corrector_rull_deg -= 25;
+                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+                }
+            }
+
+            mymatrix.RotateAt(corrector_rull_deg, center_picture);
+            Graphics g = Corrector.CreateGraphics();
+            g.Transform = mymatrix;
+            g.DrawImage(Corrector.Image, 0, 0);
+        }
+
+        private void Main_rull_MouseClick(object sender, MouseEventArgs e)
+        {
+            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+            PointF center_picture = new PointF(111, 114);
+
+            if (e.Button == MouseButtons.Left)
+                main_rull_deg += 60;
+            else
+                main_rull_deg -= 60;
+
+            if (main_rull_deg == 360 || main_rull_deg == -360)
+                main_rull_deg = 0;
+
+            mymatrix.RotateAt(main_rull_deg, center_picture);
+            Graphics g = Main_rull.CreateGraphics();
+            g.Transform = mymatrix;
+            g.DrawImage(Main_rull.Image, 0, 0);
+
+            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+            if (main_rull_deg / 60 == 4 || main_rull_deg / 60 == -2)
+            {
+                picture_Lamp_II.Visible = true;
+                picture_Lamp_I.Visible = false;
+            }
+            else
+                if (main_rull_deg / 60 == 5 || main_rull_deg / 60 == -1)
+            {
+                picture_Lamp_II.Visible = false;
+                picture_Lamp_I.Visible = true;
+            }
+            else
+            {
+                picture_Lamp_II.Visible = false;
+                picture_Lamp_I.Visible = false;
+            }
+        }
+
         //antenna
         private void picture_antenna_Click(object sender, EventArgs e)
         {
@@ -329,29 +272,6 @@ namespace WindowsFormsApplication1
             g.DrawImage(picture_antenna.Image, 0, 0);
             antenna_rull_deg += 10;
         }
-        private void Corrector_Click(object sender, EventArgs e)
-		{
-			Draw_circle(Corrector.Image, Corrector);
-			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-			PointF center_picture = new PointF(67, 66);
-
-			//PointF b = new PointF(e.Y - 114, e.X - 111);
-			//mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
-			//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
-			//    , center_picture);
-
-			mymatrix.RotateAt(corrector_rull_deg, center_picture);
-			Graphics g = Corrector.CreateGraphics();
-
-			// g.RotateTransform(350.0F);
-
-			g.Transform = mymatrix;
-			g.DrawImage(Corrector.Image, 0, 0);
-			corrector_rull_deg += 25;
-			if (corrector_rull_deg > 50)
-				corrector_rull_deg = 0;
-			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-
-		}
-	}
+ 
+    }
 }

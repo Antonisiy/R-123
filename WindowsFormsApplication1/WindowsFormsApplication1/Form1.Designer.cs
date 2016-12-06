@@ -139,7 +139,6 @@
             this.Volume_rull.Size = new System.Drawing.Size(109, 108);
             this.Volume_rull.TabIndex = 30;
             this.Volume_rull.TabStop = false;
-            this.Volume_rull.Click += new System.EventHandler(this.Volume_rull_Click);
             this.Volume_rull.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Volume_rull_MouseDown);
             // 
             // Corrector
@@ -151,7 +150,7 @@
             this.Corrector.Size = new System.Drawing.Size(130, 128);
             this.Corrector.TabIndex = 29;
             this.Corrector.TabStop = false;
-            this.Corrector.Click += new System.EventHandler(this.Corrector_Click);
+            this.Corrector.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Corrector_MouseClick);
             // 
             // Right_Perek_4
             // 
@@ -221,7 +220,6 @@
             this.label_I.Size = new System.Drawing.Size(12, 15);
             this.label_I.TabIndex = 15;
             this.label_I.Text = "label6";
-            this.label_I.Click += new System.EventHandler(this.label_I_Click);
             // 
             // label_II
             // 
@@ -231,7 +229,6 @@
             this.label_II.Name = "label_II";
             this.label_II.Size = new System.Drawing.Size(13, 15);
             this.label_II.TabIndex = 14;
-            this.label_II.Click += new System.EventHandler(this.label_II_Click);
             // 
             // label4
             // 
@@ -241,7 +238,6 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 13);
             this.label4.TabIndex = 13;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -251,7 +247,6 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 13);
             this.label3.TabIndex = 12;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -261,7 +256,6 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(13, 13);
             this.label2.TabIndex = 11;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -272,7 +266,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 15);
             this.label1.TabIndex = 10;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Main_rull
             // 
@@ -284,7 +277,7 @@
             this.Main_rull.Size = new System.Drawing.Size(223, 229);
             this.Main_rull.TabIndex = 9;
             this.Main_rull.TabStop = false;
-            this.Main_rull.Click += new System.EventHandler(this.Main_rull_Click);
+            this.Main_rull.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Main_rull_MouseClick);
             // 
             // pictureBox5
             // 
