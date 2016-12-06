@@ -104,7 +104,7 @@ namespace WindowsFormsApplication1
         {
             Image img = Properties.Resources.rull_1;
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            // Draw_circle(img);
+            
             Main_rull.Image = img;
         }
 
@@ -112,7 +112,7 @@ namespace WindowsFormsApplication1
         {
             Image img = Properties.Resources.rull_2;
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            // Draw_circle(img);
+            
             Main_rull.Image = img;
         }
 
@@ -120,7 +120,7 @@ namespace WindowsFormsApplication1
         {
             Image img = Properties.Resources.rull_3;
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            // Draw_circle(img);
+          
             Main_rull.Image = img;
         }
 
@@ -128,23 +128,25 @@ namespace WindowsFormsApplication1
         {
             Image img = Properties.Resources.rull_4;
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            // Draw_circle(img);
-            Main_rull.Image = img;
-        }
-
-        private void label_II_Click(object sender, EventArgs e)
-        {
-            Image img = Properties.Resources.rull_I;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            // Draw_circle(img);
+            
             Main_rull.Image = img;
         }
 
         private void label_I_Click(object sender, EventArgs e)
         {
+            Image img = Properties.Resources.rull_I;
+            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+            picture_Lamp_I.Visible = true;
+            picture_Lamp_II.Visible = false;
+            Main_rull.Image = img;
+        }
+
+        private void label_II_Click(object sender, EventArgs e)
+        {
             Image img = Properties.Resources.rull_II;
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            // Draw_circle(img);
+            picture_Lamp_I.Visible = false;
+            picture_Lamp_II.Visible = true;
             Main_rull.Image = img;
         }
 
@@ -153,6 +155,8 @@ namespace WindowsFormsApplication1
         //Right angle
         private void Right_Perek_1_CLick(object sender, EventArgs e)
         {
+            picture_Lamp_I.Visible = true;
+            picture_Lamp_II.Visible = false;
             Draw_mini_circle(pictureBox2);
             if (pictureBox2.Visible)
                 pictureBox2.Visible = false;
@@ -164,7 +168,8 @@ namespace WindowsFormsApplication1
      
         private void Right_Perek_2_CLick(object sender, EventArgs e)
         {
-
+            picture_Lamp_I.Visible = true;
+            picture_Lamp_II.Visible = false;
             Draw_mini_circle(pictureBox3);
             if (pictureBox3.Visible)
                 pictureBox3.Visible = false;
@@ -175,7 +180,8 @@ namespace WindowsFormsApplication1
 
         private void Right_Perek_3_CLick(object sender, EventArgs e)
         {
-
+            picture_Lamp_I.Visible = false;
+            picture_Lamp_II.Visible = true;
             Draw_mini_circle(pictureBox4);
             if (pictureBox4.Visible)
                 pictureBox4.Visible = false;
@@ -186,7 +192,8 @@ namespace WindowsFormsApplication1
 
         private void Right_Perek_4_CLick(object sender, EventArgs e)
         {
-
+            picture_Lamp_I.Visible = false;
+            picture_Lamp_II.Visible = true;
             Draw_mini_circle(pictureBox5);
             if (pictureBox5.Visible)
                 pictureBox5.Visible = false;
