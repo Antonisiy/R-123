@@ -20,10 +20,10 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        float main_rool_deg = 60,
-			  corrector_rool_deg = 25;
+		float main_rull_deg = 60, volume_rull_deg = 0,
+			  corrector_rull_deg = 25;
 
-        PointF a = new PointF(0, -111); 
+		PointF a = new PointF(0, -111); 
 
         // Нормальный вектор прошлого полжения вентеля
         //void timer1_Tick(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
         private void Draw_circle(Image image, PictureBox box)
         {
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
-            path.AddEllipse(0, 0, image.Width, image.Height);
+            path.AddEllipse(0, 0, image.Width-1, image.Height-1);
             Region rgn = new Region(path);
             box.Region = rgn;
             box.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -56,10 +56,10 @@ namespace WindowsFormsApplication1
             this.BackgroundImage = new Bitmap(img);
             Image img_2 = Properties.Resources.rull_1;
             Draw_circle(img_2, Main_rull);
-
-			//////////////////////////
+			Image img_3 = Properties.Resources.volume_rull;
+			Draw_circle(img_3, Volume_rull);
+			Volume_rull_Click(sender, e);
 			Draw_circle(Corrector.Image, Corrector);
-			
 		}
 
         private void Draw_mini_circle(PictureBox box)
@@ -86,14 +86,14 @@ namespace WindowsFormsApplication1
             //    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
             //    , center_picture);
 
-            mymatrix.RotateAt(main_rool_deg, center_picture);
+            mymatrix.RotateAt(main_rull_deg, center_picture);
             Graphics g = Main_rull.CreateGraphics();
 
             // g.RotateTransform(350.0F);
 
             g.Transform = mymatrix;
             g.DrawImage(Main_rull.Image, 0, 0);
-			main_rool_deg += 60;
+            main_rull_deg += 60;
 
             //g.DrawImage()
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -105,9 +105,7 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-			main_rool_deg = 60;
-
-		}
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -115,9 +113,7 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-			main_rool_deg = 60;
-
-		}
+        }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -125,9 +121,7 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-			main_rool_deg = 60;
-
-		}
+        }
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -135,9 +129,7 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-			main_rool_deg = 60;
-
-		}
+        }
 
         private void label_II_Click(object sender, EventArgs e)
         {
@@ -145,9 +137,7 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-			main_rool_deg = 60;
-
-		}
+        }
 
         private void label_I_Click(object sender, EventArgs e)
         {
@@ -155,9 +145,7 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-			main_rool_deg = 60;
-
-		}
+        }
 
 
       
@@ -227,10 +215,11 @@ namespace WindowsFormsApplication1
         }
 
 
-		//-------------------------------
+
+        //-------------------------------
 		private void Corrector_Click(object sender, EventArgs e)
 		{
-            Draw_circle(Corrector.Image, Corrector);
+			Draw_circle(Corrector.Image, Corrector);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(67, 66);
 
@@ -250,6 +239,7 @@ namespace WindowsFormsApplication1
 			if (corrector_rool_deg > 50)
 				corrector_rool_deg = 0;
 			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+
 		}
 	}
 }
