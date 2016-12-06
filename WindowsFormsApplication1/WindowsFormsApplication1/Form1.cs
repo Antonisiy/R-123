@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        float deg = 60;
+        float main_rool_deg = 60;
 
         PointF a = new PointF(0, -111); 
 
@@ -81,14 +81,14 @@ namespace WindowsFormsApplication1
             //    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
             //    , center_picture);
 
-            mymatrix.RotateAt(deg, center_picture);
+            mymatrix.RotateAt(main_rool_deg, center_picture);
             Graphics g = Main_rull.CreateGraphics();
 
             // g.RotateTransform(350.0F);
 
             g.Transform = mymatrix;
             g.DrawImage(Main_rull.Image, 0, 0);
-            deg += 60;
+			main_rool_deg += 60;
 
             //g.DrawImage()
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -100,7 +100,9 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-        }
+			main_rool_deg = 60;
+
+		}
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -108,7 +110,9 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-        }
+			main_rool_deg = 60;
+
+		}
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -116,7 +120,9 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-        }
+			main_rool_deg = 60;
+
+		}
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -124,7 +130,9 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-        }
+			main_rool_deg = 60;
+
+		}
 
         private void label_II_Click(object sender, EventArgs e)
         {
@@ -132,7 +140,9 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-        }
+			main_rool_deg = 60;
+
+		}
 
         private void label_I_Click(object sender, EventArgs e)
         {
@@ -140,7 +150,9 @@ namespace WindowsFormsApplication1
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             // Draw_circle(img);
             Main_rull.Image = img;
-        }
+			main_rool_deg = 60;
+
+		}
 
 
       
@@ -223,14 +235,14 @@ namespace WindowsFormsApplication1
 			//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
 			//    , center_picture);
 
-			mymatrix.RotateAt(deg, center_picture);
+			mymatrix.RotateAt(main_rool_deg, center_picture);
 			Graphics g = Corrector.CreateGraphics();
 
 			// g.RotateTransform(350.0F);
 
 			g.Transform = mymatrix;
 			g.DrawImage(Corrector.Image, 0, 0);
-			deg += 10;
+			main_rool_deg += 10;
 
 		}
 	}
