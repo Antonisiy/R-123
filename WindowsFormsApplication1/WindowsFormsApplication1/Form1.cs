@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        float main_rull_deg = 60, volume_rull_deg = 0, antenna_rull_deg = 0,
+		float main_rull_deg = 60, volume_rull_deg = 0,
 			  corrector_rull_deg = 25;
 
 		PointF a = new PointF(0, -111); 
@@ -58,11 +58,9 @@ namespace WindowsFormsApplication1
             Draw_circle(img_2, Main_rull);
 			Image img_3 = Properties.Resources.volume_rull;
 			Draw_circle(img_3, Volume_rull);
-			Volume_rull_Click(sender, e);
+			//Volume_rull_Click(sender, e);
 			Draw_circle(Corrector.Image, Corrector);
             Draw_circle(frenquence_table.Image, frenquence_table);
-            picture_antenna_Click(sender, e);
-            Draw_circle(picture_antenna.Image, picture_antenna);
         }
 
         private void Draw_mini_circle(PictureBox box)
@@ -247,16 +245,7 @@ namespace WindowsFormsApplication1
 				frenquence_table.Visible = true;
 			}
 
-            if(open_frenquence_table.Visible)
-            {
-                open_frenquence_table.Visible = false;
-            }
-            else
-            {
-                open_frenquence_table.Visible = true;
-            }
-            }
-
+		}
 		//-------------------------------
 		//Volume_Rull
 
@@ -286,9 +275,9 @@ namespace WindowsFormsApplication1
 			}
 		}
 
-        //-------------------------------
-        //Volume_Rull
-        private void Volume_rull_Click(object sender, EventArgs e)
+		//-------------------------------
+		//Volume_Rull
+		private void Volume_rull_Click(object sender, EventArgs e)
 		{
 		//	Draw_circle(Volume_rull.Image, Volume_rull);
 		//	System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -309,27 +298,8 @@ namespace WindowsFormsApplication1
 		//	volume_rull_deg += 10;
 		}
 
-        //-------------------------------
-        //antenna
-        private void picture_antenna_Click(object sender, EventArgs e)
-        {
-            Draw_circle(picture_antenna.Image, picture_antenna);
-            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-            PointF center_picture = new PointF(picture_antenna.Image.Width / 2, picture_antenna.Image.Height / 2);
-
-            //PointF b = new PointF(e.Y - 114, e.X - 111);
-            //mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
-            //    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
-            //    , center_picture);
-
-            mymatrix.RotateAt(antenna_rull_deg, center_picture);
-            Graphics g = picture_antenna.CreateGraphics();
-
-            g.Transform = mymatrix;
-            g.DrawImage(picture_antenna.Image, 0, 0);
-            antenna_rull_deg += 10;
-        }
-        private void Corrector_Click(object sender, EventArgs e)
+//-------------------------------
+private void Corrector_Click(object sender, EventArgs e)
 		{
 			Draw_circle(Corrector.Image, Corrector);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
