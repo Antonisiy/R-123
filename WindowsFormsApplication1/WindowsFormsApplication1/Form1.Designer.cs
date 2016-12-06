@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.Open_cap = new System.Windows.Forms.Label();
+            this.Volume_rull = new System.Windows.Forms.PictureBox();
             this.Corrector = new System.Windows.Forms.PictureBox();
             this.Right_Perek_4 = new System.Windows.Forms.Label();
             this.Right_Perek_3 = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Volume_rull)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Corrector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Open_Panel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Main_rull)).BeginInit();
@@ -65,6 +67,17 @@
             this.Open_cap.Size = new System.Drawing.Size(30, 18);
             this.Open_cap.TabIndex = 24;
             this.Open_cap.Click += new System.EventHandler(this.Open_cap_Click);
+            // 
+            // Volume_rull
+            // 
+            this.Volume_rull.BackColor = System.Drawing.Color.Transparent;
+            this.Volume_rull.Image = global::WindowsFormsApplication1.Properties.Resources.volume_rull;
+            this.Volume_rull.Location = new System.Drawing.Point(1056, 432);
+            this.Volume_rull.Name = "Volume_rull";
+            this.Volume_rull.Size = new System.Drawing.Size(109, 108);
+            this.Volume_rull.TabIndex = 30;
+            this.Volume_rull.TabStop = false;
+            this.Volume_rull.Click += new System.EventHandler(this.Volume_rull_Click);
             // 
             // Corrector
             // 
@@ -262,6 +275,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 750);
+            this.Controls.Add(this.Volume_rull);
             this.Controls.Add(this.Corrector);
             this.Controls.Add(this.Right_Perek_4);
             this.Controls.Add(this.Right_Perek_3);
@@ -284,6 +298,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Volume_rull)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Corrector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Open_Panel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Main_rull)).EndInit();
@@ -317,6 +332,7 @@
         public System.Windows.Forms.Label Right_Perek_2;
         public System.Windows.Forms.Label Right_Perek_3;
         public System.Windows.Forms.Label Right_Perek_4;
+        private System.Windows.Forms.PictureBox Volume_rull;
     }
 }
 
