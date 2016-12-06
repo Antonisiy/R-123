@@ -132,21 +132,21 @@ namespace WindowsFormsApplication1
             Main_rull.Image = img;
         }
 
-        private void label_I_Click(object sender, EventArgs e)
-        {
-            Image img = Properties.Resources.rull_I;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            picture_Lamp_I.Visible = true;
-            picture_Lamp_II.Visible = false;
-            Main_rull.Image = img;
-        }
-
         private void label_II_Click(object sender, EventArgs e)
         {
             Image img = Properties.Resources.rull_II;
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            picture_Lamp_I.Visible = false;
             picture_Lamp_II.Visible = true;
+            picture_Lamp_I.Visible = false;
+            Main_rull.Image = img;
+        }
+
+        private void label_I_Click(object sender, EventArgs e)
+        {
+            Image img = Properties.Resources.rull_I;
+            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+            picture_Lamp_II.Visible = false;
+            picture_Lamp_I.Visible = true;
             Main_rull.Image = img;
         }
 
