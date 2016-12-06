@@ -21,7 +21,8 @@ namespace WindowsFormsApplication1
         }
 
 		float main_rull_deg = 0, volume_rull_deg = 0,
-			  corrector_rull_deg = 0, antenna_rull_deg = 0;
+			  corrector_rull_deg = 0, antenna_rull_deg = 0,
+			  voltage_control_rull_deg = 0;
 
 		PointF a = new PointF(0, -111);
 
@@ -168,10 +169,45 @@ namespace WindowsFormsApplication1
             }
 
         }
-        //-------------------------------
-        //Volume_Rull
 
-        private void Volume_rull_MouseDown(object sender, MouseEventArgs e)
+		private void Corrector_MouseClick(object sender, MouseEventArgs e)
+		{
+			Draw_circle(Corrector.Image, Corrector);
+			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+			PointF center_picture = new PointF(67, 66);
+
+			if (e.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
+			{
+				if (corrector_rull_deg < 50)
+				{
+					corrector_rull_deg += 25;
+					new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+				}
+			}
+			else
+			{
+				if (corrector_rull_deg > 0)
+				{
+					corrector_rull_deg -= 25;
+					new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+				}
+			}
+
+			mymatrix.RotateAt(corrector_rull_deg, center_picture);
+			Graphics g = Corrector.CreateGraphics();
+			g.Transform = mymatrix;
+			g.DrawImage(Corrector.Image, 0, 0);
+		}
+
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		//-------------------------------
+		//Volume_Rull
+
+		private void Volume_rull_MouseDown(object sender, MouseEventArgs e)
         {
             Draw_circle(Volume_rull.Image, Volume_rull);
             System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();

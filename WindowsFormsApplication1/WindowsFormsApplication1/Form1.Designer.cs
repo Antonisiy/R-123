@@ -47,10 +47,11 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.picture_Lamp_I = new System.Windows.Forms.PictureBox();
 			this.picture_Lamp_II = new System.Windows.Forms.PictureBox();
-			((System.ComponentModel.ISupportInitialize)(this.voltage_control_rull)).BeginInit();
+			this.picture_antena = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.frenquence_table)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Volume_rull)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Corrector)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.voltage_control_rull)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Open_Panel)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Main_rull)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -60,6 +61,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_I)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_II)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.picture_antena)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// Open_cap
@@ -71,16 +73,6 @@
 			this.Open_cap.Size = new System.Drawing.Size(30, 18);
 			this.Open_cap.TabIndex = 24;
 			this.Open_cap.Click += new System.EventHandler(this.Open_cap_Click);
-			// 
-			// voltage_control_rull
-			// 
-			this.voltage_control_rull.Image = global::WindowsFormsApplication1.Properties.Resources.voltage_control_rull;
-			this.voltage_control_rull.Location = new System.Drawing.Point(124, 232);
-			this.voltage_control_rull.Name = "voltage_control_rull";
-			this.voltage_control_rull.Size = new System.Drawing.Size(122, 125);
-			this.voltage_control_rull.TabIndex = 35;
-			this.voltage_control_rull.TabStop = false;
-			this.voltage_control_rull.MouseClick += new System.Windows.Forms.MouseEventHandler(this.voltage_control_rull_MouseClick);
 			// 
 			// open_frenquence_table
 			// 
@@ -136,6 +128,16 @@
 			this.Right_Perek_4.TabIndex = 28;
 			this.Right_Perek_4.Visible = false;
 			this.Right_Perek_4.Click += new System.EventHandler(this.Right_Perek_4_CLick);
+			// 
+			// voltage_control_rull
+			// 
+			this.voltage_control_rull.Image = global::WindowsFormsApplication1.Properties.Resources.voltage_control_rull;
+			this.voltage_control_rull.Location = new System.Drawing.Point(124, 232);
+			this.voltage_control_rull.Name = "voltage_control_rull";
+			this.voltage_control_rull.Size = new System.Drawing.Size(122, 125);
+			this.voltage_control_rull.TabIndex = 35;
+			this.voltage_control_rull.TabStop = false;
+			this.voltage_control_rull.MouseClick += new System.Windows.Forms.MouseEventHandler(this.voltage_control_rull_MouseClick);
 			// 
 			// Right_Perek_3
 			// 
@@ -248,6 +250,7 @@
 			this.pictureBox1.Size = new System.Drawing.Size(1280, 763);
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
+			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
 			// picture_Lamp_I
 			// 
@@ -269,11 +272,20 @@
 			this.picture_Lamp_II.TabStop = false;
 			this.picture_Lamp_II.Visible = false;
 			// 
+			// picture_antena
+			// 
+			this.picture_antena.Location = new System.Drawing.Point(756, 140);
+			this.picture_antena.Name = "picture_antena";
+			this.picture_antena.Size = new System.Drawing.Size(206, 216);
+			this.picture_antena.TabIndex = 36;
+			this.picture_antena.TabStop = false;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1264, 750);
+			this.Controls.Add(this.picture_antena);
 			this.Controls.Add(this.voltage_control_rull);
 			this.Controls.Add(this.picture_Lamp_II);
 			this.Controls.Add(this.picture_Lamp_I);
@@ -296,10 +308,10 @@
 			this.Name = "Form1";
 			this.Text = "Form1";
 			this.Load += new System.EventHandler(this.Form1_Load);
-			((System.ComponentModel.ISupportInitialize)(this.voltage_control_rull)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.frenquence_table)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Volume_rull)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Corrector)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.voltage_control_rull)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Open_Panel)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Main_rull)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -309,6 +321,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_I)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_II)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.picture_antena)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -340,7 +353,7 @@
         private System.Windows.Forms.PictureBox picture_Lamp_I;
         private System.Windows.Forms.PictureBox picture_Lamp_II;
 		private System.Windows.Forms.PictureBox voltage_control_rull;
-
+		private System.Windows.Forms.PictureBox picture_antena;
 	}
 }
 
