@@ -225,23 +225,24 @@ namespace WindowsFormsApplication1
         }
 
 
-        //-------------------------------
-        //Frenquence_table
-        private void open_frenquence_table_Click(object sender, EventArgs e)
-        {
-            if (frenquence_table.Visible)
-            {
-                frenquence_table.Visible = false;
-            }
-            else
-            {
-                frenquence_table.Visible = true;
-            }
+		//-------------------------------
+		//Frenquence_table
+		private void open_frenquence_table_Click(object sender, EventArgs e)
+		{
+			if (frenquence_table.Visible)
+			{
+				frenquence_table.Visible = false;
+			}
+			else
+			{
+				frenquence_table.Visible = true;
+			}
 
+		}
 		//-------------------------------
 		//Volume_Rull
 
-		private void Volume_rull_Click(object sender, EventArgs e)
+		private void Volume_rull_MouseDown(object sender, MouseEventArgs e)
 		{
 			Draw_circle(Volume_rull.Image, Volume_rull);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -263,7 +264,7 @@ namespace WindowsFormsApplication1
 				g.Transform = mymatrix;
 				g.DrawImage(Volume_rull.Image, 0, 0);
 				volume_rull_deg += 10;
-				Volume_rull_MouseDown(sender, e);
+				//Volume_rull_MouseDown(sender, e);
 			}
 		}
 
