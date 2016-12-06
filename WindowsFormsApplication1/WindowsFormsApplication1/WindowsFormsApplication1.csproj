@@ -156,6 +156,7 @@
     <None Include="Resources\rull_2_1.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\antenna.bmp" />
     <Content Include="Resources\Click_Sound.wav" />
     <None Include="Resources\voltage_control_rull.bmp" />
     <None Include="Resources\Green_II.bmp" />

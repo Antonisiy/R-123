@@ -30,13 +30,11 @@
         {
 			this.Open_cap = new System.Windows.Forms.Label();
 			this.open_frenquence_table = new System.Windows.Forms.Label();
-			this.voltage_control_rull = new System.Windows.Forms.PictureBox();
-			this.picture_Lamp_II = new System.Windows.Forms.PictureBox();
-			this.picture_Lamp_I = new System.Windows.Forms.PictureBox();
 			this.frenquence_table = new System.Windows.Forms.PictureBox();
 			this.Volume_rull = new System.Windows.Forms.PictureBox();
 			this.Corrector = new System.Windows.Forms.PictureBox();
 			this.Right_Perek_4 = new System.Windows.Forms.Label();
+			this.voltage_control_rull = new System.Windows.Forms.PictureBox();
 			this.Right_Perek_3 = new System.Windows.Forms.Label();
 			this.Right_Perek_2 = new System.Windows.Forms.Label();
 			this.Right_Perek_1 = new System.Windows.Forms.Label();
@@ -47,9 +45,9 @@
 			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.picture_Lamp_I = new System.Windows.Forms.PictureBox();
+			this.picture_Lamp_II = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.voltage_control_rull)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_II)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_I)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.frenquence_table)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Volume_rull)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Corrector)).BeginInit();
@@ -60,6 +58,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_I)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_II)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// Open_cap
@@ -72,16 +72,6 @@
 			this.Open_cap.TabIndex = 24;
 			this.Open_cap.Click += new System.EventHandler(this.Open_cap_Click);
 			// 
-			// open_frenquence_table
-			// 
-			this.open_frenquence_table.BackColor = System.Drawing.Color.Transparent;
-			this.open_frenquence_table.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.open_frenquence_table.Location = new System.Drawing.Point(476, 304);
-			this.open_frenquence_table.Name = "open_frenquence_table";
-			this.open_frenquence_table.Size = new System.Drawing.Size(25, 28);
-			this.open_frenquence_table.TabIndex = 32;
-			this.open_frenquence_table.Click += new System.EventHandler(this.open_frenquence_table_Click);
-			// 
 			// voltage_control_rull
 			// 
 			this.voltage_control_rull.Image = global::WindowsFormsApplication1.Properties.Resources.voltage_control_rull;
@@ -92,25 +82,15 @@
 			this.voltage_control_rull.TabStop = false;
 			this.voltage_control_rull.MouseClick += new System.Windows.Forms.MouseEventHandler(this.voltage_control_rull_MouseClick);
 			// 
-			// picture_Lamp_II
+			// open_frenquence_table
 			// 
-			this.picture_Lamp_II.Image = global::WindowsFormsApplication1.Properties.Resources.Green_II;
-			this.picture_Lamp_II.Location = new System.Drawing.Point(1138, 391);
-			this.picture_Lamp_II.Name = "picture_Lamp_II";
-			this.picture_Lamp_II.Size = new System.Drawing.Size(30, 30);
-			this.picture_Lamp_II.TabIndex = 34;
-			this.picture_Lamp_II.TabStop = false;
-			this.picture_Lamp_II.Visible = false;
-			// 
-			// picture_Lamp_I
-			// 
-			this.picture_Lamp_I.Image = global::WindowsFormsApplication1.Properties.Resources.Green_I;
-			this.picture_Lamp_I.Location = new System.Drawing.Point(1054, 393);
-			this.picture_Lamp_I.Name = "picture_Lamp_I";
-			this.picture_Lamp_I.Size = new System.Drawing.Size(30, 30);
-			this.picture_Lamp_I.TabIndex = 33;
-			this.picture_Lamp_I.TabStop = false;
-			this.picture_Lamp_I.Visible = false;
+			this.open_frenquence_table.BackColor = System.Drawing.Color.Transparent;
+			this.open_frenquence_table.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.open_frenquence_table.Location = new System.Drawing.Point(476, 304);
+			this.open_frenquence_table.Name = "open_frenquence_table";
+			this.open_frenquence_table.Size = new System.Drawing.Size(25, 28);
+			this.open_frenquence_table.TabIndex = 32;
+			this.open_frenquence_table.Click += new System.EventHandler(this.open_frenquence_table_Click);
 			// 
 			// frenquence_table
 			// 
@@ -262,13 +242,32 @@
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
 			this.pictureBox1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.R_123M;
 			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(1280, 763);
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
+			// 
+			// picture_Lamp_I
+			// 
+			this.picture_Lamp_I.Image = global::WindowsFormsApplication1.Properties.Resources.Green_I;
+			this.picture_Lamp_I.Location = new System.Drawing.Point(1054, 393);
+			this.picture_Lamp_I.Name = "picture_Lamp_I";
+			this.picture_Lamp_I.Size = new System.Drawing.Size(30, 30);
+			this.picture_Lamp_I.TabIndex = 33;
+			this.picture_Lamp_I.TabStop = false;
+			this.picture_Lamp_I.Visible = false;
+			// 
+			// picture_Lamp_II
+			// 
+			this.picture_Lamp_II.Image = global::WindowsFormsApplication1.Properties.Resources.Green_II;
+			this.picture_Lamp_II.Location = new System.Drawing.Point(1138, 391);
+			this.picture_Lamp_II.Name = "picture_Lamp_II";
+			this.picture_Lamp_II.Size = new System.Drawing.Size(30, 30);
+			this.picture_Lamp_II.TabIndex = 34;
+			this.picture_Lamp_II.TabStop = false;
+			this.picture_Lamp_II.Visible = false;
 			// 
 			// Form1
 			// 
@@ -298,8 +297,6 @@
 			this.Text = "Form1";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			((System.ComponentModel.ISupportInitialize)(this.voltage_control_rull)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_II)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_I)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.frenquence_table)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Volume_rull)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Corrector)).EndInit();
@@ -310,6 +307,8 @@
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_I)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.picture_Lamp_II)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -321,7 +320,13 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox Main_rull;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_II;
+        private System.Windows.Forms.Label label_I;
         private System.Windows.Forms.Label Open_cap;
         private System.Windows.Forms.PictureBox Open_Panel;
         public System.Windows.Forms.Label Right_Perek_1;
@@ -335,6 +340,7 @@
         private System.Windows.Forms.PictureBox picture_Lamp_I;
         private System.Windows.Forms.PictureBox picture_Lamp_II;
 		private System.Windows.Forms.PictureBox voltage_control_rull;
+
 	}
 }
 
