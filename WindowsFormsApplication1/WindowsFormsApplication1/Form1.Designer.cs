@@ -314,6 +314,7 @@
             this.picture_Lamp_I.Size = new System.Drawing.Size(30, 30);
             this.picture_Lamp_I.TabIndex = 33;
             this.picture_Lamp_I.TabStop = false;
+            this.picture_Lamp_I.Visible = false;
             // 
             // picture_Lamp_II
             // 
@@ -323,6 +324,7 @@
             this.picture_Lamp_II.Size = new System.Drawing.Size(30, 30);
             this.picture_Lamp_II.TabIndex = 34;
             this.picture_Lamp_II.TabStop = false;
+            this.picture_Lamp_II.Visible = false;
             // 
             // Form1
             // 
