@@ -106,6 +106,7 @@
             // 
             // Corrector
             // 
+            this.Corrector.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Corrector.Image = global::WindowsFormsApplication1.Properties.Resources.rull_2_1;
             this.Corrector.Location = new System.Drawing.Point(303, 104);
             this.Corrector.Name = "Corrector";
@@ -177,7 +178,7 @@
             // 
             this.label_I.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label_I.Image = global::WindowsFormsApplication1.Properties.Resources.rull_value_I;
-            this.label_I.Location = new System.Drawing.Point(803, 605);
+            this.label_I.Location = new System.Drawing.Point(803, 603);
             this.label_I.Name = "label_I";
             this.label_I.Size = new System.Drawing.Size(12, 15);
             this.label_I.TabIndex = 15;
@@ -188,7 +189,7 @@
             // 
             this.label_II.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label_II.Image = global::WindowsFormsApplication1.Properties.Resources.rull_value_II;
-            this.label_II.Location = new System.Drawing.Point(935, 605);
+            this.label_II.Location = new System.Drawing.Point(935, 602);
             this.label_II.Name = "label_II";
             this.label_II.Size = new System.Drawing.Size(13, 15);
             this.label_II.TabIndex = 14;
