@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        float deg = 60;
+        float main_rull_deg = 60, volume_rull_deg = 0;
 
         PointF a = new PointF(0, -111); 
 
@@ -81,14 +81,14 @@ namespace WindowsFormsApplication1
             //    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
             //    , center_picture);
 
-            mymatrix.RotateAt(deg, center_picture);
+            mymatrix.RotateAt(main_rull_deg, center_picture);
             Graphics g = Main_rull.CreateGraphics();
 
             // g.RotateTransform(350.0F);
 
             g.Transform = mymatrix;
             g.DrawImage(Main_rull.Image, 0, 0);
-            deg += 60;
+            main_rull_deg += 60;
 
             //g.DrawImage()
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -212,26 +212,52 @@ namespace WindowsFormsApplication1
 
 
         //-------------------------------
-		private void Corrector_Click(object sender, EventArgs e)
+        private void Corrector_Click(object sender, EventArgs e)
 		{
             Draw_circle(Corrector.Image, Corrector);
-			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-			PointF center_picture = new PointF(67, 66);
+            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+            PointF center_picture = new PointF(67, 66);
 
-			//PointF b = new PointF(e.Y - 114, e.X - 111);
-			//mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
-			//    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
-			//    , center_picture);
+            //PointF b = new PointF(e.Y - 114, e.X - 111);
+            //mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
+            //    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
+            //    , center_picture);
 
-			mymatrix.RotateAt(deg, center_picture);
-			Graphics g = Corrector.CreateGraphics();
+            mymatrix.RotateAt(main_rull_deg, center_picture);
+            Graphics g = Corrector.CreateGraphics();
 
-			// g.RotateTransform(350.0F);
+            // g.RotateTransform(350.0F);
 
-			g.Transform = mymatrix;
-			g.DrawImage(Corrector.Image, 0, 0);
-			deg += 10;
+            g.Transform = mymatrix;
+            g.DrawImage(Corrector.Image, 0, 0);
+            main_rull_deg += 10;
 
-		}
-	}
+        }
+
+
+
+
+        //-------------------------------
+        //Volume_Rull
+        private void Volume_rull_Click(object sender, EventArgs e)
+        {
+            Draw_circle(Corrector.Image, Corrector);
+            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+            PointF center_picture = new PointF(67, 66);
+
+            //PointF b = new PointF(e.Y - 114, e.X - 111);
+            //mymatrix.RotateAt((float)Math.Acos((double)((a.X * b.X + a.Y * b.Y) / 
+            //    (Math.Sqrt((double)(a.X * a.X + a.Y * a.Y)) * Math.Sqrt((double)(b.X * b.X + b.Y * b.Y)))))
+            //    , center_picture);
+
+            mymatrix.RotateAt(volume_rull_deg, center_picture);
+            Graphics g = Corrector.CreateGraphics();
+
+            // g.RotateTransform(350.0F);
+
+            g.Transform = mymatrix;
+            g.DrawImage(Corrector.Image, 0, 0);
+            volume_rull_deg += 10;
+        }
+    }
 }
