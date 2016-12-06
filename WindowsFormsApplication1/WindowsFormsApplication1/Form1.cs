@@ -60,7 +60,8 @@ namespace WindowsFormsApplication1
 			Draw_circle(img_3, Volume_rull);
 			Volume_rull_Click(sender, e);
 			Draw_circle(Corrector.Image, Corrector);
-		}
+            Draw_circle(frenquence_table.Image, frenquence_table);
+        }
 
         private void Draw_mini_circle(PictureBox box)
         {
@@ -212,11 +213,44 @@ namespace WindowsFormsApplication1
                 Right_Perek_3.Visible = true;
                 Right_Perek_4.Visible = true;
             }
+
+            if (Open_cap.Visible)
+            {
+                Open_cap.Visible = false;
+            }
+            else
+            {
+                Open_cap.Visible = true;
+            }
         }
 
-		//-------------------------------
-		//Volume_Rull
-		private void Volume_rull_Click(object sender, EventArgs e)
+
+        //-------------------------------
+        //Frenquence_table
+        private void open_frenquence_table_Click(object sender, EventArgs e)
+        {
+            if (frenquence_table.Visible)
+            {
+                frenquence_table.Visible = false;
+            }
+            else
+            {
+                frenquence_table.Visible = true;
+            }
+
+            if (open_frenquence_table.Visible)
+            {
+                open_frenquence_table.Visible = false;
+            }
+            else
+            {
+                open_frenquence_table.Visible = true;
+            }
+
+        }
+        //-------------------------------
+        //Volume_Rull
+        private void Volume_rull_Click(object sender, EventArgs e)
 		{
 			Draw_circle(Volume_rull.Image, Volume_rull);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();

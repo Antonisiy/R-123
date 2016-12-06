@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.Open_cap = new System.Windows.Forms.Label();
+            this.open_frenquence_table = new System.Windows.Forms.Label();
+            this.frenquence_table = new System.Windows.Forms.PictureBox();
             this.Volume_rull = new System.Windows.Forms.PictureBox();
             this.Corrector = new System.Windows.Forms.PictureBox();
             this.Right_Perek_4 = new System.Windows.Forms.Label();
@@ -48,6 +50,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.frenquence_table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Volume_rull)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Corrector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Open_Panel)).BeginInit();
@@ -62,15 +65,37 @@
             // Open_cap
             // 
             this.Open_cap.BackColor = System.Drawing.Color.Transparent;
+            this.Open_cap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Open_cap.Location = new System.Drawing.Point(1097, 232);
             this.Open_cap.Name = "Open_cap";
             this.Open_cap.Size = new System.Drawing.Size(30, 18);
             this.Open_cap.TabIndex = 24;
             this.Open_cap.Click += new System.EventHandler(this.Open_cap_Click);
             // 
+            // open_frenquence_table
+            // 
+            this.open_frenquence_table.BackColor = System.Drawing.Color.Transparent;
+            this.open_frenquence_table.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.open_frenquence_table.Location = new System.Drawing.Point(476, 304);
+            this.open_frenquence_table.Name = "open_frenquence_table";
+            this.open_frenquence_table.Size = new System.Drawing.Size(25, 28);
+            this.open_frenquence_table.TabIndex = 32;
+            this.open_frenquence_table.Click += new System.EventHandler(this.open_frenquence_table_Click);
+            // 
+            // frenquence_table
+            // 
+            this.frenquence_table.Image = global::WindowsFormsApplication1.Properties.Resources.frequency_table;
+            this.frenquence_table.Location = new System.Drawing.Point(456, 232);
+            this.frenquence_table.Name = "frenquence_table";
+            this.frenquence_table.Size = new System.Drawing.Size(254, 254);
+            this.frenquence_table.TabIndex = 31;
+            this.frenquence_table.TabStop = false;
+            this.frenquence_table.Visible = false;
+            // 
             // Volume_rull
             // 
             this.Volume_rull.BackColor = System.Drawing.Color.Transparent;
+            this.Volume_rull.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Volume_rull.Image = global::WindowsFormsApplication1.Properties.Resources.volume_rull;
             this.Volume_rull.Location = new System.Drawing.Point(1056, 432);
             this.Volume_rull.Name = "Volume_rull";
@@ -92,6 +117,7 @@
             // Right_Perek_4
             // 
             this.Right_Perek_4.BackColor = System.Drawing.Color.Transparent;
+            this.Right_Perek_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Right_Perek_4.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
             this.Right_Perek_4.Location = new System.Drawing.Point(1154, 195);
             this.Right_Perek_4.Name = "Right_Perek_4";
@@ -103,6 +129,7 @@
             // Right_Perek_3
             // 
             this.Right_Perek_3.BackColor = System.Drawing.Color.Transparent;
+            this.Right_Perek_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Right_Perek_3.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
             this.Right_Perek_3.Location = new System.Drawing.Point(1114, 195);
             this.Right_Perek_3.Name = "Right_Perek_3";
@@ -114,6 +141,7 @@
             // Right_Perek_2
             // 
             this.Right_Perek_2.BackColor = System.Drawing.Color.Transparent;
+            this.Right_Perek_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Right_Perek_2.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
             this.Right_Perek_2.Location = new System.Drawing.Point(1074, 195);
             this.Right_Perek_2.Name = "Right_Perek_2";
@@ -125,6 +153,7 @@
             // Right_Perek_1
             // 
             this.Right_Perek_1.BackColor = System.Drawing.Color.Transparent;
+            this.Right_Perek_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Right_Perek_1.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
             this.Right_Perek_1.Location = new System.Drawing.Point(1036, 195);
             this.Right_Perek_1.Name = "Right_Perek_1";
@@ -146,7 +175,7 @@
             // 
             // label_I
             // 
-            this.label_I.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.label_I.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label_I.Image = global::WindowsFormsApplication1.Properties.Resources.rull_value_I;
             this.label_I.Location = new System.Drawing.Point(803, 605);
             this.label_I.Name = "label_I";
@@ -157,7 +186,7 @@
             // 
             // label_II
             // 
-            this.label_II.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.label_II.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label_II.Image = global::WindowsFormsApplication1.Properties.Resources.rull_value_II;
             this.label_II.Location = new System.Drawing.Point(935, 605);
             this.label_II.Name = "label_II";
@@ -167,7 +196,7 @@
             // 
             // label4
             // 
-            this.label4.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label4.Image = global::WindowsFormsApplication1.Properties.Resources.rull_value_4;
             this.label4.Location = new System.Drawing.Point(1005, 487);
             this.label4.Name = "label4";
@@ -177,7 +206,7 @@
             // 
             // label3
             // 
-            this.label3.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label3.Image = global::WindowsFormsApplication1.Properties.Resources.rull_value_3;
             this.label3.Location = new System.Drawing.Point(935, 372);
             this.label3.Name = "label3";
@@ -187,7 +216,7 @@
             // 
             // label2
             // 
-            this.label2.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Image = global::WindowsFormsApplication1.Properties.Resources.rull_value_2;
             this.label2.Location = new System.Drawing.Point(803, 372);
             this.label2.Name = "label2";
@@ -197,7 +226,7 @@
             // 
             // label1
             // 
-            this.label1.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Image = global::WindowsFormsApplication1.Properties.Resources.rull_value_1;
             this.label1.Location = new System.Drawing.Point(732, 485);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
@@ -209,6 +238,7 @@
             // Main_rull
             // 
             this.Main_rull.BackColor = System.Drawing.Color.Transparent;
+            this.Main_rull.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Main_rull.Image = global::WindowsFormsApplication1.Properties.Resources.rull_1;
             this.Main_rull.Location = new System.Drawing.Point(765, 382);
             this.Main_rull.Name = "Main_rull";
@@ -275,6 +305,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 750);
+            this.Controls.Add(this.open_frenquence_table);
+            this.Controls.Add(this.frenquence_table);
             this.Controls.Add(this.Volume_rull);
             this.Controls.Add(this.Corrector);
             this.Controls.Add(this.Right_Perek_4);
@@ -298,6 +330,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.frenquence_table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Volume_rull)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Corrector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Open_Panel)).EndInit();
@@ -333,6 +366,8 @@
         public System.Windows.Forms.Label Right_Perek_3;
         public System.Windows.Forms.Label Right_Perek_4;
         private System.Windows.Forms.PictureBox Volume_rull;
+        private System.Windows.Forms.PictureBox frenquence_table;
+        private System.Windows.Forms.Label open_frenquence_table;
     }
 }
 
