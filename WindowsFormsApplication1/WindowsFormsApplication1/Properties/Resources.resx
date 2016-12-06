@@ -184,10 +184,6 @@
   <data name="open_frenquency_table" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_frenquency_table.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
- 
-  <data name="Green_I" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Green_I.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Panel_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Panel_1.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,5 +204,17 @@
   </data>
   <data name="voltage_control_rull" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\voltage_control_rull.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="antenna" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\antenna.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="frequency_rull" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\frequency_rull.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="power" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\power.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shum.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

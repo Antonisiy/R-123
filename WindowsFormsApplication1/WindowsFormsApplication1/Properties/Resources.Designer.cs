@@ -92,6 +92,16 @@ namespace WindowsFormsApplication1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap frequency_rull {
+            get {
+                object obj = ResourceManager.GetObject("frequency_rull", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap frequency_table {
             get {
                 object obj = ResourceManager.GetObject("frequency_table", resourceCulture);
@@ -192,6 +202,16 @@ namespace WindowsFormsApplication1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap power {
+            get {
+                object obj = ResourceManager.GetObject("power", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap R_123M {
             get {
                 object obj = ResourceManager.GetObject("R_123M", resourceCulture);
@@ -272,16 +292,6 @@ namespace WindowsFormsApplication1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap rull_value_1 {
-            get {
-                object obj = ResourceManager.GetObject("rull_value_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap rull_value_2 {
             get {
                 object obj = ResourceManager.GetObject("rull_value_2", resourceCulture);
@@ -335,6 +345,16 @@ namespace WindowsFormsApplication1.Properties {
         internal static System.Drawing.Bitmap selector {
             get {
                 object obj = ResourceManager.GetObject("selector", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shum {
+            get {
+                object obj = ResourceManager.GetObject("shum", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
