@@ -370,6 +370,8 @@
         private System.Windows.Forms.PictureBox Volume_rull;
         private System.Windows.Forms.PictureBox frenquence_table;
         private System.Windows.Forms.Label open_frenquence_table;
-    }
+		private System.Windows.Forms.PictureBox picture_Lamp_I;
+		private System.Windows.Forms.PictureBox picture_Lamp_II;
+	}
 }
 
