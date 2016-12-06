@@ -70,7 +70,7 @@ namespace WindowsFormsApplication1
         {
             Image img = Properties.Resources.rull_1;
             new System.Media.SoundPlayer(
-			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+             "/Resources/Click_Sound.wav").Play();
             // Draw_circle(img);
             pictureBox6.Image = img;
         }
@@ -79,7 +79,7 @@ namespace WindowsFormsApplication1
         {
             Image img = Properties.Resources.rull_2;
             new System.Media.SoundPlayer(
-			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+             "/Resources/Click_Sound.wav").Play();
             // Draw_circle(img);
             pictureBox6.Image = img;
         }
@@ -88,7 +88,7 @@ namespace WindowsFormsApplication1
         {
             Image img = Properties.Resources.rull_3;
 			new System.Media.SoundPlayer(
-			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+             "/Resources/Click_Sound.wav").Play();
 			// Draw_circle(img);
 			pictureBox6.Image = img;
         }
@@ -97,7 +97,7 @@ namespace WindowsFormsApplication1
         {
             Image img = Properties.Resources.rull_4;
 			new System.Media.SoundPlayer(
-			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+             "/Resources/Click_Sound.wav").Play();
 			// Draw_circle(img);
 			pictureBox6.Image = img;
         }
@@ -106,7 +106,7 @@ namespace WindowsFormsApplication1
         {
             Image img = Properties.Resources.rull_I;
 			new System.Media.SoundPlayer(
-			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+             "/Resources/Click_Sound.wav").Play();
 			// Draw_circle(img);
 			pictureBox6.Image = img;
         }
@@ -115,7 +115,7 @@ namespace WindowsFormsApplication1
         {
             Image img = Properties.Resources.rull_II;
 			new System.Media.SoundPlayer(
-			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+             "/Resources/Click_Sound.wav").Play();
 			// Draw_circle(img);
 			pictureBox6.Image = img;
         }
@@ -141,8 +141,7 @@ namespace WindowsFormsApplication1
 			deg += 60;
 
 			//g.DrawImage()
-			//new System.Media.SoundPlayer(
-			//"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
 		}
 
 
@@ -154,7 +153,7 @@ namespace WindowsFormsApplication1
             else
                 pictureBox2.Visible = true;
 			new System.Media.SoundPlayer(
-			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+             "/Resources/Click_Sound.wav").Play();
 
 		}
      
@@ -168,7 +167,7 @@ namespace WindowsFormsApplication1
             else
                 pictureBox3.Visible = true;
 			new System.Media.SoundPlayer(
-			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+             "/Resources/Click_Sound.wav").Play();
 		}
 
         private void label9_Click(object sender, EventArgs e)
@@ -180,7 +179,7 @@ namespace WindowsFormsApplication1
             else
                 pictureBox4.Visible = true;
 			new System.Media.SoundPlayer(
-			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+             "/Resources/Click_Sound.wav").Play();
 		}
 
         private void label10_Click(object sender, EventArgs e)
@@ -192,7 +191,7 @@ namespace WindowsFormsApplication1
             else
                 pictureBox5.Visible = true;
 			new System.Media.SoundPlayer(
-			"D:/projects/R-123/WindowsFormsApplication1/WindowsFormsApplication1/Resources/Sound/Click_Sound.wav").Play();
+             "/Resources/Click_Sound.wav").Play();
 		}
 
 
