@@ -23,10 +23,11 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        float main_rull_deg = 0, volume_rull_deg = 0,
+        int main_rull_deg = 0, volume_rull_deg = 0,
               corrector_rull_deg = 0, antenna_rull_deg = 0,
               voltage_control_rull_deg = 0, shum_rull_deg = 0, frenquence_rull_deg = 0;
 
+        bool flag = true, flag_2 = true, flag_3 = true;
         PointF a = new PointF(0, -111);
 
         private void Draw_circle(Image image, PictureBox box)
@@ -203,10 +204,10 @@ namespace WindowsFormsApplication1
             g.DrawImage(Picture_shum.Image, 0, 0);
         }
         //frequence
-        private void Brightness_Picture(PictureBox Picture, float brightness = 0.5F)
+        private void Brightness_Picture(PictureBox Picture, float brightness)
         {
-            PictureBox Picture_temp = Picture;
-            var image = new Bitmap(Picture_temp.Image);
+            
+            var image = new Bitmap(Picture.Image);
 
             ImageAttributes imageAttributes = new ImageAttributes();
             int width = image.Width;
@@ -232,8 +233,10 @@ namespace WindowsFormsApplication1
                                GraphicsUnit.Pixel,
                                imageAttributes);
 
-            Picture_temp.Image = image;
+            Picture.Image = image;
         }
+
+        
         private void Picture_frequence_MouseClick(object sender, MouseEventArgs e)
         {
             Draw_circle(Picture_frequence.Image, Picture_frequence);
@@ -264,9 +267,67 @@ namespace WindowsFormsApplication1
 
             frenquence_label.Text = frenquence_rull_deg.ToString();
             picture_lamp_fr.Visible = true;
-            Brightness_Picture(picture_lamp_fr);
+
+            PictureBox Picture_temp = picture_lamp_fr;
+
+            switch (frenquence_rull_deg)
+            {
+                case 15:
+                    Brightness_Picture(Picture_temp, (float)0.1);
+                    break;
+                case 105:
+                    Brightness_Picture(Picture_temp, (float)0.25);
+                    break;
+                case 210:
+                    Brightness_Picture(Picture_temp, (float)0.5);
+                    break;
+                case 315:
+                    Brightness_Picture(Picture_temp, (float)0.75);
+                    break;
+                case 420:
+                    Brightness_Picture(Picture_temp, 1);
+                    break;
+                default:
+                    break;
+            }
+           
             Picture_frequence_table(frenquence_rull_deg/2);
 
+        }
+
+        private void pictrure_shcala_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (flag)
+            {
+                Image img = Properties.Resources.vkl_2;
+                pictrure_shcala.Image = img;
+                flag = false;
+            }
+            else
+            {
+                Image img = Properties.Resources.vkl_1;
+                pictrure_shcala.Image = img;
+                flag = true;
+            }
+            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+        }
+
+        private void picture_power_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(flag_2)
+            {
+                Image img = Properties.Resources.vkl_1;
+                picture_power.Image = img;
+                flag_2 = false;
+            }
+            else
+            {
+                Image img = Properties.Resources.vkl_2;
+                picture_power.Image = img;
+                flag_2 = true;
+            }
+           
+            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
         }
 
         private void Picture_frequence_table(float frenquence_table_deg)

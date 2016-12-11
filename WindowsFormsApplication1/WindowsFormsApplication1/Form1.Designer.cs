@@ -31,6 +31,8 @@
             this.Open_cap = new System.Windows.Forms.Label();
             this.open_frenquence_table = new System.Windows.Forms.Label();
             this.frenquence_label = new System.Windows.Forms.Label();
+            this.picture_power = new System.Windows.Forms.PictureBox();
+            this.pictrure_shcala = new System.Windows.Forms.PictureBox();
             this.picture_lamp_fr = new System.Windows.Forms.PictureBox();
             this.Picture_frequence = new System.Windows.Forms.PictureBox();
             this.Picture_shum = new System.Windows.Forms.PictureBox();
@@ -52,6 +54,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_power)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_lamp_fr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_frequence)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_shum)).BeginInit();
@@ -99,6 +103,30 @@
             this.frenquence_label.Size = new System.Drawing.Size(157, 61);
             this.frenquence_label.TabIndex = 39;
             this.frenquence_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // picture_power
+            // 
+            this.picture_power.BackColor = System.Drawing.Color.Transparent;
+            this.picture_power.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picture_power.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_2;
+            this.picture_power.Location = new System.Drawing.Point(215, 377);
+            this.picture_power.Name = "picture_power";
+            this.picture_power.Size = new System.Drawing.Size(32, 39);
+            this.picture_power.TabIndex = 42;
+            this.picture_power.TabStop = false;
+            this.picture_power.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picture_power_MouseClick);
+            // 
+            // pictrure_shcala
+            // 
+            this.pictrure_shcala.BackColor = System.Drawing.Color.Transparent;
+            this.pictrure_shcala.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictrure_shcala.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_1;
+            this.pictrure_shcala.Location = new System.Drawing.Point(122, 377);
+            this.pictrure_shcala.Name = "pictrure_shcala";
+            this.pictrure_shcala.Size = new System.Drawing.Size(32, 39);
+            this.pictrure_shcala.TabIndex = 41;
+            this.pictrure_shcala.TabStop = false;
+            this.pictrure_shcala.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictrure_shcala_MouseClick);
             // 
             // picture_lamp_fr
             // 
@@ -323,6 +351,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.R_123M;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
@@ -335,6 +364,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 750);
+            this.Controls.Add(this.picture_power);
+            this.Controls.Add(this.pictrure_shcala);
             this.Controls.Add(this.picture_lamp_fr);
             this.Controls.Add(this.frenquence_label);
             this.Controls.Add(this.Picture_frequence);
@@ -362,6 +393,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picture_power)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_lamp_fr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_frequence)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Picture_shum)).EndInit();
@@ -409,6 +442,8 @@
         private System.Windows.Forms.PictureBox Picture_frequence;
         private System.Windows.Forms.Label frenquence_label;
         private System.Windows.Forms.PictureBox picture_lamp_fr;
+        private System.Windows.Forms.PictureBox pictrure_shcala;
+        private System.Windows.Forms.PictureBox picture_power;
     }
 }
 

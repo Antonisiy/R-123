@@ -156,6 +156,8 @@
     <None Include="Resources\rull_2_1.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\vkl_2.bmp" />
+    <None Include="Resources\vkl_1.bmp" />
     <None Include="Resources\power.bmp" />
     <None Include="Resources\frequency_rull.bmp" />
     <None Include="Resources\shum.bmp" />
