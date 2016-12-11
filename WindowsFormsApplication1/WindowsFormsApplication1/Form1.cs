@@ -29,7 +29,8 @@ namespace WindowsFormsApplication1
 
 		MouseEventArgs Volume_arg = null,
 			frequence_arg = null,
-			shum_arg = null;
+			shum_arg = null,
+			antenna_arg = null;
 
 
 		bool flag = true, flag_2 = true, flag_3 = true;
@@ -276,16 +277,24 @@ namespace WindowsFormsApplication1
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(picture_antenna.Image.Width / 2, picture_antenna.Image.Height / 2);
 
+			if(antenna_arg.Button == MouseButtons.Left)
+			{
+				antenna_rull_deg += 10;
+			}
+			else
+			{
+				antenna_rull_deg -= 10;
+			}
 			mymatrix.RotateAt(antenna_rull_deg, center_picture);
 			Graphics g = picture_antenna.CreateGraphics();
 
 			g.Transform = mymatrix;
 			g.DrawImage(picture_antenna.Image, 0, 0);
-			antenna_rull_deg += 10;
 		}
 
 		private void picture_antenna_MouseDown(object sender, MouseEventArgs e)
 		{
+			antenna_arg = e;
 			timer5.Enabled = true;
 		}
 
