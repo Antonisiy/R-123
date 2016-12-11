@@ -295,6 +295,11 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void button_pic_MouseClick(object sender, MouseEventArgs e)
+        {
+            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+        }
+
         private void pictrure_shcala_MouseClick(object sender, MouseEventArgs e)
         {
             if (flag)

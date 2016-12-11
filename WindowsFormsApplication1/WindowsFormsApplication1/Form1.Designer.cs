@@ -54,6 +54,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button_pic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picture_power)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_lamp_fr)).BeginInit();
@@ -73,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_pic)).BeginInit();
             this.SuspendLayout();
             // 
             // Open_cap
@@ -359,11 +361,23 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // button_pic
+            // 
+            this.button_pic.BackColor = System.Drawing.Color.Transparent;
+            this.button_pic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_pic.Location = new System.Drawing.Point(166, 377);
+            this.button_pic.Name = "button_pic";
+            this.button_pic.Size = new System.Drawing.Size(31, 38);
+            this.button_pic.TabIndex = 43;
+            this.button_pic.TabStop = false;
+            this.button_pic.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button_pic_MouseClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 750);
+            this.Controls.Add(this.button_pic);
             this.Controls.Add(this.picture_power);
             this.Controls.Add(this.pictrure_shcala);
             this.Controls.Add(this.picture_lamp_fr);
@@ -412,6 +426,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_pic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -444,6 +459,7 @@
         private System.Windows.Forms.PictureBox picture_lamp_fr;
         private System.Windows.Forms.PictureBox pictrure_shcala;
         private System.Windows.Forms.PictureBox picture_power;
+        private System.Windows.Forms.PictureBox button_pic;
     }
 }
 
