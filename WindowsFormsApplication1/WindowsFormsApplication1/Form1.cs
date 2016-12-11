@@ -369,19 +369,19 @@ namespace WindowsFormsApplication1
 			switch (frenquence_rull_deg)
 			{
 				case 15:
-					Brightness_Picture(Picture_temp, (float)0.1);
-					break;
-				case 105:
-					Brightness_Picture(Picture_temp, (float)0.25);
-					break;
-				case 210:
 					Brightness_Picture(Picture_temp, (float)0.5);
 					break;
-				case 315:
+				case 105:
 					Brightness_Picture(Picture_temp, (float)0.75);
 					break;
+				case 210:
+					Brightness_Picture(Picture_temp, (float)1.25);
+					break;
+				case 315:
+					Brightness_Picture(Picture_temp, (float)1.5);
+					break;
 				case 420:
-					Brightness_Picture(Picture_temp, 1);
+					Brightness_Picture(Picture_temp, (float)1.9);
 					break;
 				default:
 					break;
