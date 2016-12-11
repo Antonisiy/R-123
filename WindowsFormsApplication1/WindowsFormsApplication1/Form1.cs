@@ -27,7 +27,12 @@ namespace WindowsFormsApplication1
               corrector_rull_deg = 0, antenna_rull_deg = 0,
               voltage_control_rull_deg = 0, shum_rull_deg = 0, frenquence_rull_deg = 0;
 
-        bool flag = true, flag_2 = true, flag_3 = true;
+		MouseEventArgs Volume_arg = null,
+			frequence_arg = null,
+			shum_arg = null;
+
+
+		bool flag = true, flag_2 = true, flag_3 = true;
         PointF a = new PointF(0, -111);
 
         private void Draw_circle(Image image, PictureBox box)
@@ -174,35 +179,7 @@ namespace WindowsFormsApplication1
             }
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
         }
-        //shum;
-        private void Picture_shum_MouseClick(object sender, MouseEventArgs e)
-        {
-            Draw_circle(Picture_shum.Image, Picture_shum);
-            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-            PointF center_picture = new PointF(Picture_shum.Image.Width / 2, Picture_shum.Image.Height / 2);
 
-            if (e.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
-            {
-                if (shum_rull_deg < 360)
-                {
-                    shum_rull_deg += 15;
-                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-                }
-            }
-            else
-            {
-                if (shum_rull_deg > 0)
-                {
-                    shum_rull_deg -= 15;
-                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-                }
-            }
-
-            mymatrix.RotateAt(shum_rull_deg, center_picture);
-            Graphics g = Picture_shum.CreateGraphics();
-            g.Transform = mymatrix;
-            g.DrawImage(Picture_shum.Image, 0, 0);
-        }
         //frequence
         private void Brightness_Picture(PictureBox Picture, float brightness)
         {
@@ -237,70 +214,151 @@ namespace WindowsFormsApplication1
         }
 
         
-        private void Picture_frequence_MouseClick(object sender, MouseEventArgs e)
-        {
-            Draw_circle(Picture_frequence.Image, Picture_frequence);
-            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-            PointF center_picture = new PointF(Picture_frequence.Image.Width / 2, Picture_frequence.Image.Height / 2);
 
-            if (e.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
-            {
-                if (frenquence_rull_deg < 720)
-                {
-                    frenquence_rull_deg += 15;
-                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-                }
-            }
-            else
-            {
-                if (frenquence_rull_deg > 0)
-                {
-                    frenquence_rull_deg -= 15;
-                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-                }
-            }
-
-            mymatrix.RotateAt(frenquence_rull_deg, center_picture);
-            Graphics g = Picture_frequence.CreateGraphics();
-            g.Transform = mymatrix;
-            g.DrawImage(Picture_frequence.Image, 0, 0);
-
-            frenquence_label.Text = frenquence_rull_deg.ToString();
-            picture_lamp_fr.Visible = true;
-
-            PictureBox Picture_temp = picture_lamp_fr;
-
-            switch (frenquence_rull_deg)
-            {
-                case 15:
-                    Brightness_Picture(Picture_temp, (float)0.1);
-                    break;
-                case 105:
-                    Brightness_Picture(Picture_temp, (float)0.25);
-                    break;
-                case 210:
-                    Brightness_Picture(Picture_temp, (float)0.5);
-                    break;
-                case 315:
-                    Brightness_Picture(Picture_temp, (float)0.75);
-                    break;
-                case 420:
-                    Brightness_Picture(Picture_temp, 1);
-                    break;
-                default:
-                    break;
-            }
-           
-            Picture_frequence_table(frenquence_rull_deg/2);
-
-        }
-
-        private void button_pic_MouseClick(object sender, MouseEventArgs e)
+		private void button_pic_MouseClick(object sender, MouseEventArgs e)
         {
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
         }
 
-        private void pictrure_shcala_MouseClick(object sender, MouseEventArgs e)
+		private void timer2_Tick(object sender, EventArgs e)
+		{
+			Draw_circle(Volume_rull.Image, Volume_rull);
+			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+			PointF center_picture = new PointF(Volume_rull.Image.Width / 2, Volume_rull.Image.Height / 2);
+
+			if (Volume_arg.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
+			{
+				if (volume_rull_deg < 360)
+				{
+					volume_rull_deg += 15;
+				}
+			}
+			else
+			{
+				if (volume_rull_deg > 0)
+				{
+					volume_rull_deg -= 15;
+				}
+			}
+
+			mymatrix.RotateAt(volume_rull_deg, center_picture);
+			Graphics g = Volume_rull.CreateGraphics();
+
+			g.Transform = mymatrix;
+			g.DrawImage(Volume_rull.Image, 0, 0);
+		}
+
+		private void Volume_rull_MouseUp(object sender, MouseEventArgs e)
+		{
+			timer2.Enabled = false;
+		}
+
+		private void Picture_frequence_MouseDown(object sender, MouseEventArgs e)
+		{
+			frequence_arg = e;
+			timer3.Enabled = true;
+		}
+
+		private void Picture_frequence_MouseUp(object sender, MouseEventArgs e)
+		{
+			timer3.Enabled = false;
+		}
+
+		private void Picture_shum_MouseDown(object sender, MouseEventArgs e)
+		{
+			shum_arg = e;
+			timer4.Enabled = true;
+		}
+
+		private void Picture_shum_MouseUp(object sender, MouseEventArgs e)
+		{
+			timer4.Enabled = false;
+		}
+
+		private void timer4_Tick(object sender, EventArgs e)
+		{
+			Draw_circle(Picture_shum.Image, Picture_shum);
+			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+			PointF center_picture = new PointF(Picture_shum.Image.Width / 2, Picture_shum.Image.Height / 2);
+
+			if (shum_arg.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
+			{
+				if (shum_rull_deg < 360)
+				{
+					shum_rull_deg += 15;
+				}
+			}
+			else
+			{
+				if (shum_rull_deg > 0)
+				{
+					shum_rull_deg -= 15;
+				}
+			}
+
+			mymatrix.RotateAt(shum_rull_deg, center_picture);
+			Graphics g = Picture_shum.CreateGraphics();
+			g.Transform = mymatrix;
+			g.DrawImage(Picture_shum.Image, 0, 0);
+		}
+
+		private void timer3_Tick(object sender, EventArgs e)
+		{
+			Draw_circle(Picture_frequence.Image, Picture_frequence);
+			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+			PointF center_picture = new PointF(Picture_frequence.Image.Width / 2, Picture_frequence.Image.Height / 2);
+
+			if (frequence_arg.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
+			{
+				if (frenquence_rull_deg < 720)
+				{
+					frenquence_rull_deg += 15;
+				}
+			}
+			else
+			{
+				if (frenquence_rull_deg > 0)
+				{
+					frenquence_rull_deg -= 15;
+				}
+			}
+
+			mymatrix.RotateAt(frenquence_rull_deg, center_picture);
+			Graphics g = Picture_frequence.CreateGraphics();
+			g.Transform = mymatrix;
+			g.DrawImage(Picture_frequence.Image, 0, 0);
+
+			frenquence_label.Text = frenquence_rull_deg.ToString();
+			picture_lamp_fr.Visible = true;
+
+			PictureBox Picture_temp = picture_lamp_fr;
+
+			switch (frenquence_rull_deg)
+			{
+				case 15:
+					Brightness_Picture(Picture_temp, (float)0.1);
+					break;
+				case 105:
+					Brightness_Picture(Picture_temp, (float)0.25);
+					break;
+				case 210:
+					Brightness_Picture(Picture_temp, (float)0.5);
+					break;
+				case 315:
+					Brightness_Picture(Picture_temp, (float)0.75);
+					break;
+				case 420:
+					Brightness_Picture(Picture_temp, 1);
+					break;
+				default:
+					break;
+			}
+
+			Picture_frequence_table(frenquence_rull_deg / 2);
+
+		}
+
+		private void pictrure_shcala_MouseClick(object sender, MouseEventArgs e)
         {
             if (flag)
             {
@@ -380,33 +438,8 @@ namespace WindowsFormsApplication1
         //Volume_Rull
         private void Volume_rull_MouseDown(object sender, MouseEventArgs e)
         {
-            Draw_circle(Volume_rull.Image, Volume_rull);
-            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-            PointF center_picture = new PointF(Volume_rull.Image.Width / 2, Volume_rull.Image.Height / 2);
-
-            if (e.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
-            {
-                if (volume_rull_deg < 360)
-                {
-                    volume_rull_deg += 15;
-                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-                }
-            }
-            else
-            {
-                if (volume_rull_deg > 0)
-                {
-                    volume_rull_deg -= 15;
-                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-                }
-            }
-
-            mymatrix.RotateAt(volume_rull_deg, center_picture);
-            Graphics g = Volume_rull.CreateGraphics();
-
-            g.Transform = mymatrix;
-            g.DrawImage(Volume_rull.Image, 0, 0);
-
+			Volume_arg = e;
+			timer2.Enabled = true;
         }
         //voltage_control
         private void voltage_control_rull_MouseClick(object sender, MouseEventArgs e)
