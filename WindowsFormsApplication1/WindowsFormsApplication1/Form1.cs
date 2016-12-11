@@ -270,6 +270,30 @@ namespace WindowsFormsApplication1
 			timer4.Enabled = true;
 		}
 
+		private void timer5_Tick(object sender, EventArgs e)
+		{
+			Draw_circle(picture_antenna.Image, picture_antenna);
+			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+			PointF center_picture = new PointF(picture_antenna.Image.Width / 2, picture_antenna.Image.Height / 2);
+
+			mymatrix.RotateAt(antenna_rull_deg, center_picture);
+			Graphics g = picture_antenna.CreateGraphics();
+
+			g.Transform = mymatrix;
+			g.DrawImage(picture_antenna.Image, 0, 0);
+			antenna_rull_deg += 10;
+		}
+
+		private void picture_antenna_MouseDown(object sender, MouseEventArgs e)
+		{
+			timer5.Enabled = true;
+		}
+
+		private void picture_antenna_MouseUp(object sender, MouseEventArgs e)
+		{
+			timer5.Enabled = false;
+		}
+
 		private void Picture_shum_MouseUp(object sender, MouseEventArgs e)
 		{
 			timer4.Enabled = false;
@@ -500,19 +524,7 @@ namespace WindowsFormsApplication1
             }
         }
         //antenna
-        private void picture_antenna_MouseClick(object sender, MouseEventArgs e)
-        {
-            Draw_circle(picture_antenna.Image, picture_antenna);
-            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-            PointF center_picture = new PointF(picture_antenna.Image.Width / 2, picture_antenna.Image.Height / 2);
 
-            mymatrix.RotateAt(antenna_rull_deg, center_picture);
-            Graphics g = picture_antenna.CreateGraphics();
-
-            g.Transform = mymatrix;
-            g.DrawImage(picture_antenna.Image, 0, 0);
-            antenna_rull_deg += 10;
-        }
 
 
     }

@@ -59,6 +59,7 @@
 			this.timer2 = new System.Windows.Forms.Timer(this.components);
 			this.timer3 = new System.Windows.Forms.Timer(this.components);
 			this.timer4 = new System.Windows.Forms.Timer(this.components);
+			this.timer5 = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.picture_power)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picture_lamp_fr)).BeginInit();
@@ -176,7 +177,8 @@
 			this.picture_antenna.Size = new System.Drawing.Size(194, 194);
 			this.picture_antenna.TabIndex = 36;
 			this.picture_antenna.TabStop = false;
-			this.picture_antenna.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picture_antenna_MouseClick);
+			this.picture_antenna.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picture_antenna_MouseDown);
+			this.picture_antenna.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picture_antenna_MouseUp);
 			// 
 			// voltage_control_rull
 			// 
@@ -381,7 +383,6 @@
 			// 
 			// timer2
 			// 
-			this.timer2.Interval = 50;
 			this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
 			// 
 			// timer3
@@ -391,6 +392,10 @@
 			// timer4
 			// 
 			this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+			// 
+			// timer5
+			// 
+			this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
 			// 
 			// Form1
 			// 
@@ -483,6 +488,7 @@
 		private System.Windows.Forms.Timer timer2;
 		private System.Windows.Forms.Timer timer3;
 		private System.Windows.Forms.Timer timer4;
+		private System.Windows.Forms.Timer timer5;
 	}
 }
 
