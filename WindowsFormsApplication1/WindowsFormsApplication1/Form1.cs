@@ -30,12 +30,13 @@ namespace WindowsFormsApplication1
 		MouseEventArgs Volume_arg = null,
 			frequence_arg = null,
 			shum_arg = null,
-			antenna_arg = null;
+			antenna_arg = null,
+            fiks_antenna= null;
 
 
 		bool flag = true, flag_2 = true, flag_3 = true;
         PointF a = new PointF(0, -111);
-
+        //Рисуем круг
         private void Draw_circle(Image image, PictureBox box)
         {
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
@@ -45,11 +46,19 @@ namespace WindowsFormsApplication1
             box.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (label1.Visible)
+                label1.Visible = false;
+            else
+                label1.Visible = true;
+        }
+        //
         private void Form1_Load(object sender, EventArgs e)
         {
             Image img = Properties.Resources.R_123M;
             this.BackgroundImage = new Bitmap(img);
-
+            Open_Panel.Visible = true;
             Image img_2 = Properties.Resources.rull_1;
             Draw_circle(img_2, Main_rull);
 
@@ -70,10 +79,12 @@ namespace WindowsFormsApplication1
 
             Draw_circle(picture_lamp_fr.Image, picture_lamp_fr);
 
+            Draw_circle(picture_fiks_anten.Image, picture_fiks_anten);
+
         }
 
 
-       
+       //Рисуем маленький круг
         private void Draw_mini_circle(PictureBox box)
         {
             System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
@@ -83,105 +94,15 @@ namespace WindowsFormsApplication1
             box.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
 
-        //Right angle
-        private void Right_Perek_1_CLick(object sender, EventArgs e)
-        {
-            picture_Lamp_I.Visible = true;
-            picture_Lamp_II.Visible = false;
-            Draw_mini_circle(pictureBox2);
-            if (pictureBox2.Visible)
-                pictureBox2.Visible = false;
-            else
-                pictureBox2.Visible = true;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-
-        }
-        private void Right_Perek_2_CLick(object sender, EventArgs e)
-        {
-            picture_Lamp_I.Visible = true;
-            picture_Lamp_II.Visible = false;
-            Draw_mini_circle(pictureBox3);
-            if (pictureBox3.Visible)
-                pictureBox3.Visible = false;
-            else
-                pictureBox3.Visible = true;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-        }
-        private void Right_Perek_3_CLick(object sender, EventArgs e)
-        {
-            picture_Lamp_I.Visible = false;
-            picture_Lamp_II.Visible = true;
-            Draw_mini_circle(pictureBox4);
-            if (pictureBox4.Visible)
-                pictureBox4.Visible = false;
-            else
-                pictureBox4.Visible = true;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-        }
-        private void Right_Perek_4_CLick(object sender, EventArgs e)
-        {
-            picture_Lamp_I.Visible = false;
-            picture_Lamp_II.Visible = true;
-            Draw_mini_circle(pictureBox5);
-            if (pictureBox5.Visible)
-                pictureBox5.Visible = false;
-            else
-                pictureBox5.Visible = true;
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-        }
-        private void Open_cap_Click(object sender, EventArgs e)
-        {
-            if (Open_Panel.Visible)
-            {
-                Open_Panel.Visible = false;
-                Right_Perek_1.Visible = false;
-                Right_Perek_2.Visible = false;
-                Right_Perek_3.Visible = false;
-                Right_Perek_4.Visible = false;
-            }
-            else
-            {
-                Open_Panel.Visible = true;
-                Right_Perek_1.Visible = true;
-                Right_Perek_2.Visible = true;
-                Right_Perek_3.Visible = true;
-                Right_Perek_4.Visible = true;
-            }
-
-            if (Open_cap.Visible)
-            {
-                Open_cap.Visible = false;
-            }
-            else
-            {
-                Open_cap.Visible = true;
-            }
-        }
-
         //-------------------------------
-        //Frenquence_table
-        private void open_frenquence_table_Click(object sender, EventArgs e)
+        private void button_pic_MouseClick(object sender, MouseEventArgs e)
         {
-            if (frenquence_table.Visible)
-            {
-                frenquence_table.Visible = false;
-            }
-            else
-            {
-                frenquence_table.Visible = true;
-            }
-            if (open_frenquence_table.Visible)
-            {
-                open_frenquence_table.Visible = false;
-            }
-            else
-            {
-                open_frenquence_table.Visible = true;
-            }
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
         }
 
-        //frequence
+
+
+        //Яркость лампы
         private void Brightness_Picture(PictureBox Picture, float brightness)
         {
             
@@ -216,99 +137,120 @@ namespace WindowsFormsApplication1
 
         
 
-		private void button_pic_MouseClick(object sender, MouseEventArgs e)
-        {
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-        }
 
-		private void timer2_Tick(object sender, EventArgs e)
-		{
-			Draw_circle(Volume_rull.Image, Volume_rull);
-			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-			PointF center_picture = new PointF(Volume_rull.Image.Width / 2, Volume_rull.Image.Height / 2);
-
-			if (Volume_arg.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
-			{
-				if (volume_rull_deg < 360)
-				{
-					volume_rull_deg += 15;
-				}
-			}
-			else
-			{
-				if (volume_rull_deg > 0)
-				{
-					volume_rull_deg -= 15;
-				}
-			}
-
-			mymatrix.RotateAt(volume_rull_deg, center_picture);
-			Graphics g = Volume_rull.CreateGraphics();
-
-			g.Transform = mymatrix;
-			g.DrawImage(Volume_rull.Image, 0, 0);
-		}
-
-		private void Volume_rull_MouseUp(object sender, MouseEventArgs e)
-		{
-			timer2.Enabled = false;
-		}
-
-		private void Picture_frequence_MouseDown(object sender, MouseEventArgs e)
-		{
-			frequence_arg = e;
-			timer3.Enabled = true;
-		}
-
-		private void Picture_frequence_MouseUp(object sender, MouseEventArgs e)
-		{
-			timer3.Enabled = false;
-		}
-
+        //Крутилка шумов
 		private void Picture_shum_MouseDown(object sender, MouseEventArgs e)
 		{
 			shum_arg = e;
 			timer4.Enabled = true;
 		}
 
-		private void timer5_Tick(object sender, EventArgs e)
-		{
-			Draw_circle(picture_antenna.Image, picture_antenna);
-			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-			PointF center_picture = new PointF(picture_antenna.Image.Width / 2, picture_antenna.Image.Height / 2);
+        private void Picture_shum_MouseUp(object sender, MouseEventArgs e)
+        {
+            timer4.Enabled = false;
+        }
 
-			if(antenna_arg.Button == MouseButtons.Left)
-			{
-				antenna_rull_deg += 10;
-			}
-			else
-			{
-				antenna_rull_deg -= 10;
-			}
-			mymatrix.RotateAt(antenna_rull_deg, center_picture);
-			Graphics g = picture_antenna.CreateGraphics();
 
-			g.Transform = mymatrix;
-			g.DrawImage(picture_antenna.Image, 0, 0);
-		}
 
-		private void picture_antenna_MouseDown(object sender, MouseEventArgs e)
-		{
-			antenna_arg = e;
-			timer5.Enabled = true;
-		}
 
-		private void picture_antenna_MouseUp(object sender, MouseEventArgs e)
-		{
-			timer5.Enabled = false;
-		}
+                    //Правый угол переключатели
+                    private void Right_Perek_1_MouseClick(object sender, MouseEventArgs e)
+                    {
+                        if (flag_2)
+                        {
+                            Image img = Properties.Resources.vkl_1;
+                            Right_Perek_1.Image = img;
+                            flag_2 = false;
+                        }
+                        else
+                        {
+                            Image img = Properties.Resources.vkl_2;
+                            Right_Perek_1.Image = img;
+                            flag_2 = true;
+                        }
 
-		private void Picture_shum_MouseUp(object sender, MouseEventArgs e)
-		{
-			timer4.Enabled = false;
-		}
+                        new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+                    }
 
-		private void timer4_Tick(object sender, EventArgs e)
+                    private void Right_Perek_2_MouseClick(object sender, MouseEventArgs e)
+                    {
+                        if (flag_2)
+                        {
+                            Image img = Properties.Resources.vkl_1;
+                            Right_Perek_2.Image = img;
+                            flag_2 = false;
+                        }
+                        else
+                        {
+                            Image img = Properties.Resources.vkl_2;
+                            Right_Perek_2.Image = img;
+                            flag_2 = true;
+                        }
+
+                        new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+                    }
+
+                    private void Right_Perek_3_MouseClick(object sender, MouseEventArgs e)
+                    {
+                        if (flag_2)
+                        {
+                            Image img = Properties.Resources.vkl_1;
+                            Right_Perek_3.Image = img;
+                            flag_2 = false;
+                        }
+                        else
+                        {
+                            Image img = Properties.Resources.vkl_2;
+                            Right_Perek_3.Image = img;
+                            flag_2 = true;
+                        }
+
+                        new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+                    }
+
+                    private void Right_Perek_4_MouseClick(object sender, MouseEventArgs e)
+                    {
+                        if (flag_2)
+                        {
+                            Image img = Properties.Resources.vkl_1;
+                            Right_Perek_4.Image = img;
+                            flag_2 = false;
+                        }
+                        else
+                        {
+                            Image img = Properties.Resources.vkl_2;
+                            Right_Perek_4.Image = img;
+                            flag_2 = true;
+                        }
+
+                        new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+                    }
+
+
+
+        //Таймеры
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+            Draw_circle(picture_antenna.Image, picture_antenna);
+            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+            PointF center_picture = new PointF(picture_antenna.Image.Width / 2, picture_antenna.Image.Height / 2);
+
+            if (antenna_arg.Button == MouseButtons.Left)
+            {
+                antenna_rull_deg += 10;
+            }
+            else
+            {
+                antenna_rull_deg -= 10;
+            }
+            mymatrix.RotateAt(antenna_rull_deg, center_picture);
+            Graphics g = picture_antenna.CreateGraphics();
+
+            g.Transform = mymatrix;
+            g.DrawImage(picture_antenna.Image, 0, 0);
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
 		{
 			Draw_circle(Picture_shum.Image, Picture_shum);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -335,7 +277,7 @@ namespace WindowsFormsApplication1
 			g.DrawImage(Picture_shum.Image, 0, 0);
 		}
 
-		private void timer3_Tick(object sender, EventArgs e)
+	    private void timer3_Tick(object sender, EventArgs e)
 		{
 			Draw_circle(Picture_frequence.Image, Picture_frequence);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -391,55 +333,127 @@ namespace WindowsFormsApplication1
 
 		}
 
-		private void pictrure_shcala_MouseClick(object sender, MouseEventArgs e)
+        private void timer2_Tick(object sender, EventArgs e)
         {
-            if (flag)
-            {
-                Image img = Properties.Resources.vkl_2;
-                pictrure_shcala.Image = img;
-                flag = false;
-            }
-            else
-            {
-                Image img = Properties.Resources.vkl_1;
-                pictrure_shcala.Image = img;
-                flag = true;
-            }
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-        }
-
-        private void picture_power_MouseClick(object sender, MouseEventArgs e)
-        {
-            if(flag_2)
-            {
-                Image img = Properties.Resources.vkl_1;
-                picture_power.Image = img;
-                flag_2 = false;
-            }
-            else
-            {
-                Image img = Properties.Resources.vkl_2;
-                picture_power.Image = img;
-                flag_2 = true;
-            }
-           
-            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-        }
-
-        private void Picture_frequence_table(float frenquence_table_deg)
-        {
-            Draw_circle(frenquence_table.Image, frenquence_table);
+            Draw_circle(Volume_rull.Image, Volume_rull);
             System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
-            PointF center_picture = new PointF(frenquence_table.Image.Width / 2, frenquence_table.Image.Height / 2);
+            PointF center_picture = new PointF(Volume_rull.Image.Width / 2, Volume_rull.Image.Height / 2);
 
-            mymatrix.RotateAt(frenquence_table_deg, center_picture);
-            Graphics g = frenquence_table.CreateGraphics();
+            if (Volume_arg.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
+            {
+                if (volume_rull_deg < 360)
+                {
+                    volume_rull_deg += 15;
+                }
+            }
+            else
+            {
+                if (volume_rull_deg > 0)
+                {
+                    volume_rull_deg -= 15;
+                }
+            }
+
+            mymatrix.RotateAt(volume_rull_deg, center_picture);
+            Graphics g = Volume_rull.CreateGraphics();
 
             g.Transform = mymatrix;
-            g.DrawImage(frenquence_table.Image, 0, 0);
- 
+            g.DrawImage(Volume_rull.Image, 0, 0);
         }
-        //corrector
+
+
+
+
+                //Шкала вкл/выкл
+                private void pictrure_shcala_MouseClick(object sender, MouseEventArgs e)
+            {
+                if (flag)
+                {
+                    Image img = Properties.Resources.vkl_2;
+                    pictrure_shcala.Image = img;
+                    flag = false;
+                }
+                else
+                {
+                    Image img = Properties.Resources.vkl_1;
+                    pictrure_shcala.Image = img;
+                    flag = true;
+                }
+                new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+            }
+                //Питание вкл/выкл
+                private void picture_power_MouseClick(object sender, MouseEventArgs e)
+    {
+        if(flag_2)
+        {
+            Image img = Properties.Resources.vkl_1;
+            picture_power.Image = img;
+            flag_2 = false;
+        }
+        else
+        {
+            Image img = Properties.Resources.vkl_2;
+            picture_power.Image = img;
+            flag_2 = true;
+        }
+           
+        new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+    }
+
+
+
+
+                //Крутилка частот
+                private void Picture_frequence_table(float frenquence_table_deg)
+                {
+                    Draw_circle(frenquence_table.Image, frenquence_table);
+                    System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+                    PointF center_picture = new PointF(frenquence_table.Image.Width / 2, frenquence_table.Image.Height / 2);
+
+                    mymatrix.RotateAt(frenquence_table_deg, center_picture);
+                    Graphics g = frenquence_table.CreateGraphics();
+
+                    g.Transform = mymatrix;
+                    g.DrawImage(frenquence_table.Image, 0, 0);
+ 
+                }
+
+        private void Picture_frequence_MouseDown(object sender, MouseEventArgs e)
+                {
+                    frequence_arg = e;
+                    timer3.Enabled = true;
+                }
+
+                private void Picture_frequence_MouseUp(object sender, MouseEventArgs e)
+                {
+                    timer3.Enabled = false;
+                }
+
+                //Закрывашка крутилки частот
+                private void open_frenquence_table_Click(object sender, EventArgs e)
+                {
+                    if (frenquence_table.Visible)
+                    {
+                        frenquence_table.Visible = false;
+                    }
+                    else
+                    {
+                        frenquence_table.Visible = true;
+                    }
+                    if (open_frenquence_table.Visible)
+                    {
+                        open_frenquence_table.Visible = false;
+                    }
+                    else
+                    {
+                        open_frenquence_table.Visible = true;
+                    }
+                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+                }
+
+
+
+        //Переключатель Симплекс-Прием-
         private void Corrector_MouseClick(object sender, MouseEventArgs e)
         {
             Draw_circle(Corrector.Image, Corrector);
@@ -468,13 +482,24 @@ namespace WindowsFormsApplication1
             g.Transform = mymatrix;
             g.DrawImage(Corrector.Image, 0, 0);
         }
-        //Volume_Rull
+
+
+
+        //Крутилка громкости
         private void Volume_rull_MouseDown(object sender, MouseEventArgs e)
         {
 			Volume_arg = e;
 			timer2.Enabled = true;
         }
-        //voltage_control
+
+        private void Volume_rull_MouseUp(object sender, MouseEventArgs e)
+        {
+            timer2.Enabled = false;
+        }
+
+
+
+        //Контроль напряжения
         private void voltage_control_rull_MouseClick(object sender, MouseEventArgs e)
 		{
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -495,7 +520,10 @@ namespace WindowsFormsApplication1
 
 			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
 		}
-        //Main_Rull
+
+
+
+        //Крутилка фиксированных частот и плавных поддиапазовнов
         private void Main_rull_MouseClick(object sender, MouseEventArgs e)
 		{
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -532,7 +560,32 @@ namespace WindowsFormsApplication1
                 picture_Lamp_I.Visible = false;
             }
         }
-        //antenna
+
+
+
+        //Крутилка антенны
+
+            private void picture_antenna_MouseDown(object sender, MouseEventArgs e)
+            {
+                antenna_arg = e;
+                timer5.Enabled = true;
+            }
+
+            private void picture_antenna_MouseUp(object sender, MouseEventArgs e)
+            {
+                timer5.Enabled = false;
+            }
+
+            private void picture_fiks_anten_MouseDown(object sender, MouseEventArgs e)
+            {
+                fiks_antenna = e;
+                timer6.Enabled = true;
+            }
+
+            private void picture_fiks_anten_MouseUp(object sender, MouseEventArgs e)
+            {
+                timer6.Enabled = false;
+            }
 
 
 

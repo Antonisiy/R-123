@@ -92,6 +92,16 @@ namespace WindowsFormsApplication1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fiks_antenn {
+            get {
+                object obj = ResourceManager.GetObject("fiks_antenn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap frequency_rull {
             get {
                 object obj = ResourceManager.GetObject("frequency_rull", resourceCulture);

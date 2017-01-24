@@ -156,6 +156,7 @@
     <None Include="Resources\rull_2_1.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\fiks_antenn.bmp" />
     <None Include="Resources\vkl_2.bmp" />
     <None Include="Resources\vkl_1.bmp" />
     <None Include="Resources\power.bmp" />

@@ -29,9 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Open_cap = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.open_frenquence_table = new System.Windows.Forms.Label();
             this.frenquence_label = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.timer5 = new System.Windows.Forms.Timer(this.components);
+            this.label_poddiapazon = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.picture_fiks_anten = new System.Windows.Forms.PictureBox();
+            this.button_pic = new System.Windows.Forms.PictureBox();
             this.picture_power = new System.Windows.Forms.PictureBox();
             this.pictrure_shcala = new System.Windows.Forms.PictureBox();
             this.picture_lamp_fr = new System.Windows.Forms.PictureBox();
@@ -44,10 +52,6 @@
             this.frenquence_table = new System.Windows.Forms.PictureBox();
             this.Volume_rull = new System.Windows.Forms.PictureBox();
             this.Corrector = new System.Windows.Forms.PictureBox();
-            this.Right_Perek_4 = new System.Windows.Forms.Label();
-            this.Right_Perek_3 = new System.Windows.Forms.Label();
-            this.Right_Perek_2 = new System.Windows.Forms.Label();
-            this.Right_Perek_1 = new System.Windows.Forms.Label();
             this.Open_Panel = new System.Windows.Forms.PictureBox();
             this.Main_rull = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -55,12 +59,15 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button_pic = new System.Windows.Forms.PictureBox();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.timer5 = new System.Windows.Forms.Timer(this.components);
-            this.label_poddiapazon = new System.Windows.Forms.Label();
+            this.timer6 = new System.Windows.Forms.Timer(this.components);
+            this.Right_Perek_1 = new System.Windows.Forms.PictureBox();
+            this.Right_Perek_2 = new System.Windows.Forms.PictureBox();
+            this.Right_Perek_3 = new System.Windows.Forms.PictureBox();
+            this.Right_Perek_4 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.frenquence_label_2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_fiks_anten)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_power)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_lamp_fr)).BeginInit();
@@ -80,18 +87,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.button_pic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Open_cap
-            // 
-            this.Open_cap.BackColor = System.Drawing.Color.Transparent;
-            this.Open_cap.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Open_cap.Location = new System.Drawing.Point(1008, 168);
-            this.Open_cap.Name = "Open_cap";
-            this.Open_cap.Size = new System.Drawing.Size(205, 82);
-            this.Open_cap.TabIndex = 24;
-            this.Open_cap.Click += new System.EventHandler(this.Open_cap_Click);
             // 
             // open_frenquence_table
             // 
@@ -106,11 +106,70 @@
             // frenquence_label
             // 
             this.frenquence_label.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.frenquence_label.Location = new System.Drawing.Point(508, 93);
+            this.frenquence_label.Location = new System.Drawing.Point(507, 93);
             this.frenquence_label.Name = "frenquence_label";
-            this.frenquence_label.Size = new System.Drawing.Size(157, 61);
+            this.frenquence_label.Size = new System.Drawing.Size(157, 32);
             this.frenquence_label.TabIndex = 39;
+            this.frenquence_label.Text = "20 - 35,75 (Мгц)";
             this.frenquence_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // timer3
+            // 
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // timer4
+            // 
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
+            // timer5
+            // 
+            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
+            // 
+            // label_poddiapazon
+            // 
+            this.label_poddiapazon.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_poddiapazon.Location = new System.Drawing.Point(1052, 279);
+            this.label_poddiapazon.Name = "label_poddiapazon";
+            this.label_poddiapazon.Size = new System.Drawing.Size(118, 61);
+            this.label_poddiapazon.TabIndex = 44;
+            this.label_poddiapazon.Text = "*значение*";
+            this.label_poddiapazon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(-263, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(560, 462);
+            this.label1.TabIndex = 45;
+            this.label1.Text = resources.GetString("label1.Text");
+            this.label1.Visible = false;
+            // 
+            // picture_fiks_anten
+            // 
+            this.picture_fiks_anten.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picture_fiks_anten.Image = global::WindowsFormsApplication1.Properties.Resources.fiks_antenn;
+            this.picture_fiks_anten.Location = new System.Drawing.Point(820, 217);
+            this.picture_fiks_anten.Name = "picture_fiks_anten";
+            this.picture_fiks_anten.Size = new System.Drawing.Size(81, 81);
+            this.picture_fiks_anten.TabIndex = 46;
+            this.picture_fiks_anten.TabStop = false;
+            this.picture_fiks_anten.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picture_fiks_anten_MouseDown);
+            this.picture_fiks_anten.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picture_fiks_anten_MouseUp);
+            // 
+            // button_pic
+            // 
+            this.button_pic.BackColor = System.Drawing.Color.Transparent;
+            this.button_pic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_pic.Location = new System.Drawing.Point(166, 377);
+            this.button_pic.Name = "button_pic";
+            this.button_pic.Size = new System.Drawing.Size(31, 38);
+            this.button_pic.TabIndex = 43;
+            this.button_pic.TabStop = false;
+            this.button_pic.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button_pic_MouseClick);
             // 
             // picture_power
             // 
@@ -247,54 +306,6 @@
             this.Corrector.TabStop = false;
             this.Corrector.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Corrector_MouseClick);
             // 
-            // Right_Perek_4
-            // 
-            this.Right_Perek_4.BackColor = System.Drawing.Color.Transparent;
-            this.Right_Perek_4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Right_Perek_4.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
-            this.Right_Perek_4.Location = new System.Drawing.Point(1154, 195);
-            this.Right_Perek_4.Name = "Right_Perek_4";
-            this.Right_Perek_4.Size = new System.Drawing.Size(32, 32);
-            this.Right_Perek_4.TabIndex = 28;
-            this.Right_Perek_4.Visible = false;
-            this.Right_Perek_4.Click += new System.EventHandler(this.Right_Perek_4_CLick);
-            // 
-            // Right_Perek_3
-            // 
-            this.Right_Perek_3.BackColor = System.Drawing.Color.Transparent;
-            this.Right_Perek_3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Right_Perek_3.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
-            this.Right_Perek_3.Location = new System.Drawing.Point(1114, 195);
-            this.Right_Perek_3.Name = "Right_Perek_3";
-            this.Right_Perek_3.Size = new System.Drawing.Size(32, 32);
-            this.Right_Perek_3.TabIndex = 27;
-            this.Right_Perek_3.Visible = false;
-            this.Right_Perek_3.Click += new System.EventHandler(this.Right_Perek_3_CLick);
-            // 
-            // Right_Perek_2
-            // 
-            this.Right_Perek_2.BackColor = System.Drawing.Color.Transparent;
-            this.Right_Perek_2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Right_Perek_2.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
-            this.Right_Perek_2.Location = new System.Drawing.Point(1074, 195);
-            this.Right_Perek_2.Name = "Right_Perek_2";
-            this.Right_Perek_2.Size = new System.Drawing.Size(32, 32);
-            this.Right_Perek_2.TabIndex = 26;
-            this.Right_Perek_2.Visible = false;
-            this.Right_Perek_2.Click += new System.EventHandler(this.Right_Perek_2_CLick);
-            // 
-            // Right_Perek_1
-            // 
-            this.Right_Perek_1.BackColor = System.Drawing.Color.Transparent;
-            this.Right_Perek_1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Right_Perek_1.Image = global::WindowsFormsApplication1.Properties.Resources.selector;
-            this.Right_Perek_1.Location = new System.Drawing.Point(1036, 195);
-            this.Right_Perek_1.Name = "Right_Perek_1";
-            this.Right_Perek_1.Size = new System.Drawing.Size(32, 29);
-            this.Right_Perek_1.TabIndex = 16;
-            this.Right_Perek_1.Visible = false;
-            this.Right_Perek_1.Click += new System.EventHandler(this.Right_Perek_1_CLick);
-            // 
             // Open_Panel
             // 
             this.Open_Panel.BackColor = System.Drawing.Color.Transparent;
@@ -368,52 +379,91 @@
             this.pictureBox1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.R_123M;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1280, 763);
+            this.pictureBox1.Size = new System.Drawing.Size(1280, 765);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // button_pic
+            // Right_Perek_1
             // 
-            this.button_pic.BackColor = System.Drawing.Color.Transparent;
-            this.button_pic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_pic.Location = new System.Drawing.Point(166, 377);
-            this.button_pic.Name = "button_pic";
-            this.button_pic.Size = new System.Drawing.Size(31, 38);
-            this.button_pic.TabIndex = 43;
-            this.button_pic.TabStop = false;
-            this.button_pic.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button_pic_MouseClick);
+            this.Right_Perek_1.BackColor = System.Drawing.Color.Transparent;
+            this.Right_Perek_1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Right_Perek_1.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_2;
+            this.Right_Perek_1.Location = new System.Drawing.Point(1034, 193);
+            this.Right_Perek_1.Name = "Right_Perek_1";
+            this.Right_Perek_1.Size = new System.Drawing.Size(32, 39);
+            this.Right_Perek_1.TabIndex = 47;
+            this.Right_Perek_1.TabStop = false;
+            this.Right_Perek_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Right_Perek_1_MouseClick);
             // 
-            // timer2
+            // Right_Perek_2
             // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            this.Right_Perek_2.BackColor = System.Drawing.Color.Transparent;
+            this.Right_Perek_2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Right_Perek_2.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_2;
+            this.Right_Perek_2.Location = new System.Drawing.Point(1074, 193);
+            this.Right_Perek_2.Name = "Right_Perek_2";
+            this.Right_Perek_2.Size = new System.Drawing.Size(32, 39);
+            this.Right_Perek_2.TabIndex = 48;
+            this.Right_Perek_2.TabStop = false;
+            this.Right_Perek_2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Right_Perek_2_MouseClick);
             // 
-            // timer3
+            // Right_Perek_3
             // 
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            this.Right_Perek_3.BackColor = System.Drawing.Color.Transparent;
+            this.Right_Perek_3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Right_Perek_3.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_2;
+            this.Right_Perek_3.Location = new System.Drawing.Point(1112, 193);
+            this.Right_Perek_3.Name = "Right_Perek_3";
+            this.Right_Perek_3.Size = new System.Drawing.Size(32, 39);
+            this.Right_Perek_3.TabIndex = 49;
+            this.Right_Perek_3.TabStop = false;
+            this.Right_Perek_3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Right_Perek_3_MouseClick);
             // 
-            // timer4
+            // Right_Perek_4
             // 
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            this.Right_Perek_4.BackColor = System.Drawing.Color.Transparent;
+            this.Right_Perek_4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Right_Perek_4.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_2;
+            this.Right_Perek_4.Location = new System.Drawing.Point(1152, 193);
+            this.Right_Perek_4.Name = "Right_Perek_4";
+            this.Right_Perek_4.Size = new System.Drawing.Size(32, 39);
+            this.Right_Perek_4.TabIndex = 50;
+            this.Right_Perek_4.TabStop = false;
+            this.Right_Perek_4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Right_Perek_4_MouseClick);
             // 
-            // timer5
+            // button1
             // 
-            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
+            this.button1.Location = new System.Drawing.Point(1108, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 29);
+            this.button1.TabIndex = 51;
+            this.button1.Text = "Открыть FAQ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label_poddiapazon
+            // frenquence_label_2
             // 
-            this.label_poddiapazon.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_poddiapazon.Location = new System.Drawing.Point(1068, 279);
-            this.label_poddiapazon.Name = "label_poddiapazon";
-            this.label_poddiapazon.Size = new System.Drawing.Size(89, 61);
-            this.label_poddiapazon.TabIndex = 44;
-            this.label_poddiapazon.Text = "*value*";
-            this.label_poddiapazon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.frenquence_label_2.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.frenquence_label_2.Location = new System.Drawing.Point(507, 125);
+            this.frenquence_label_2.Name = "frenquence_label_2";
+            this.frenquence_label_2.Size = new System.Drawing.Size(157, 28);
+            this.frenquence_label_2.TabIndex = 52;
+            this.frenquence_label_2.Text = "35,75 - 51,5(Мгц)";
+            this.frenquence_label_2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 750);
+            this.ClientSize = new System.Drawing.Size(1279, 750);
+            this.Controls.Add(this.frenquence_label_2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Right_Perek_4);
+            this.Controls.Add(this.Right_Perek_3);
+            this.Controls.Add(this.Right_Perek_2);
+            this.Controls.Add(this.Right_Perek_1);
+            this.Controls.Add(this.picture_fiks_anten);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label_poddiapazon);
             this.Controls.Add(this.button_pic);
             this.Controls.Add(this.picture_power);
@@ -430,11 +480,6 @@
             this.Controls.Add(this.frenquence_table);
             this.Controls.Add(this.Volume_rull);
             this.Controls.Add(this.Corrector);
-            this.Controls.Add(this.Right_Perek_4);
-            this.Controls.Add(this.Right_Perek_3);
-            this.Controls.Add(this.Right_Perek_2);
-            this.Controls.Add(this.Right_Perek_1);
-            this.Controls.Add(this.Open_cap);
             this.Controls.Add(this.Open_Panel);
             this.Controls.Add(this.Main_rull);
             this.Controls.Add(this.pictureBox5);
@@ -445,6 +490,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picture_fiks_anten)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_pic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_power)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_lamp_fr)).EndInit();
@@ -464,7 +511,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.button_pic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -477,13 +527,8 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox Main_rull;
-        private System.Windows.Forms.Label Open_cap;
         private System.Windows.Forms.PictureBox Open_Panel;
-        public System.Windows.Forms.Label Right_Perek_1;
 		private System.Windows.Forms.PictureBox Corrector;
-        public System.Windows.Forms.Label Right_Perek_2;
-        public System.Windows.Forms.Label Right_Perek_3;
-        public System.Windows.Forms.Label Right_Perek_4;
         private System.Windows.Forms.PictureBox Volume_rull;
         private System.Windows.Forms.PictureBox frenquence_table;
         private System.Windows.Forms.Label open_frenquence_table;
@@ -503,6 +548,15 @@
 		private System.Windows.Forms.Timer timer4;
 		private System.Windows.Forms.Timer timer5;
         private System.Windows.Forms.Label label_poddiapazon;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox picture_fiks_anten;
+        private System.Windows.Forms.Timer timer6;
+        private System.Windows.Forms.PictureBox Right_Perek_1;
+        private System.Windows.Forms.PictureBox Right_Perek_2;
+        private System.Windows.Forms.PictureBox Right_Perek_3;
+        private System.Windows.Forms.PictureBox Right_Perek_4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label frenquence_label_2;
     }
 }
 
