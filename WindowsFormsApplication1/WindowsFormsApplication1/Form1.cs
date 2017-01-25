@@ -46,13 +46,7 @@ namespace WindowsFormsApplication1
             box.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (label1.Visible)
-                label1.Visible = false;
-            else
-                label1.Visible = true;
-        }
+
         //
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -418,7 +412,13 @@ namespace WindowsFormsApplication1
  
                 }
 
-        private void Picture_frequence_MouseDown(object sender, MouseEventArgs e)
+		private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Form2 f = new Form2();
+			f.Show();
+		}
+
+		private void Picture_frequence_MouseDown(object sender, MouseEventArgs e)
                 {
                     frequence_arg = e;
                     timer3.Enabled = true;
