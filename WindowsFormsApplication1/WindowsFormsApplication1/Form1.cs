@@ -27,6 +27,8 @@ namespace WindowsFormsApplication1
               corrector_rull_deg = 0, antenna_rull_deg = 0,
               voltage_control_rull_deg = 0, shum_rull_deg = 0, frenquence_rull_deg = 0;
 
+        int flag_auto;
+
 		MouseEventArgs Volume_arg = null,
 			frequence_arg = null,
 			shum_arg = null,
@@ -34,7 +36,8 @@ namespace WindowsFormsApplication1
             fiks_antenna= null;
 
 
-		bool flag = false, flag_2 = false, flag_3 = true;
+        bool flag = false, flag_2 = false;
+  
         PointF a = new PointF(0, -111);
         //Рисуем круг
         private void Draw_circle(Image image, PictureBox box)
@@ -73,7 +76,7 @@ namespace WindowsFormsApplication1
 
             Draw_circle(picture_lamp_fr.Image, picture_lamp_fr);
 
-            Draw_circle(picture_fiks_anten.Image, picture_fiks_anten);
+            //Draw_circle(picture_fiks_anten.Image, picture_fiks_anten);
 
         }
 
@@ -229,19 +232,26 @@ namespace WindowsFormsApplication1
             System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
             PointF center_picture = new PointF(picture_antenna.Image.Width / 2, picture_antenna.Image.Height / 2);
 
-            if (antenna_arg.Button == MouseButtons.Left)
+            if ((flag_auto==1) || ((antenna_arg.Button == MouseButtons.Left) && (flag_auto == 0)))
             {
-                antenna_rull_deg += 10;
+                if (frenquence_rull_deg < 1440)
+                {
+                    antenna_rull_deg += 10;
+                }  
             }
             else
             {
-                antenna_rull_deg -= 10;
+                if (frenquence_rull_deg > -720)
+                {
+                    antenna_rull_deg -= 10;
+                }
             }
             mymatrix.RotateAt(antenna_rull_deg, center_picture);
             Graphics g = picture_antenna.CreateGraphics();
 
             g.Transform = mymatrix;
             g.DrawImage(picture_antenna.Image, 0, 0);
+            flag_auto = 0;
         }
 
         private void timer4_Tick(object sender, EventArgs e)
@@ -281,7 +291,8 @@ namespace WindowsFormsApplication1
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(Picture_frequence.Image.Width / 2, Picture_frequence.Image.Height / 2);
 
-			if (frequence_arg.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
+
+			if ((flag_auto==1)||((frequence_arg.Button == MouseButtons.Left)&&(flag_auto == 0))) //определиние какая клавиша мыши была нажата
 			{
 				if (frenquence_rull_deg < 720)
 				{
@@ -328,8 +339,8 @@ namespace WindowsFormsApplication1
 			}
 
 			Picture_frequence_table(frenquence_rull_deg / 2);
-
-		}
+            flag_auto = 0;
+        }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -401,7 +412,7 @@ namespace WindowsFormsApplication1
             Image img = Properties.Resources.vkl_2;
             picture_power.Image = img;
             flag_2 = false;
-                progressBar1.Increment(-1);
+            progressBar1.Increment(-1);
             }
         new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
     }
@@ -430,7 +441,7 @@ namespace WindowsFormsApplication1
 			f.Show();
 		}
 
-        private void Picture_frequence_MouseDown(object sender, MouseEventArgs e)
+                private void Picture_frequence_MouseDown(object sender, MouseEventArgs e)
                 {
                     frequence_arg = e;
                     timer3.Enabled = true;
@@ -551,7 +562,41 @@ namespace WindowsFormsApplication1
 
 
         //Крутилка фиксированных частот и плавных поддиапазовнов
-        private void Main_rull_MouseClick(object sender, MouseEventArgs e)
+      private void Auto_(object sender, MouseEventArgs e, int value, int value_2)
+        {
+       
+            while (frenquence_rull_deg != value)
+            {
+                if (frenquence_rull_deg <= value)
+                {
+                    flag_auto = 1;
+                }
+                else
+                {
+                    flag_auto = 2;
+                }
+                   
+                timer3_Tick(sender, e);
+                System.Threading.Thread.Sleep(50);
+            }
+
+
+            while (antenna_rull_deg!= value_2)
+            {
+                if (antenna_rull_deg <= value_2)
+                {
+                    flag_auto = 1;
+                }
+                else
+                {
+                    flag_auto = 2;
+                }
+                    
+                timer5_Tick(sender, e);
+                System.Threading.Thread.Sleep(50);
+            }
+        }
+    private void Main_rull_MouseClick(object sender, MouseEventArgs e)
 		{
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(111, 114);
@@ -579,12 +624,9 @@ namespace WindowsFormsApplication1
                         pictureBox4.Visible = false;
                         pictureBox5.Visible = false;
                         picture_Lamp_II.Visible = false;
-                        picture_Lamp_I.Visible = false;
-                        if (progressBar1.Value < 7)
-                        {
-                            progressBar1.Increment(1);
-                        }
-                           
+                        picture_Lamp_I.Visible = false;      
+                        Auto_(sender, e,420,100);
+
                         break;
                     }
                 case 1:
