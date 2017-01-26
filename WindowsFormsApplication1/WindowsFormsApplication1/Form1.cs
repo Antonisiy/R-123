@@ -23,7 +23,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        int main_rull_deg = 0, volume_rull_deg = 0,
+        int main_rull_deg = -60, volume_rull_deg = 0,
               corrector_rull_deg = 0, antenna_rull_deg = 0,
               voltage_control_rull_deg = 0, shum_rull_deg = 0, frenquence_rull_deg = 0;
 
@@ -34,7 +34,7 @@ namespace WindowsFormsApplication1
             fiks_antenna= null;
 
 
-		bool flag = true, flag_2 = true, flag_3 = true;
+		bool flag = false, flag_2 = false, flag_3 = true;
         PointF a = new PointF(0, -111);
         //Рисуем круг
         private void Draw_circle(Image image, PictureBox box)
@@ -259,12 +259,16 @@ namespace WindowsFormsApplication1
 			}
 			else
 			{
-				if (shum_rull_deg > 0)
+				if (shum_rull_deg > -60)
 				{
 					shum_rull_deg -= 15;
 				}
 			}
 
+            if ((shum_rull_deg == -60)&&(progressBar1.Value<2))
+            {
+                progressBar1.Increment(1);
+            }
 			mymatrix.RotateAt(shum_rull_deg, center_picture);
 			Graphics g = Picture_shum.CreateGraphics();
 			g.Transform = mymatrix;
@@ -348,6 +352,10 @@ namespace WindowsFormsApplication1
                 }
             }
 
+            if ((volume_rull_deg == 360)&&(progressBar1.Value < 6))
+            {
+                progressBar1.Increment(1);
+            }
             mymatrix.RotateAt(volume_rull_deg, center_picture);
             Graphics g = Volume_rull.CreateGraphics();
 
@@ -366,31 +374,35 @@ namespace WindowsFormsApplication1
                     Image img = Properties.Resources.vkl_2;
                     pictrure_shcala.Image = img;
                     flag = false;
-                }
+                    progressBar1.Increment(-1);
+            }
                 else
                 {
                     Image img = Properties.Resources.vkl_1;
                     pictrure_shcala.Image = img;
                     flag = true;
-                }
-                new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+                    progressBar1.Increment(1);
+            }
+     
+            new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             }
                 //Питание вкл/выкл
                 private void picture_power_MouseClick(object sender, MouseEventArgs e)
     {
-        if(flag_2)
+        if(!flag_2)
         {
             Image img = Properties.Resources.vkl_1;
             picture_power.Image = img;
-            flag_2 = false;
-        }
+            flag_2 = true;
+            progressBar1.Increment(1);
+            }
         else
         {
             Image img = Properties.Resources.vkl_2;
             picture_power.Image = img;
-            flag_2 = true;
-        }
-           
+            flag_2 = false;
+                progressBar1.Increment(-1);
+            }
         new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
     }
 
@@ -418,7 +430,7 @@ namespace WindowsFormsApplication1
 			f.Show();
 		}
 
-		private void Picture_frequence_MouseDown(object sender, MouseEventArgs e)
+        private void Picture_frequence_MouseDown(object sender, MouseEventArgs e)
                 {
                     frequence_arg = e;
                     timer3.Enabled = true;
@@ -476,7 +488,14 @@ namespace WindowsFormsApplication1
                     new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
                 }
             }
-
+            if ((corrector_rull_deg == 25)&&(progressBar1.Value < 1))
+            {
+                progressBar1.Increment(1);
+            }
+            else
+            {
+                progressBar1.Increment(-1);
+            }
             mymatrix.RotateAt(corrector_rull_deg, center_picture);
             Graphics g = Corrector.CreateGraphics();
             g.Transform = mymatrix;
@@ -513,7 +532,15 @@ namespace WindowsFormsApplication1
 			if (voltage_control_rull_deg == 360 || voltage_control_rull_deg == -360)
 				voltage_control_rull_deg = 0;
 
-			mymatrix.RotateAt(voltage_control_rull_deg, center_picture);
+            if (((voltage_control_rull_deg / 30 == -11)||(voltage_control_rull_deg / 30 == 1)) && (progressBar1.Value < 3))
+            {
+                progressBar1.Increment(1);
+            }
+            else if (progressBar1.Value > 3)
+            {
+                progressBar1.Increment(-1);
+            }
+            mymatrix.RotateAt(voltage_control_rull_deg, center_picture);
 			Graphics g = voltage_control_rull.CreateGraphics();
 			g.Transform = mymatrix;
 			g.DrawImage(voltage_control_rull.Image, 0, 0);
@@ -537,27 +564,151 @@ namespace WindowsFormsApplication1
             if (main_rull_deg == 360 || main_rull_deg == -360)
                 main_rull_deg = 0;
 
-            mymatrix.RotateAt(main_rull_deg, center_picture);
+            mymatrix.RotateAt(main_rull_deg+60, center_picture);
             Graphics g = Main_rull.CreateGraphics();
             g.Transform = mymatrix;
             g.DrawImage(Main_rull.Image, 0, 0);
 
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-            if (main_rull_deg / 60 == 4 || main_rull_deg / 60 == -2)
+            switch (main_rull_deg / 60)
             {
-                picture_Lamp_II.Visible = true;
-                picture_Lamp_I.Visible = false;
-            }
-            else
-                if (main_rull_deg / 60 == 5 || main_rull_deg / 60 == -1)
-            {
-                picture_Lamp_II.Visible = false;
-                picture_Lamp_I.Visible = true;
-            }
-            else
-            {
-                picture_Lamp_II.Visible = false;
-                picture_Lamp_I.Visible = false;
+                case 0:
+                    {
+                        pictureBox2.Visible = true;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = false;
+                        pictureBox5.Visible = false;
+                        picture_Lamp_II.Visible = false;
+                        picture_Lamp_I.Visible = false;
+                        if (progressBar1.Value < 7)
+                        {
+                            progressBar1.Increment(1);
+                        }
+                           
+                        break;
+                    }
+                case 1:
+                    {
+                        pictureBox2.Visible = false;
+                        pictureBox3.Visible = true;
+                        pictureBox4.Visible = false;
+                        pictureBox5.Visible = false;
+                        picture_Lamp_II.Visible = false;
+                        picture_Lamp_I.Visible = false;
+                        break;
+                    }
+                case 2:
+                    {
+                        pictureBox2.Visible = false;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = true;
+                        pictureBox5.Visible = false;
+                        picture_Lamp_II.Visible = false;
+                        picture_Lamp_I.Visible = false;
+                        break;
+                    }
+                case 3:
+                    {
+                        pictureBox2.Visible = false;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = false;
+                        pictureBox5.Visible = true;
+                        picture_Lamp_II.Visible = false;
+                        picture_Lamp_I.Visible = false;
+                        break;
+                    }
+                case 4:
+                    {
+                        pictureBox2.Visible = false;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = false;
+                        pictureBox5.Visible = false;
+                        picture_Lamp_I.Visible = false;
+                        picture_Lamp_II.Visible = true;
+                        break;
+                    }
+                case 5:
+                    {
+                        pictureBox2.Visible = false;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = false;
+                        pictureBox5.Visible = false;
+                        picture_Lamp_II.Visible = false;
+                        picture_Lamp_I.Visible = true;
+                        break;
+                    }
+                case 6:
+                    {
+                        pictureBox2.Visible = true;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = false;
+                        pictureBox5.Visible = false;
+                        picture_Lamp_II.Visible = false;
+                        picture_Lamp_I.Visible = false;
+                        break;
+                    }
+                case -1:
+                    {
+                        pictureBox2.Visible = false;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = false;
+                        pictureBox5.Visible = false;
+                        picture_Lamp_II.Visible = false;
+                        picture_Lamp_I.Visible = true;
+                        break;
+                    }
+                case -2:
+                    {
+                        pictureBox2.Visible = false;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = false;
+                        pictureBox5.Visible = false;
+                        picture_Lamp_I.Visible = false;
+                        picture_Lamp_II.Visible = true;
+                        break;
+                    }
+                case -3:
+                    {
+                        pictureBox2.Visible = false;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = false;
+                        pictureBox5.Visible = true;
+                        picture_Lamp_II.Visible = false;
+                        picture_Lamp_I.Visible = false;
+                        break;
+                    }
+                case -4:
+                    {
+                        pictureBox2.Visible = false;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = true;
+                        pictureBox5.Visible = false;
+                        picture_Lamp_II.Visible = false;
+                        picture_Lamp_I.Visible = false;
+                        break;
+                    }
+                case -5:
+                    {
+                        pictureBox2.Visible = false;
+                        pictureBox3.Visible = true;
+                        pictureBox4.Visible = false;
+                        pictureBox5.Visible = false;
+                        picture_Lamp_II.Visible = false;
+                        picture_Lamp_I.Visible = false;
+                        break;
+                    }
+                case -6:
+                    {
+                        pictureBox2.Visible = true;
+                        pictureBox3.Visible = false;
+                        pictureBox4.Visible = false;
+                        pictureBox5.Visible = false;
+                        picture_Lamp_II.Visible = false;
+                        picture_Lamp_I.Visible = false;
+                        break;
+                    }
+                default:
+                    break;
             }
         }
 
