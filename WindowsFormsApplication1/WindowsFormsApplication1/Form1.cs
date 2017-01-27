@@ -23,9 +23,10 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
+        
         int main_rull_deg = -60, volume_rull_deg = 0,
               corrector_rull_deg = 0, antenna_rull_deg = 0,
-              voltage_control_rull_deg = 0, shum_rull_deg = 0, frenquence_rull_deg = 0;
+              voltage_control_rull_deg = 0, shum_rull_deg = 0, frenquence_rull_deg = 785;
 
         int flag_auto;
 
@@ -36,8 +37,8 @@ namespace WindowsFormsApplication1
             fiks_antenna= null;
 
 
-        bool flag = false, flag_2 = false;
-  
+        bool flag = false, flag_2 = false, flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true, draw_flag = true;
+        int value_fr = 0;
         PointF a = new PointF(0, -111);
         //Рисуем круг
         private void Draw_circle(Image image, PictureBox box)
@@ -47,6 +48,7 @@ namespace WindowsFormsApplication1
             Region rgn = new Region(path);
             box.Region = rgn;
             box.BackColor = System.Drawing.SystemColors.ActiveCaption;
+
         }
 
 
@@ -72,7 +74,10 @@ namespace WindowsFormsApplication1
             Draw_circle(Picture_shum.Image, Picture_shum);
 
             Draw_circle(Picture_frequence.Image, Picture_frequence);
-            frenquence_label.Text = frenquence_rull_deg.ToString();
+
+
+            frenquence_label.Text = "357";
+            frenquence_label_2.Text = "515";
 
             Draw_circle(picture_lamp_fr.Image, picture_lamp_fr);
 
@@ -153,17 +158,17 @@ namespace WindowsFormsApplication1
                     //Правый угол переключатели
                     private void Right_Perek_1_MouseClick(object sender, MouseEventArgs e)
                     {
-                        if (flag_2)
+                        if (flag_perek_1)
                         {
-                            Image img = Properties.Resources.vkl_1;
+                            Image img = Properties.Resources.perek_I;
                             Right_Perek_1.Image = img;
-                            flag_2 = false;
+                            flag_perek_1 = false;
                         }
                         else
                         {
-                            Image img = Properties.Resources.vkl_2;
+                            Image img = Properties.Resources.perek_II;
                             Right_Perek_1.Image = img;
-                            flag_2 = true;
+                            flag_perek_1 = true;
                         }
 
                         new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -171,17 +176,17 @@ namespace WindowsFormsApplication1
 
                     private void Right_Perek_2_MouseClick(object sender, MouseEventArgs e)
                     {
-                        if (flag_2)
+                        if (flag_perek_2)
                         {
-                            Image img = Properties.Resources.vkl_1;
+                            Image img = Properties.Resources.perek_I;
                             Right_Perek_2.Image = img;
-                            flag_2 = false;
+                            flag_perek_2 = false;
                         }
                         else
                         {
-                            Image img = Properties.Resources.vkl_2;
+                            Image img = Properties.Resources.perek_II;
                             Right_Perek_2.Image = img;
-                            flag_2 = true;
+                            flag_perek_2 = true;
                         }
 
                         new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -189,17 +194,17 @@ namespace WindowsFormsApplication1
 
                     private void Right_Perek_3_MouseClick(object sender, MouseEventArgs e)
                     {
-                        if (flag_2)
+                        if (flag_perek_3)
                         {
-                            Image img = Properties.Resources.vkl_1;
+                            Image img = Properties.Resources.perek_I;
                             Right_Perek_3.Image = img;
-                            flag_2 = false;
+                            flag_perek_3 = false;
                         }
                         else
                         {
-                            Image img = Properties.Resources.vkl_2;
+                            Image img = Properties.Resources.perek_II;
                             Right_Perek_3.Image = img;
-                            flag_2 = true;
+                            flag_perek_3 = true;
                         }
 
                         new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -207,17 +212,17 @@ namespace WindowsFormsApplication1
 
                     private void Right_Perek_4_MouseClick(object sender, MouseEventArgs e)
                     {
-                        if (flag_2)
+                        if (flag_perek_4)
                         {
-                            Image img = Properties.Resources.vkl_1;
+                            Image img = Properties.Resources.perek_I;
                             Right_Perek_4.Image = img;
-                            flag_2 = false;
+                            flag_perek_4 = false;
                         }
                         else
                         {
-                            Image img = Properties.Resources.vkl_2;
+                            Image img = Properties.Resources.perek_II;
                             Right_Perek_4.Image = img;
-                            flag_2 = true;
+                            flag_perek_4 = true;
                         }
 
                         new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -234,18 +239,19 @@ namespace WindowsFormsApplication1
 
             if ((flag_auto==1) || ((antenna_arg.Button == MouseButtons.Left) && (flag_auto == 0)))
             {
-                if (frenquence_rull_deg < 1440)
+                if (antenna_rull_deg < 1440)
                 {
                     antenna_rull_deg += 10;
                 }  
             }
             else
             {
-                if (frenquence_rull_deg > -720)
+                if (antenna_rull_deg > -720)
                 {
                     antenna_rull_deg -= 10;
                 }
             }
+
             mymatrix.RotateAt(antenna_rull_deg, center_picture);
             Graphics g = picture_antenna.CreateGraphics();
 
@@ -253,6 +259,7 @@ namespace WindowsFormsApplication1
             g.DrawImage(picture_antenna.Image, 0, 0);
 
             PictureBox Picture_temp = picture_lamp_fr;
+            picture_lamp_fr.Visible = true;
 
             switch (antenna_rull_deg)
             {
@@ -308,7 +315,7 @@ namespace WindowsFormsApplication1
 			g.Transform = mymatrix;
 			g.DrawImage(Picture_shum.Image, 0, 0);
 		}
-
+    
 	    private void timer3_Tick(object sender, EventArgs e)
 		{
 			Draw_circle(Picture_frequence.Image, Picture_frequence);
@@ -316,34 +323,35 @@ namespace WindowsFormsApplication1
 			PointF center_picture = new PointF(Picture_frequence.Image.Width / 2, Picture_frequence.Image.Height / 2);
 
 
-			if ((flag_auto==1)||((frequence_arg.Button == MouseButtons.Left)&&(flag_auto == 0))) //определиние какая клавиша мыши была нажата
-			{
-				if (frenquence_rull_deg < 720)
-				{
-					frenquence_rull_deg += 15;
-				}
-			}
-			else
-			{
-				if (frenquence_rull_deg > 0)
-				{
-					frenquence_rull_deg -= 15;
-				}
-			}
+            if ((flag_auto == 1) || ((frequence_arg.Button == MouseButtons.Left) && (flag_auto == 0))) //определиние какая клавиша мыши была нажата
+            {
+                if (frenquence_rull_deg > 0)
+                {
+                    frenquence_rull_deg -= 5;
+                }
+            }
+            else
+            {
+                if (frenquence_rull_deg < 785)
+                {
+                    frenquence_rull_deg += 5;
+                }
 
-			mymatrix.RotateAt(frenquence_rull_deg, center_picture);
+            }
+
+            mymatrix.RotateAt(frenquence_rull_deg*(-1), center_picture);
 			Graphics g = Picture_frequence.CreateGraphics();
 			g.Transform = mymatrix;
 			g.DrawImage(Picture_frequence.Image, 0, 0);
+            value_fr = (frenquence_rull_deg / 5) + 200;
+            frenquence_label.Text = value_fr.ToString();
+            value_fr = (frenquence_rull_deg / 5) + 358;
+            frenquence_label_2.Text = value_fr.ToString();
 
-			frenquence_label.Text = frenquence_rull_deg.ToString();
-			picture_lamp_fr.Visible = true;
 
-			
-
-
-			Picture_frequence_table(frenquence_rull_deg / 2);
+            Picture_frequence_table((frenquence_rull_deg / 2)*(-1));
             flag_auto = 0;
+            draw_flag = false;
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -424,8 +432,44 @@ namespace WindowsFormsApplication1
 
 
 
-                //Крутилка частот
-                private void Picture_frequence_table(float frenquence_table_deg)
+
+        //Крутилка частот
+
+        private void Rotate(object sender, EventArgs e)
+        {
+
+            Draw_circle(Picture_frequence.Image, Picture_frequence);
+            System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+            PointF center_picture = new PointF(Picture_frequence.Image.Width / 2, Picture_frequence.Image.Height / 2);
+
+            mymatrix.RotateAt(-785, center_picture);
+            Graphics g = Picture_frequence.CreateGraphics();
+            g.Transform = mymatrix;
+            g.DrawImage(Picture_frequence.Image, 0, 0);
+
+
+            Draw_circle(frenquence_table.Image, frenquence_table);
+            System.Drawing.Drawing2D.Matrix mymatrix_2 = new System.Drawing.Drawing2D.Matrix();
+            PointF center_picture_2 = new PointF(frenquence_table.Image.Width / 2, frenquence_table.Image.Height / 2);
+
+            mymatrix.RotateAt(-392.5f, center_picture);
+            Graphics g_2 = frenquence_table.CreateGraphics();
+            g_2.Transform = mymatrix_2;
+            g_2.DrawImage(frenquence_table.Image, 0, 0);
+        }
+
+        private void Picture_frequence_Paint(object sender, PaintEventArgs e)
+        {
+            Rotate(sender, e);
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            if (draw_flag)
+            Rotate(sender, e);
+        }
+
+        private void Picture_frequence_table(float frenquence_table_deg)
                 {
                     Draw_circle(frenquence_table.Image, frenquence_table);
                     System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -569,9 +613,9 @@ namespace WindowsFormsApplication1
       private void Auto_(object sender, MouseEventArgs e, int value, int value_2)
         {
        
-            while (frenquence_rull_deg != value)
+            while (((frenquence_rull_deg/5)+200) != value)
             {
-                if (frenquence_rull_deg <= value)
+                if (((frenquence_rull_deg / 5) + 200) >= value)
                 {
                     flag_auto = 1;
                 }
@@ -629,7 +673,7 @@ namespace WindowsFormsApplication1
                         pictureBox5.Visible = false;
                         picture_Lamp_II.Visible = false;
                         picture_Lamp_I.Visible = false;      
-                        Auto_(sender, e,420,100);
+                        Auto_(sender, e,232,1000);
 
                         break;
                     }
