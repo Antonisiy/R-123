@@ -251,6 +251,30 @@ namespace WindowsFormsApplication1
 
             g.Transform = mymatrix;
             g.DrawImage(picture_antenna.Image, 0, 0);
+
+            PictureBox Picture_temp = picture_lamp_fr;
+
+            switch (antenna_rull_deg)
+            {
+                case 15:
+                    Brightness_Picture(Picture_temp, (float)0.5);
+                    break;
+                case 105:
+                    Brightness_Picture(Picture_temp, (float)0.75);
+                    break;
+                case 210:
+                    Brightness_Picture(Picture_temp, (float)1.25);
+                    break;
+                case 315:
+                    Brightness_Picture(Picture_temp, (float)1.5);
+                    break;
+                case 420:
+                    Brightness_Picture(Picture_temp, (float)1.9);
+                    break;
+                default:
+                    break;
+            }
+
             flag_auto = 0;
         }
 
@@ -315,28 +339,8 @@ namespace WindowsFormsApplication1
 			frenquence_label.Text = frenquence_rull_deg.ToString();
 			picture_lamp_fr.Visible = true;
 
-			PictureBox Picture_temp = picture_lamp_fr;
+			
 
-			switch (frenquence_rull_deg)
-			{
-				case 15:
-					Brightness_Picture(Picture_temp, (float)0.5);
-					break;
-				case 105:
-					Brightness_Picture(Picture_temp, (float)0.75);
-					break;
-				case 210:
-					Brightness_Picture(Picture_temp, (float)1.25);
-					break;
-				case 315:
-					Brightness_Picture(Picture_temp, (float)1.5);
-					break;
-				case 420:
-					Brightness_Picture(Picture_temp, (float)1.9);
-					break;
-				default:
-					break;
-			}
 
 			Picture_frequence_table(frenquence_rull_deg / 2);
             flag_auto = 0;
@@ -577,7 +581,7 @@ namespace WindowsFormsApplication1
                 }
                    
                 timer3_Tick(sender, e);
-                System.Threading.Thread.Sleep(50);
+                System.Threading.Thread.Sleep(30);
             }
 
 
@@ -593,7 +597,7 @@ namespace WindowsFormsApplication1
                 }
                     
                 timer5_Tick(sender, e);
-                System.Threading.Thread.Sleep(50);
+                System.Threading.Thread.Sleep(30);
             }
         }
     private void Main_rull_MouseClick(object sender, MouseEventArgs e)
