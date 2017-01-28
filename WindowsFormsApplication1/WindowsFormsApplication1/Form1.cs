@@ -34,8 +34,9 @@ namespace WindowsFormsApplication1
 			frequence_arg = null,
 			shum_arg = null,
 			antenna_arg = null,
-            fiks_antenna= null;
+			fiks_antenna = null;
 
+		int[] arr = new int[20]; // Массив флагов
 
         bool flag = false, flag_2 = false, flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true, draw_flag = true;
         int value_fr = 0;
@@ -83,6 +84,9 @@ namespace WindowsFormsApplication1
 
             //Draw_circle(picture_fiks_anten.Image, picture_fiks_anten);
 
+			for (int i = 0; i < 20; i++)
+				arr[i] = 0;
+			arr[0] = 1;
         }
 
 
@@ -306,7 +310,7 @@ namespace WindowsFormsApplication1
 				}
 			}
 
-            if ((shum_rull_deg == -60)&&(progressBar1.Value<2))
+			if ((shum_rull_deg == -60) && (progressBar1.Value < 2))
             {
                 progressBar1.Increment(1);
             }
@@ -314,8 +318,17 @@ namespace WindowsFormsApplication1
 			Graphics g = Picture_shum.CreateGraphics();
 			g.Transform = mymatrix;
 			g.DrawImage(Picture_shum.Image, 0, 0);
+
+			if(shum_rull_deg == -60 && arr[1] == 1)
+			{
+				arr[2] = 1;
 		}
-    
+			else
+			{
+				arr[2] = 0;
+			}
+		}
+
 	    private void timer3_Tick(object sender, EventArgs e)
 		{
 			Draw_circle(Picture_frequence.Image, Picture_frequence);
@@ -324,20 +337,20 @@ namespace WindowsFormsApplication1
 
 
             if ((flag_auto == 1) || ((frequence_arg.Button == MouseButtons.Left) && (flag_auto == 0))) //определиние какая клавиша мыши была нажата
-            {
+			{
                 if (frenquence_rull_deg > 0)
-                {
+				{
                     frenquence_rull_deg -= 5;
-                }
-            }
-            else
-            {
+				}
+			}
+			else
+			{
                 if (frenquence_rull_deg < 785)
-                {
+				{
                     frenquence_rull_deg += 5;
-                }
+				}
 
-            }
+			}
 
             mymatrix.RotateAt(frenquence_rull_deg*(-1), center_picture);
 			Graphics g = Picture_frequence.CreateGraphics();
@@ -375,7 +388,7 @@ namespace WindowsFormsApplication1
                 }
             }
 
-            if ((volume_rull_deg == 360)&&(progressBar1.Value < 6))
+			if ((volume_rull_deg == 360) && (progressBar1.Value < 6))
             {
                 progressBar1.Increment(1);
             }
@@ -412,7 +425,7 @@ namespace WindowsFormsApplication1
                 //Питание вкл/выкл
                 private void picture_power_MouseClick(object sender, MouseEventArgs e)
     {
-        if(!flag_2)
+			if (!flag_2)
         {
             Image img = Properties.Resources.vkl_1;
             picture_power.Image = img;
@@ -433,7 +446,7 @@ namespace WindowsFormsApplication1
 
 
 
-        //Крутилка частот
+                //Крутилка частот
 
         private void Rotate(object sender, EventArgs e)
         {
@@ -469,7 +482,7 @@ namespace WindowsFormsApplication1
             Rotate(sender, e);
         }
 
-        private void Picture_frequence_table(float frenquence_table_deg)
+                private void Picture_frequence_table(float frenquence_table_deg)
                 {
                     Draw_circle(frenquence_table.Image, frenquence_table);
                     System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -485,7 +498,7 @@ namespace WindowsFormsApplication1
 
 		private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Form2 f = new Form2();
+			Form2 f = new Form2(arr);
 			f.Show();
 		}
 
@@ -547,7 +560,7 @@ namespace WindowsFormsApplication1
                     new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
                 }
             }
-            if ((corrector_rull_deg == 25)&&(progressBar1.Value < 1))
+			if ((corrector_rull_deg == 25) && (progressBar1.Value < 1))
             {
                 progressBar1.Increment(1);
             }
@@ -559,6 +572,14 @@ namespace WindowsFormsApplication1
             Graphics g = Corrector.CreateGraphics();
             g.Transform = mymatrix;
             g.DrawImage(Corrector.Image, 0, 0);
+			if (corrector_rull_deg == 25)
+			{
+				arr[1] = 1;
+			}
+			else
+			{
+				arr[1] = 0;
+			}
         }
 
 
@@ -591,7 +612,7 @@ namespace WindowsFormsApplication1
 			if (voltage_control_rull_deg == 360 || voltage_control_rull_deg == -360)
 				voltage_control_rull_deg = 0;
 
-            if (((voltage_control_rull_deg / 30 == -11)||(voltage_control_rull_deg / 30 == 1)) && (progressBar1.Value < 3))
+			if (((voltage_control_rull_deg / 30 == -11) || (voltage_control_rull_deg / 30 == 1)) && (progressBar1.Value < 3))
             {
                 progressBar1.Increment(1);
             }
@@ -657,7 +678,7 @@ namespace WindowsFormsApplication1
             if (main_rull_deg == 360 || main_rull_deg == -360)
                 main_rull_deg = 0;
 
-            mymatrix.RotateAt(main_rull_deg+60, center_picture);
+			mymatrix.RotateAt(main_rull_deg + 60, center_picture);
             Graphics g = Main_rull.CreateGraphics();
             g.Transform = mymatrix;
             g.DrawImage(Main_rull.Image, 0, 0);
