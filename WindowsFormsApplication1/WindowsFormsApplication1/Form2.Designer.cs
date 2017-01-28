@@ -29,17 +29,19 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-			this.label1 = new System.Windows.Forms.Label();
+			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.SuspendLayout();
 			// 
-			// label1
+			// richTextBox1
 			// 
-			this.label1.Location = new System.Drawing.Point(32, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(579, 462);
-			this.label1.TabIndex = 46;
-			this.label1.Text = resources.GetString("label1.Text");
-			this.label1.Visible = false;
+			this.richTextBox1.AcceptsTab = true;
+			this.richTextBox1.Location = new System.Drawing.Point(3, 8);
+			this.richTextBox1.Name = "richTextBox1";
+			this.richTextBox1.ReadOnly = true;
+			this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+			this.richTextBox1.Size = new System.Drawing.Size(647, 382);
+			this.richTextBox1.TabIndex = 0;
+			this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
 			// 
 			// Form2
 			// 
@@ -47,7 +49,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.ClientSize = new System.Drawing.Size(662, 402);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.richTextBox1);
 			this.Name = "Form2";
 			this.Text = "Form2";
 			this.Load += new System.EventHandler(this.Form2_Load);
@@ -57,6 +59,6 @@
 
 		#endregion
 
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.RichTextBox richTextBox1;
 	}
 }

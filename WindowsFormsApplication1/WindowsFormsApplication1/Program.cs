@@ -8,10 +8,11 @@ namespace WindowsFormsApplication1
 {
     static class Program
     {
-        /// <summary>
-        /// Главная точка входа для приложения.
-        /// </summary>
-        [STAThread]
+		static public bool[] arr = new bool[20];
+		/// <summary>
+		/// Главная точка входа для приложения.
+		/// </summary>
+		[STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
