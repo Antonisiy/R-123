@@ -47,7 +47,6 @@
             this.Right_Perek_3 = new System.Windows.Forms.PictureBox();
             this.Right_Perek_2 = new System.Windows.Forms.PictureBox();
             this.Right_Perek_1 = new System.Windows.Forms.PictureBox();
-            this.picture_fiks_anten = new System.Windows.Forms.PictureBox();
             this.button_pic = new System.Windows.Forms.PictureBox();
             this.picture_power = new System.Windows.Forms.PictureBox();
             this.pictrure_shcala = new System.Windows.Forms.PictureBox();
@@ -73,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_fiks_anten)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_power)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).BeginInit();
@@ -175,13 +173,13 @@
             // нАчатьToolStripMenuItem
             // 
             this.нАчатьToolStripMenuItem.Name = "нАчатьToolStripMenuItem";
-            this.нАчатьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.нАчатьToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.нАчатьToolStripMenuItem.Text = "НАчать";
             // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.справкаToolStripMenuItem.Text = "Справка";
             this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
             // 
@@ -241,18 +239,6 @@
             this.Right_Perek_1.TabIndex = 47;
             this.Right_Perek_1.TabStop = false;
             this.Right_Perek_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Right_Perek_1_MouseClick);
-            // 
-            // picture_fiks_anten
-            // 
-            this.picture_fiks_anten.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picture_fiks_anten.Image = global::WindowsFormsApplication1.Properties.Resources.fiks_antenn;
-            this.picture_fiks_anten.Location = new System.Drawing.Point(820, 217);
-            this.picture_fiks_anten.Name = "picture_fiks_anten";
-            this.picture_fiks_anten.Size = new System.Drawing.Size(81, 81);
-            this.picture_fiks_anten.TabIndex = 46;
-            this.picture_fiks_anten.TabStop = false;
-            this.picture_fiks_anten.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picture_fiks_anten_MouseDown);
-            this.picture_fiks_anten.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picture_fiks_anten_MouseUp);
             // 
             // button_pic
             // 
@@ -478,15 +464,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(330, 699);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(649, 31);
-            this.progressBar1.Step = 5;
-            this.progressBar1.TabIndex = 54;
-            this.progressBar1.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,7 +476,6 @@
             this.Controls.Add(this.Right_Perek_3);
             this.Controls.Add(this.Right_Perek_2);
             this.Controls.Add(this.Right_Perek_1);
-            this.Controls.Add(this.picture_fiks_anten);
             this.Controls.Add(this.label_poddiapazon);
             this.Controls.Add(this.button_pic);
             this.Controls.Add(this.picture_power);
@@ -534,7 +510,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_fiks_anten)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_pic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_power)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).EndInit();
@@ -589,7 +564,6 @@
 		private System.Windows.Forms.Timer timer4;
 		private System.Windows.Forms.Timer timer5;
         private System.Windows.Forms.Label label_poddiapazon;
-        private System.Windows.Forms.PictureBox picture_fiks_anten;
         private System.Windows.Forms.Timer timer6;
         private System.Windows.Forms.PictureBox Right_Perek_1;
         private System.Windows.Forms.PictureBox Right_Perek_2;
