@@ -36,8 +36,8 @@ namespace WindowsFormsApplication1
 			fiks_antenna = null;
 
 		int[] arr = new int[20]; // Массив флагов
-
-        bool flag = false, flag_2 = false;
+		int[] configuration_steps = new int[5]; // Массив флагов отвечающих за этапы настройки
+		bool flag = false, flag_2 = false;
   
         PointF a = new PointF(0, -111);
         //Рисуем круг
@@ -49,7 +49,6 @@ namespace WindowsFormsApplication1
             box.Region = rgn;
             box.BackColor = System.Drawing.SystemColors.ActiveCaption;
         }
-
 
         //
         private void Form1_Load(object sender, EventArgs e)
@@ -82,8 +81,9 @@ namespace WindowsFormsApplication1
 			for (int i = 0; i < 20; i++)
 				arr[i] = 0;
 			arr[0] = 1;
+			for (int i = 0; i < 5; i++)
+				configuration_steps[i] = 0;
         }
-
 
        //Рисуем маленький круг
         private void Draw_mini_circle(PictureBox box)
@@ -100,8 +100,6 @@ namespace WindowsFormsApplication1
         {
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
         }
-
-
 
         //Яркость лампы
         private void Brightness_Picture(PictureBox Picture, float brightness)
@@ -135,9 +133,6 @@ namespace WindowsFormsApplication1
 
             Picture.Image = image;
         }
-
-        
-
 
         //Крутилка шумов
 		private void Picture_shum_MouseDown(object sender, MouseEventArgs e)
