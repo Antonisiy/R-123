@@ -12,7 +12,7 @@ namespace WindowsFormsApplication1
 {
 	public partial class Form2 : Form
 	{
-		int[] arr = new int[18];
+		int[] arr = new int[44];
 		public Form2(int[] arr1)
 		{
 			arr = arr1;
@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
 
 		private void Form2_Load(object sender, EventArgs e)
 		{
-			for (int i = 0; i < 18; i++)
+			for (int i = 0; i < 44; i++)
 			{
 				change_status(i + 1, arr[i]);
 			}
