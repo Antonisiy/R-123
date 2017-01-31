@@ -42,11 +42,11 @@
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.нАчатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.Right_Perek_4 = new System.Windows.Forms.PictureBox();
             this.Right_Perek_3 = new System.Windows.Forms.PictureBox();
             this.Right_Perek_2 = new System.Windows.Forms.PictureBox();
             this.Right_Perek_1 = new System.Windows.Forms.PictureBox();
-            this.picture_fiks_anten = new System.Windows.Forms.PictureBox();
             this.button_pic = new System.Windows.Forms.PictureBox();
             this.picture_power = new System.Windows.Forms.PictureBox();
             this.pictrure_shcala = new System.Windows.Forms.PictureBox();
@@ -67,13 +67,11 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_fiks_anten)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_power)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).BeginInit();
@@ -175,22 +173,31 @@
             // нАчатьToolStripMenuItem
             // 
             this.нАчатьToolStripMenuItem.Name = "нАчатьToolStripMenuItem";
-            this.нАчатьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.нАчатьToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.нАчатьToolStripMenuItem.Text = "НАчать";
             // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.справкаToolStripMenuItem.Text = "Справка";
             this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(330, 699);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(649, 31);
+            this.progressBar1.Step = 5;
+            this.progressBar1.TabIndex = 54;
+            this.progressBar1.Visible = false;
             // 
             // Right_Perek_4
             // 
             this.Right_Perek_4.BackColor = System.Drawing.Color.Transparent;
             this.Right_Perek_4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Right_Perek_4.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_2;
-            this.Right_Perek_4.Location = new System.Drawing.Point(1152, 193);
+            this.Right_Perek_4.Image = global::WindowsFormsApplication1.Properties.Resources.perek_II;
+            this.Right_Perek_4.Location = new System.Drawing.Point(1152, 191);
             this.Right_Perek_4.Name = "Right_Perek_4";
             this.Right_Perek_4.Size = new System.Drawing.Size(32, 39);
             this.Right_Perek_4.TabIndex = 50;
@@ -201,7 +208,7 @@
             // 
             this.Right_Perek_3.BackColor = System.Drawing.Color.Transparent;
             this.Right_Perek_3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Right_Perek_3.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_2;
+            this.Right_Perek_3.Image = global::WindowsFormsApplication1.Properties.Resources.perek_II;
             this.Right_Perek_3.Location = new System.Drawing.Point(1112, 193);
             this.Right_Perek_3.Name = "Right_Perek_3";
             this.Right_Perek_3.Size = new System.Drawing.Size(32, 39);
@@ -213,7 +220,7 @@
             // 
             this.Right_Perek_2.BackColor = System.Drawing.Color.Transparent;
             this.Right_Perek_2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Right_Perek_2.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_2;
+            this.Right_Perek_2.Image = global::WindowsFormsApplication1.Properties.Resources.perek_II;
             this.Right_Perek_2.Location = new System.Drawing.Point(1074, 193);
             this.Right_Perek_2.Name = "Right_Perek_2";
             this.Right_Perek_2.Size = new System.Drawing.Size(32, 39);
@@ -225,25 +232,13 @@
             // 
             this.Right_Perek_1.BackColor = System.Drawing.Color.Transparent;
             this.Right_Perek_1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Right_Perek_1.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_2;
+            this.Right_Perek_1.Image = global::WindowsFormsApplication1.Properties.Resources.perek_II;
             this.Right_Perek_1.Location = new System.Drawing.Point(1034, 193);
             this.Right_Perek_1.Name = "Right_Perek_1";
             this.Right_Perek_1.Size = new System.Drawing.Size(32, 39);
             this.Right_Perek_1.TabIndex = 47;
             this.Right_Perek_1.TabStop = false;
             this.Right_Perek_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Right_Perek_1_MouseClick);
-            // 
-            // picture_fiks_anten
-            // 
-            this.picture_fiks_anten.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picture_fiks_anten.Image = global::WindowsFormsApplication1.Properties.Resources.fiks_antenn;
-            this.picture_fiks_anten.Location = new System.Drawing.Point(820, 217);
-            this.picture_fiks_anten.Name = "picture_fiks_anten";
-            this.picture_fiks_anten.Size = new System.Drawing.Size(81, 81);
-            this.picture_fiks_anten.TabIndex = 46;
-            this.picture_fiks_anten.TabStop = false;
-            this.picture_fiks_anten.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picture_fiks_anten_MouseDown);
-            this.picture_fiks_anten.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picture_fiks_anten_MouseUp);
             // 
             // button_pic
             // 
@@ -299,6 +294,7 @@
             this.Picture_frequence.Size = new System.Drawing.Size(105, 105);
             this.Picture_frequence.TabIndex = 38;
             this.Picture_frequence.TabStop = false;
+            this.Picture_frequence.Paint += new System.Windows.Forms.PaintEventHandler(this.Picture_frequence_Paint);
             this.Picture_frequence.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Picture_frequence_MouseDown);
             this.Picture_frequence.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Picture_frequence_MouseUp);
             // 
@@ -460,21 +456,13 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.R_123M;
             this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1280, 765);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(330, 699);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(649, 31);
-            this.progressBar1.Step = 5;
-            this.progressBar1.TabIndex = 54;
             // 
             // Form1
             // 
@@ -488,7 +476,6 @@
             this.Controls.Add(this.Right_Perek_3);
             this.Controls.Add(this.Right_Perek_2);
             this.Controls.Add(this.Right_Perek_1);
-            this.Controls.Add(this.picture_fiks_anten);
             this.Controls.Add(this.label_poddiapazon);
             this.Controls.Add(this.button_pic);
             this.Controls.Add(this.picture_power);
@@ -516,13 +503,13 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picture_fiks_anten)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_pic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_power)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).EndInit();
@@ -577,7 +564,6 @@
 		private System.Windows.Forms.Timer timer4;
 		private System.Windows.Forms.Timer timer5;
         private System.Windows.Forms.Label label_poddiapazon;
-        private System.Windows.Forms.PictureBox picture_fiks_anten;
         private System.Windows.Forms.Timer timer6;
         private System.Windows.Forms.PictureBox Right_Perek_1;
         private System.Windows.Forms.PictureBox Right_Perek_2;
