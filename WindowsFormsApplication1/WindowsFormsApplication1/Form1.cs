@@ -14,11 +14,11 @@ using System.Drawing.Imaging;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form1 : Form
+    public partial class Р123 : Form
     {
         private
             Timer timer1 = new Timer();
-        public Form1()
+        public Р123()
         {
             InitializeComponent();
         }
@@ -59,7 +59,7 @@ namespace WindowsFormsApplication1
             Image img = Properties.Resources.R_123M;
             this.BackgroundImage = new Bitmap(img);
             Open_Panel.Visible = true;
-            Image img_2 = Properties.Resources.rull_1;
+            Image img_2 = Properties.Resources.rull_I;
             Draw_circle(img_2, Main_rull);
 
             Draw_circle(Volume_rull.Image, Volume_rull);
@@ -233,7 +233,8 @@ namespace WindowsFormsApplication1
                     }
 
 
-
+        float LAMP = 1f;
+        const int best_antenna = 280;
         //Таймеры
         private void timer5_Tick(object sender, EventArgs e)
         {
@@ -246,45 +247,46 @@ namespace WindowsFormsApplication1
                 if (antenna_rull_deg < 1440)
                 {
                 antenna_rull_deg += 10;
-            }
+                }
+                if ((best_antenna - antenna_rull_deg > 0) && (antenna_rull_deg < 460))
+                {
+                    Brightness_Picture(picture_lamp_fr, 1.05f);
+                }
+                else if ((best_antenna - antenna_rull_deg < 0) && (antenna_rull_deg < 460))
+                {
+                    Brightness_Picture(picture_lamp_fr, 0.95f);
+                }
             }
             else
             {
                 if (antenna_rull_deg > -720)
                 {
                 antenna_rull_deg -= 10;
-            }
+                }
+                if((best_antenna - antenna_rull_deg > 0) && (antenna_rull_deg > 200))
+                {
+                    Brightness_Picture(picture_lamp_fr, 0.95f);
+                }
+                else if ((best_antenna - antenna_rull_deg < 0) && (antenna_rull_deg > 200))
+                {
+                    Brightness_Picture(picture_lamp_fr, 1.05f);
+                }
             }
 
             mymatrix.RotateAt(antenna_rull_deg, center_picture);
             Graphics g = picture_antenna.CreateGraphics();
-
+            picture_lamp_fr.Visible = true;
             g.Transform = mymatrix;
             g.DrawImage(picture_antenna.Image, 0, 0);
 
-            PictureBox Picture_temp = picture_lamp_fr;
-            picture_lamp_fr.Visible = true;
-
-            switch (antenna_rull_deg)
+            if (antenna_rull_deg == 500)
             {
-                case 15:
-                    Brightness_Picture(Picture_temp, (float)0.5);
-                    break;
-                case 105:
-                    Brightness_Picture(Picture_temp, (float)0.75);
-                    break;
-                case 210:
-                    Brightness_Picture(Picture_temp, (float)1.25);
-                    break;
-                case 315:
-                    Brightness_Picture(Picture_temp, (float)1.5);
-                    break;
-                case 420:
-                    Brightness_Picture(Picture_temp, (float)1.9);
-                    break;
-                default:
-                    break;
+                picture_lamp_fr.Image = Properties.Resources.power;
+               
             }
+          
+
+            //Brightness_Picture(picture_lamp_fr, LAMP);
 
             flag_auto = 0;
         }
