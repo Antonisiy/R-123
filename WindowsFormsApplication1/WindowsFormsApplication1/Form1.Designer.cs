@@ -66,7 +66,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+			this.timer7 = new System.Windows.Forms.Timer(this.components);
+			this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).BeginInit();
@@ -455,20 +456,27 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(-1, 730);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(10, 10);
-            this.progressBar1.Step = 5;
-            this.progressBar1.TabIndex = 54;
-            this.progressBar1.Visible = false;
-            // 
-            // Р123
+			// timer7
+			// 
+			this.timer7.Interval = 300;
+			this.timer7.Tick += new System.EventHandler(this.timer7_Tick);
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(511, 540);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(136, 30);
+			this.button1.TabIndex = 55;
+			this.button1.Text = "РАСФИКСИРОВАТЬ";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1279, 742);
+			this.Controls.Add(this.button1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.frenquence_label_2);
@@ -574,6 +582,8 @@
 		private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ProgressBar progressBar1;
+		private System.Windows.Forms.Timer timer7;
+		private System.Windows.Forms.Button button1;
     }
 }
 

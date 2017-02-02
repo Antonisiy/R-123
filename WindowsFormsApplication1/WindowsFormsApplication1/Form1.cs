@@ -36,9 +36,12 @@ namespace WindowsFormsApplication1
 			antenna_arg = null,
 			fiks_antenna = null;
 
-		int[] arr = new int[20]; // Массив флагов
+		int[] arr = new int[44]; // Массив флагов
+		int[] configuration_steps = new int[5];
 
-        bool flag = false, flag_2 = false, flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true, draw_flag = true;
+
+		bool flag = false, flag_2 = false, flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true, draw_flag = true,
+			fix = true;
         int value_fr = 0;
         PointF a = new PointF(0, -111);
         //Рисуем круг
@@ -51,7 +54,6 @@ namespace WindowsFormsApplication1
             box.BackColor = System.Drawing.SystemColors.ActiveCaption;
 
         }
-
 
         //
         private void Form1_Load(object sender, EventArgs e)
@@ -84,11 +86,13 @@ namespace WindowsFormsApplication1
 
             //Draw_circle(picture_fiks_anten.Image, picture_fiks_anten);
 
-			for (int i = 0; i < 20; i++)
+			for (int i = 0; i < 44; i++)
 				arr[i] = 0;
 			arr[0] = 1;
+			for (int i = 0; i < 5; i++)
+				configuration_steps[i] = 0;
+			timer7.Start();
         }
-
 
        //Рисуем маленький круг
         private void Draw_mini_circle(PictureBox box)
@@ -105,8 +109,6 @@ namespace WindowsFormsApplication1
         {
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
         }
-
-
 
         //Яркость лампы
         private void Brightness_Picture(PictureBox Picture, float brightness)
@@ -140,9 +142,6 @@ namespace WindowsFormsApplication1
 
             Picture.Image = image;
         }
-
-        
-
 
         //Крутилка шумов
 		private void Picture_shum_MouseDown(object sender, MouseEventArgs e)
@@ -247,11 +246,11 @@ namespace WindowsFormsApplication1
                 if (antenna_rull_deg < 1440)
                 {
                 antenna_rull_deg += 10;
-                }
+            }
                 if ((best_antenna - antenna_rull_deg > 0) && (antenna_rull_deg < 460))
                 {
                     Brightness_Picture(picture_lamp_fr, 1.05f);
-                }
+            }
                 else if ((best_antenna - antenna_rull_deg < 0) && (antenna_rull_deg < 460))
                 {
                     Brightness_Picture(picture_lamp_fr, 0.95f);
@@ -262,11 +261,11 @@ namespace WindowsFormsApplication1
                 if (antenna_rull_deg > -720)
                 {
                 antenna_rull_deg -= 10;
-                }
+            }
                 if((best_antenna - antenna_rull_deg > 0) && (antenna_rull_deg > 200))
                 {
                     Brightness_Picture(picture_lamp_fr, 0.95f);
-                }
+            }
                 else if ((best_antenna - antenna_rull_deg < 0) && (antenna_rull_deg > 200))
                 {
                     Brightness_Picture(picture_lamp_fr, 1.05f);
@@ -284,7 +283,7 @@ namespace WindowsFormsApplication1
                 picture_lamp_fr.Image = Properties.Resources.power;
                
             }
-          
+
 
             //Brightness_Picture(picture_lamp_fr, LAMP);
 
@@ -328,6 +327,7 @@ namespace WindowsFormsApplication1
 			else
 			{
 				arr[2] = 0;
+				configuration_steps[0] = 0;
 			}
 		}
 
@@ -354,7 +354,7 @@ namespace WindowsFormsApplication1
 
 			}
 
-            mymatrix.RotateAt(frenquence_rull_deg*(-1), center_picture);
+			mymatrix.RotateAt(frenquence_rull_deg * (-1), center_picture);
 			Graphics g = Picture_frequence.CreateGraphics();
 			g.Transform = mymatrix;
 			g.DrawImage(Picture_frequence.Image, 0, 0);
@@ -364,7 +364,7 @@ namespace WindowsFormsApplication1
             frenquence_label_2.Text = value_fr.ToString();
 
 
-            Picture_frequence_table((frenquence_rull_deg / 2)*(-1));
+			Picture_frequence_table((frenquence_rull_deg / 2) * (-1));
             flag_auto = 0;
             draw_flag = false;
 		}
@@ -390,9 +390,14 @@ namespace WindowsFormsApplication1
                 }
             }
 
-			if ((volume_rull_deg == 360) && (progressBar1.Value < 6))
+			if (volume_rull_deg == 360)
             {
-                progressBar1.Increment(1);
+				arr[6] = 1;
+			}
+			else
+			{
+				arr[6] = 0;
+				configuration_steps[0] = 0;
             }
             mymatrix.RotateAt(volume_rull_deg, center_picture);
             Graphics g = Volume_rull.CreateGraphics();
@@ -413,6 +418,8 @@ namespace WindowsFormsApplication1
                     pictrure_shcala.Image = img;
                     flag = false;
                     progressBar1.Increment(-1);
+				arr[4] = 0;
+				configuration_steps[0] = 0;
             }
                 else
                 {
@@ -420,6 +427,7 @@ namespace WindowsFormsApplication1
                     pictrure_shcala.Image = img;
                     flag = true;
                     progressBar1.Increment(1);
+				arr[4] = 1;
             }
      
             new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -433,6 +441,7 @@ namespace WindowsFormsApplication1
             picture_power.Image = img;
             flag_2 = true;
             progressBar1.Increment(1);
+				arr[5] = 1;
             }
         else
         {
@@ -440,6 +449,8 @@ namespace WindowsFormsApplication1
             picture_power.Image = img;
             flag_2 = false;
                 progressBar1.Increment(-1);
+				arr[5] = 0;
+				configuration_steps[0] = 0;
             }
         new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
     }
@@ -477,6 +488,65 @@ namespace WindowsFormsApplication1
         {
             Rotate(sender, e);
         }
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			if (open_frenquence_table.Visible == false)
+			{
+				if (fix == true)
+				{
+					fix = false;
+					button1.Text = "ЗАФИКСИРОВАТЬ";
+				}
+				else
+				{
+					fix = true;
+					button1.Text = "РАЗФИКСИРОВАТЬ";
+				}
+			}
+		}
+
+		private void timer7_Tick(object sender, EventArgs e) // Проверка выполнения задачи(отображается в справке)
+		{
+			if (configuration_steps[0] == 0) // Блок подготовки к работе
+			{
+				for (int i = 0; i < 7; i++)
+				{
+					if (arr[i] == 0)
+					{
+						for(int j = 7; j < 44; j++)
+						{
+							arr[j] = 0;
+						}
+						return;
+					}
+				}
+				configuration_steps[0] = 1;
+			}
+			switch(main_rull_deg) // Блок проверки настроенных частот
+			{
+				case 0:
+					{
+						arr[7] = 1; // установили нужную частоту
+
+						if(fix == false) // Расфиксировали болтик
+						{
+							arr[8] = 1;
+						}
+						else
+						{
+							break;
+						}
+
+
+						return;
+					}
+
+				default:
+					return;
+			}
+
+		}
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
@@ -581,6 +651,7 @@ namespace WindowsFormsApplication1
 			else
 			{
 				arr[1] = 0;
+				configuration_steps[0] = 0;
 			}
         }
 
@@ -628,6 +699,15 @@ namespace WindowsFormsApplication1
 			g.DrawImage(voltage_control_rull.Image, 0, 0);
 
 			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+			if (voltage_control_rull_deg == 30)
+			{
+				arr[3] = 1;
+			}
+			else
+			{
+				arr[3] = 0;
+				configuration_steps[0] = 0;
+			}
 		}
 
 
@@ -636,7 +716,7 @@ namespace WindowsFormsApplication1
       private void Auto_(object sender, MouseEventArgs e, int value, int value_2)
         {
        
-            while (((frenquence_rull_deg/5)+200) != value)
+			while (((frenquence_rull_deg / 5) + 200) != value)
             {
                 if (((frenquence_rull_deg / 5) + 200) >= value)
                 {
@@ -671,7 +751,8 @@ namespace WindowsFormsApplication1
 		{
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(111, 114);
-
+			if (fix == true)
+			{
             if (e.Button == MouseButtons.Left)
                 main_rull_deg += 60;
             else
@@ -696,7 +777,7 @@ namespace WindowsFormsApplication1
                         pictureBox5.Visible = false;
                         picture_Lamp_II.Visible = false;
                         picture_Lamp_I.Visible = false;
-                        Auto_(sender, e,232,1000);
+							Auto_(sender, e, 232, 1000);
                            
                         break;
                     }
@@ -823,6 +904,24 @@ namespace WindowsFormsApplication1
                 default:
                     break;
             }
+				//if (configuration_steps[0] == 1)
+				//{
+				//	switch (main_rull_deg)
+				//	{
+				//		case 0:
+				//			{
+
+				//				break;
+				//			}
+				//		default:
+				//			break;
+				//	}
+				//}
+			}
+			else // TODO добавить звук если пользователь пытается переключить не зафиксировав частоту
+			{
+
+			}
         }
 
 
