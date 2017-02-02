@@ -23,8 +23,8 @@ namespace WindowsFormsApplication1
 			InitializeComponent();
 		}
 
-
-		int main_rull_deg = -60, volume_rull_deg = 0,
+		const int frequency_1 = 220, frequency_2 = 500;
+        int main_rull_deg = -60, volume_rull_deg = 0,
 			  corrector_rull_deg = 0, antenna_rull_deg = 0,
 			  voltage_control_rull_deg = 0, shum_rull_deg = 0, frenquence_rull_deg = 785;
 
@@ -53,6 +53,14 @@ namespace WindowsFormsApplication1
 			box.Region = rgn;
 			box.BackColor = System.Drawing.SystemColors.ActiveCaption;
 
+		}
+
+		private void set_arr_null(int begin, int end)
+		{
+			for(int i = begin; i <= end; i++)
+			{
+				arr[i] = 0;
+			}
 		}
 
 		//
@@ -533,8 +541,35 @@ namespace WindowsFormsApplication1
 						}
 						else
 						{
-							break;
+							if ((frenquence_label.Text == frequency_1.ToString() || frenquence_label.Text == frequency_2.ToString()) && (fix == true)
+								&& arr[8] == 1)
+							{
+								arr[9] = 1;
+							}
+							else
+							{
+								set_arr_null(8, 15);
+								break;
+							}
 						}
+
+						if(flag_perek_1 == false && frenquence_label.Text == frequency_1.ToString())
+						{
+							arr[10] = 1;
+						}
+						else
+						{
+							if (flag_perek_1 == true && frenquence_label.Text == frequency_2.ToString())
+							{
+								arr[10] = 1;
+							}
+							else
+							{
+								set_arr_null(10, 15);
+								break;
+							}
+						}
+
 
 
 						return;
