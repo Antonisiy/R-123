@@ -319,10 +319,7 @@ namespace WindowsFormsApplication1
 				}
 			}
 
-			if ((shum_rull_deg == -60) && (progressBar1.Value < 2))
-			{
-				progressBar1.Increment(1);
-			}
+		
 			mymatrix.RotateAt(shum_rull_deg, center_picture);
 			Graphics g = Picture_shum.CreateGraphics();
 			g.Transform = mymatrix;
@@ -425,7 +422,7 @@ namespace WindowsFormsApplication1
 				Image img = Properties.Resources.vkl_2;
 				pictrure_shcala.Image = img;
 				flag = false;
-				progressBar1.Increment(-1);
+			
 				arr[4] = 0;
 				configuration_steps[0] = 0;
 			}
@@ -434,7 +431,7 @@ namespace WindowsFormsApplication1
 				Image img = Properties.Resources.vkl_1;
 				pictrure_shcala.Image = img;
 				flag = true;
-				progressBar1.Increment(1);
+				
 				arr[4] = 1;
 			}
 
@@ -448,7 +445,7 @@ namespace WindowsFormsApplication1
 				Image img = Properties.Resources.vkl_1;
 				picture_power.Image = img;
 				flag_2 = true;
-				progressBar1.Increment(1);
+		
 				arr[5] = 1;
 			}
 			else
@@ -456,7 +453,7 @@ namespace WindowsFormsApplication1
 				Image img = Properties.Resources.vkl_2;
 				picture_power.Image = img;
 				flag_2 = false;
-				progressBar1.Increment(-1);
+				
 				arr[5] = 0;
 				configuration_steps[0] = 0;
 			}
@@ -651,30 +648,22 @@ namespace WindowsFormsApplication1
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(67, 66);
 
-			if (e.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
-			{
-				if (corrector_rull_deg < 50)
-				{
-					corrector_rull_deg += 25;
-					new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-				}
-			}
-			else
-			{
-				if (corrector_rull_deg > 0)
-				{
-					corrector_rull_deg -= 25;
-					new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-				}
-			}
-			if ((corrector_rull_deg == 25) && (progressBar1.Value < 1))
-			{
-				progressBar1.Increment(1);
-			}
-			else
-			{
-				progressBar1.Increment(-1);
-			}
+            if (e.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
+            {
+                if (corrector_rull_deg < 50)
+                {
+                    corrector_rull_deg += 25;
+                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+                }
+            }
+            else
+            {
+                if (corrector_rull_deg > 0)
+                {
+                    corrector_rull_deg -= 25;
+                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+                }
+            }
 			mymatrix.RotateAt(corrector_rull_deg, center_picture);
 			Graphics g = Corrector.CreateGraphics();
 			g.Transform = mymatrix;
@@ -720,14 +709,7 @@ namespace WindowsFormsApplication1
 			if (voltage_control_rull_deg == 360 || voltage_control_rull_deg == -360)
 				voltage_control_rull_deg = 0;
 
-			if (((voltage_control_rull_deg / 30 == -11) || (voltage_control_rull_deg / 30 == 1)) && (progressBar1.Value < 3))
-			{
-				progressBar1.Increment(1);
-			}
-			else if (progressBar1.Value > 3)
-			{
-				progressBar1.Increment(-1);
-			}
+			
 			mymatrix.RotateAt(voltage_control_rull_deg, center_picture);
 			Graphics g = voltage_control_rull.CreateGraphics();
 			g.Transform = mymatrix;

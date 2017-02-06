@@ -477,7 +477,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1279, 742);
 			this.Controls.Add(this.button1);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.frenquence_label_2);
             this.Controls.Add(this.Right_Perek_4);
