@@ -14,11 +14,11 @@ using System.Drawing.Imaging;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Р123 : Form
+	public partial class Р123 : Form
 	{
 		private
 			Timer timer1 = new Timer();
-        public Р123()
+		public Р123()
 		{
 			InitializeComponent();
 		}
@@ -57,7 +57,7 @@ namespace WindowsFormsApplication1
 
 		private void set_arr_null(int begin, int end)
 		{
-			for(int i = begin; i <= end; i++)
+			for (int i = begin; i <= end; i++)
 			{
 				arr[i] = 0;
 			}
@@ -69,7 +69,7 @@ namespace WindowsFormsApplication1
 			Image img = Properties.Resources.R_123M;
 			this.BackgroundImage = new Bitmap(img);
 			Open_Panel.Visible = true;
-            Image img_2 = Properties.Resources.rull_I;
+			Image img_2 = Properties.Resources.rull_I;
 			Draw_circle(img_2, Main_rull);
 
 			Draw_circle(Volume_rull.Image, Volume_rull);
@@ -240,10 +240,10 @@ namespace WindowsFormsApplication1
 		}
 
 
-        float LAMP = 1f;
-        const int best_antenna = 280;
+		float LAMP = 1f;
+		const int best_antenna = 280;
 		//Таймеры
-		private void timer5_Tick(object sender, EventArgs e)
+		private void timer5_Tick(object sender, EventArgs e) // Лампочка
 		{
 			Draw_circle(picture_antenna.Image, picture_antenna);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
@@ -255,38 +255,64 @@ namespace WindowsFormsApplication1
 				{
 					antenna_rull_deg += 10;
 				}
-                if ((best_antenna - antenna_rull_deg > 0) && (antenna_rull_deg < 460))
-                {
-                    Brightness_Picture(picture_lamp_fr, 1.05f);
+
+				if ((best_antenna > antenna_rull_deg) && (antenna_rull_deg > 0))
+				{
+					Brightness_Picture(picture_lamp_fr, 1.05f);
+				}
+				else if ((best_antenna + 100 < antenna_rull_deg) && (antenna_rull_deg < 560))
+				{
+					Brightness_Picture(picture_lamp_fr, 0.95f);
+				}
+
+				if(antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 50)
+				{
+					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
+				}
+
+				if(antenna_rull_deg > best_antenna + 100 && antenna_rull_deg < best_antenna + 210)
+				{
+					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
+				}
 			}
-                else if ((best_antenna - antenna_rull_deg < 0) && (antenna_rull_deg < 460))
-                {
-                    Brightness_Picture(picture_lamp_fr, 0.95f);
-                }
-            }
 			else
 			{
 				if (antenna_rull_deg > -720)
 				{
 					antenna_rull_deg -= 10;
 				}
-                if((best_antenna - antenna_rull_deg > 0) && (antenna_rull_deg > 200))
-                {
-                    Brightness_Picture(picture_lamp_fr, 0.95f);
+				if ((best_antenna > antenna_rull_deg) && (antenna_rull_deg > 60))
+				{
+					Brightness_Picture(picture_lamp_fr, 0.95f);
+				}
+				else if ((best_antenna + 100 < antenna_rull_deg) && (antenna_rull_deg < 560))
+				{
+					Brightness_Picture(picture_lamp_fr, 1.05f);
+				}
+
+				if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 40)
+				{
+					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
+				}
+
+				if (antenna_rull_deg > best_antenna + 90 && antenna_rull_deg < best_antenna + 210)
+				{
+					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
+				}
 			}
-                else if ((best_antenna - antenna_rull_deg < 0) && (antenna_rull_deg > 200))
-                {
-                    Brightness_Picture(picture_lamp_fr, 1.05f);
-                }
-            }
+
+			if(antenna_rull_deg == best_antenna - 70)
+			{
+				label_poddiapazon.Text = "20";
+			}
 
 			mymatrix.RotateAt(antenna_rull_deg, center_picture);
 			Graphics g = picture_antenna.CreateGraphics();
-            picture_lamp_fr.Visible = true;
+			picture_lamp_fr.Visible = true;
 			g.Transform = mymatrix;
 			g.DrawImage(picture_antenna.Image, 0, 0);
 
-            if (antenna_rull_deg == 500)
+			if (antenna_rull_deg == 560 || antenna_rull_deg == 0)
 			{
                 picture_lamp_fr.Image = Properties.Resources.power;
                
@@ -555,18 +581,33 @@ namespace WindowsFormsApplication1
 						if(flag_perek_1 == false && frenquence_label.Text == frequency_1.ToString())
 						{
 							arr[10] = 1;
+							arr[11] = 1;
 						}
 						else
 						{
 							if (flag_perek_1 == true && frenquence_label.Text == frequency_2.ToString())
 							{
 								arr[10] = 1;
+								arr[11] = 1;
 							}
 							else
 							{
 								set_arr_null(10, 15);
 								break;
 							}
+						}
+
+						if(antenna_rull_deg  <= 380 && antenna_rull_deg >= 320)
+						{
+							arr[12] = 1;
+							arr[13] = 1;
+							arr[14] = 1;
+							arr[15] = 1;
+						}
+						else
+						{
+							set_arr_null(12, 15);
+							break;
 						}
 
 
