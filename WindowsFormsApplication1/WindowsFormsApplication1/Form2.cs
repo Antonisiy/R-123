@@ -29,7 +29,7 @@ namespace WindowsFormsApplication1
         }
 		void change_status(int num, int value)
 		{
-			String[] val = { "\tfalse", "\ttrue" };
+			String[] val = { "\tНЕ ГОТОВО", "\tГОТОВО" };
 
 			richTextBox1.Text = richTextBox1.Text.Insert(richTextBox1.Text.IndexOf("\n", richTextBox1.Text.IndexOf("№" + num)), val[value]);
 
@@ -37,23 +37,23 @@ namespace WindowsFormsApplication1
 
 		void set_color()
 		{
-			int pos = richTextBox1.Text.IndexOf("true");
+			int pos = richTextBox1.Text.IndexOf("ГОТОВО");
             while (pos != -1)
 			{
-				richTextBox1.Select(pos, "true".Length);
+				richTextBox1.Select(pos, "ГОТОВО".Length);
 				richTextBox1.SelectionColor = Color.Green;
-				pos = richTextBox1.Text.IndexOf("true", pos + 1);
+				pos = richTextBox1.Text.IndexOf("ГОТОВО", pos + 1);
 			}
 
-			pos = richTextBox1.Text.IndexOf("false");
+			pos = richTextBox1.Text.IndexOf("НЕ ГОТОВО");
 			while (pos != -1)
 			{
-				richTextBox1.Select(pos, "false".Length);
+				richTextBox1.Select(pos, "НЕ ГОТОВО".Length);
 				richTextBox1.SelectionColor = Color.Red;
-				pos = richTextBox1.Text.IndexOf("false", pos + 1);
+				pos = richTextBox1.Text.IndexOf("НЕ ГОТОВО", pos + 1);
 			}
 			richTextBox1.SelectionLength = 0;
-			richTextBox1.SelectionStart = -1;
+			richTextBox1.SelectionStart = 0;
 		}
 
 	}

@@ -36,9 +36,11 @@ namespace WindowsFormsApplication1
 			antenna_arg = null,
 			fiks_antenna = null;
 
+		List<PictureBox> right_picture = new List<PictureBox>();
+	
+
 		int[] arr = new int[44]; // Массив флагов
 		int[] configuration_steps = new int[5];
-
 
 		bool flag = false, flag_2 = false, flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true, draw_flag = true,
 			fix = true;
@@ -52,7 +54,6 @@ namespace WindowsFormsApplication1
 			Region rgn = new Region(path);
 			box.Region = rgn;
 			box.BackColor = System.Drawing.SystemColors.ActiveCaption;
-
 		}
 
 		private void set_arr_null(int begin, int end)
@@ -66,40 +67,45 @@ namespace WindowsFormsApplication1
 		//
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			Image img = Properties.Resources.R_123M;
-			this.BackgroundImage = new Bitmap(img);
-			Open_Panel.Visible = true;
-			Image img_2 = Properties.Resources.rull_I;
-			Draw_circle(img_2, Main_rull);
+			//Image img = Properties.Resources.R_123M;
+			//this.BackgroundImage = new Bitmap(img);
+			//Open_Panel.Visible = true;
+			//Image img_2 = Properties.Resources.rull_I;
+			//Draw_circle(img_2, Main_rull);
 
-			Draw_circle(Volume_rull.Image, Volume_rull);
+			//Draw_circle(Volume_rull.Image, Volume_rull);
 
-			Draw_circle(Corrector.Image, Corrector);
+			//Draw_circle(Corrector.Image, Corrector);
 
-			Draw_circle(frenquence_table.Image, frenquence_table);
+			//Draw_circle(frenquence_table.Image, frenquence_table);
 
-			Draw_circle(picture_antenna.Image, picture_antenna);
+			//Draw_circle(picture_antenna.Image, picture_antenna);
 
-			Draw_circle(voltage_control_rull.Image, voltage_control_rull);
+			//Draw_circle(voltage_control_rull.Image, voltage_control_rull);
 
-			Draw_circle(Picture_shum.Image, Picture_shum);
+			//Draw_circle(Picture_shum.Image, Picture_shum);
 
-			Draw_circle(Picture_frequence.Image, Picture_frequence);
+			//Draw_circle(Picture_frequence.Image, Picture_frequence);
 
 
-			frenquence_label.Text = "357";
-			frenquence_label_2.Text = "515";
+			//frenquence_label.Text = "357";
+			//frenquence_label_2.Text = "515";
 
-			Draw_circle(picture_lamp_fr.Image, picture_lamp_fr);
+			//Draw_circle(picture_lamp_fr.Image, picture_lamp_fr);
 
-			//Draw_circle(picture_fiks_anten.Image, picture_fiks_anten);
+			////Draw_circle(picture_fiks_anten.Image, picture_fiks_anten);
 
-			for (int i = 0; i < 44; i++)
-				arr[i] = 0;
-			arr[0] = 1;
-			for (int i = 0; i < 5; i++)
-				configuration_steps[i] = 0;
-			timer7.Start();
+			//for (int i = 0; i < 44; i++)
+			//	arr[i] = 0;
+			//arr[0] = 1;
+			//for (int i = 0; i < 5; i++)
+			//	configuration_steps[i] = 0;
+			//timer7.Start();
+
+			//right_picture.Add(Right_Perek_1);
+			//right_picture.Add(Right_Perek_2);
+			//right_picture.Add(Right_Perek_3);
+			//right_picture.Add(Right_Perek_4);
 		}
 
 		//Рисуем маленький круг
@@ -520,6 +526,49 @@ namespace WindowsFormsApplication1
 			Rotate(sender, e);
 		}
 
+		private void Р123_Shown(object sender, EventArgs e)
+		{
+			Image img = Properties.Resources.R_123M;
+			this.BackgroundImage = new Bitmap(img);
+			Open_Panel.Visible = true;
+			Image img_2 = Properties.Resources.rull_I;
+			Draw_circle(img_2, Main_rull);
+
+			Draw_circle(Volume_rull.Image, Volume_rull);
+
+			Draw_circle(Corrector.Image, Corrector);
+
+			Draw_circle(frenquence_table.Image, frenquence_table);
+
+			Draw_circle(picture_antenna.Image, picture_antenna);
+
+			Draw_circle(voltage_control_rull.Image, voltage_control_rull);
+
+			Draw_circle(Picture_shum.Image, Picture_shum);
+
+			Draw_circle(Picture_frequence.Image, Picture_frequence);
+
+
+			frenquence_label.Text = "357";
+			frenquence_label_2.Text = "515";
+
+			Draw_circle(picture_lamp_fr.Image, picture_lamp_fr);
+
+			//Draw_circle(picture_fiks_anten.Image, picture_fiks_anten);
+
+			for (int i = 0; i < 44; i++)
+				arr[i] = 0;
+			arr[0] = 1;
+			for (int i = 0; i < 5; i++)
+				configuration_steps[i] = 0;
+			timer7.Start();
+
+			right_picture.Add(Right_Perek_1);
+			right_picture.Add(Right_Perek_2);
+			right_picture.Add(Right_Perek_3);
+			right_picture.Add(Right_Perek_4);
+		}
+
 		private void button1_Click(object sender, EventArgs e)
 		{
 			if (open_frenquence_table.Visible == false)
@@ -536,9 +585,10 @@ namespace WindowsFormsApplication1
 				}
 			}
 		}
-
+		
 		private void timer7_Tick(object sender, EventArgs e) // Проверка выполнения задачи(отображается в справке)
 		{
+
 			if (configuration_steps[0] == 0) // Блок подготовки к работе
 			{
 				for (int i = 0; i < 7; i++)
@@ -623,8 +673,8 @@ namespace WindowsFormsApplication1
 
 		private void Form1_Paint(object sender, PaintEventArgs e)
 		{
-			if (draw_flag)
-				Rotate(sender, e);
+			//if (draw_flag)
+			//	Rotate(sender, e);
 		}
 
 		private void Picture_frequence_table(float frenquence_table_deg)
