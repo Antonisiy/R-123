@@ -40,7 +40,6 @@
 			this.frenquence_label_2 = new System.Windows.Forms.Label();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.нАчатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.Right_Perek_4 = new System.Windows.Forms.PictureBox();
 			this.Right_Perek_3 = new System.Windows.Forms.PictureBox();
@@ -68,6 +67,9 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.timer7 = new System.Windows.Forms.Timer(this.components);
 			this.button1 = new System.Windows.Forms.Button();
+			this.button2 = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).BeginInit();
@@ -165,23 +167,16 @@
 			// менюToolStripMenuItem
 			// 
 			this.менюToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.нАчатьToolStripMenuItem,
             this.справкаToolStripMenuItem});
 			this.менюToolStripMenuItem.Name = "менюToolStripMenuItem";
 			this.менюToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
 			this.менюToolStripMenuItem.Text = "Меню";
 			// 
-			// нАчатьToolStripMenuItem
-			// 
-			this.нАчатьToolStripMenuItem.Name = "нАчатьToolStripMenuItem";
-			this.нАчатьToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-			this.нАчатьToolStripMenuItem.Text = "НАчать";
-			// 
 			// справкаToolStripMenuItem
 			// 
 			this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
 			this.справкаToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-			this.справкаToolStripMenuItem.Text = "Справка";
+			this.справкаToolStripMenuItem.Text = "Cправка";
 			this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
 			// 
 			// Right_Perek_4
@@ -471,11 +466,40 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(508, 597);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(91, 13);
+			this.button2.TabIndex = 56;
+			this.button2.Text = "button2";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// label1
+			// 
+			this.label1.Location = new System.Drawing.Point(544, 276);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(43, 41);
+			this.label1.TabIndex = 57;
+			this.label1.Text = "label1";
+			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(481, 113);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(182, 24);
+			this.label2.TabIndex = 58;
+			this.label2.Text = "______________________________";
+			// 
 			// Р123
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1279, 742);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.menuStrip1);
 			this.Controls.Add(this.frenquence_label_2);
@@ -578,12 +602,14 @@
         private System.Windows.Forms.Label frenquence_label_2;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem менюToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem нАчатьToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ProgressBar progressBar1;
 		private System.Windows.Forms.Timer timer7;
 		private System.Windows.Forms.Button button1;
-    }
+		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
+	}
 }
 

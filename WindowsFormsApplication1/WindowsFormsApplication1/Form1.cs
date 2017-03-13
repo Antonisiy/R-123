@@ -37,7 +37,7 @@ namespace WindowsFormsApplication1
 			fiks_antenna = null;
 
 		List<PictureBox> right_picture = new List<PictureBox>();
-	
+
 
 		int[] arr = new int[44]; // Массив флагов
 		int[] configuration_steps = new int[5];
@@ -175,17 +175,29 @@ namespace WindowsFormsApplication1
 		//Правый угол переключатели
 		private void Right_Perek_1_MouseClick(object sender, MouseEventArgs e)
 		{
-			if (flag_perek_1)
+			//if (flag_perek_1)
+			//{
+			//	Image img = Properties.Resources.perek_I;
+			//	Right_Perek_1.Image = img;
+			//	flag_perek_1 = false;
+			//}
+			//else
+			//{
+			//	Image img = Properties.Resources.perek_II;
+			//	Right_Perek_1.Image = img;
+			//	flag_perek_1 = true;
+			//}
+			if (pictureBox2.Visible == false)
 			{
+				pictureBox2.Visible = true;
 				Image img = Properties.Resources.perek_I;
 				Right_Perek_1.Image = img;
-				flag_perek_1 = false;
 			}
 			else
 			{
+				pictureBox2.Visible = false;
 				Image img = Properties.Resources.perek_II;
 				Right_Perek_1.Image = img;
-				flag_perek_1 = true;
 			}
 
 			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -193,17 +205,30 @@ namespace WindowsFormsApplication1
 
 		private void Right_Perek_2_MouseClick(object sender, MouseEventArgs e)
 		{
-			if (flag_perek_2)
+			//if (flag_perek_2)
+			//{
+			//	Image img = Properties.Resources.perek_I;
+			//	Right_Perek_2.Image = img;
+			//	flag_perek_2 = false;
+			//}
+			//else
+			//{
+			//	Image img = Properties.Resources.perek_II;
+			//	Right_Perek_2.Image = img;
+			//	flag_perek_2 = true;
+			//}
+
+			if (pictureBox3.Visible == false)
 			{
+				pictureBox3.Visible = true;
 				Image img = Properties.Resources.perek_I;
 				Right_Perek_2.Image = img;
-				flag_perek_2 = false;
 			}
 			else
 			{
+				pictureBox3.Visible = false;
 				Image img = Properties.Resources.perek_II;
 				Right_Perek_2.Image = img;
-				flag_perek_2 = true;
 			}
 
 			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -211,17 +236,30 @@ namespace WindowsFormsApplication1
 
 		private void Right_Perek_3_MouseClick(object sender, MouseEventArgs e)
 		{
-			if (flag_perek_3)
+			//if (flag_perek_3)
+			//{
+			//	Image img = Properties.Resources.perek_I;
+			//	Right_Perek_3.Image = img;
+			//	flag_perek_3 = false;
+			//}
+			//else
+			//{
+			//	Image img = Properties.Resources.perek_II;
+			//	Right_Perek_3.Image = img;
+			//	flag_perek_3 = true;
+			//}
+
+			if (pictureBox4.Visible == false)
 			{
+				pictureBox4.Visible = true;
 				Image img = Properties.Resources.perek_I;
 				Right_Perek_3.Image = img;
-				flag_perek_3 = false;
 			}
 			else
 			{
+				pictureBox4.Visible = false;
 				Image img = Properties.Resources.perek_II;
 				Right_Perek_3.Image = img;
-				flag_perek_3 = true;
 			}
 
 			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -229,17 +267,30 @@ namespace WindowsFormsApplication1
 
 		private void Right_Perek_4_MouseClick(object sender, MouseEventArgs e)
 		{
-			if (flag_perek_4)
+			//if (flag_perek_4)
+			//{
+			//	Image img = Properties.Resources.perek_I;
+			//	Right_Perek_4.Image = img;
+			//	flag_perek_4 = false;
+			//}
+			//else
+			//{
+			//	Image img = Properties.Resources.perek_II;
+			//	Right_Perek_4.Image = img;
+			//	flag_perek_4 = true;
+			//}
+
+			if (pictureBox5.Visible == false)
 			{
+				pictureBox5.Visible = true;
 				Image img = Properties.Resources.perek_I;
 				Right_Perek_4.Image = img;
-				flag_perek_4 = false;
 			}
 			else
 			{
+				pictureBox5.Visible = false;
 				Image img = Properties.Resources.perek_II;
 				Right_Perek_4.Image = img;
-				flag_perek_4 = true;
 			}
 
 			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
@@ -271,12 +322,12 @@ namespace WindowsFormsApplication1
 					Brightness_Picture(picture_lamp_fr, 0.95f);
 				}
 
-				if(antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 50)
+				if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 50)
 				{
 					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
 				}
 
-				if(antenna_rull_deg > best_antenna + 100 && antenna_rull_deg < best_antenna + 210)
+				if (antenna_rull_deg > best_antenna + 100 && antenna_rull_deg < best_antenna + 210)
 				{
 					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
 				}
@@ -307,7 +358,7 @@ namespace WindowsFormsApplication1
 				}
 			}
 
-			if(antenna_rull_deg == best_antenna - 70)
+			if (antenna_rull_deg == best_antenna - 70)
 			{
 				label_poddiapazon.Text = "20";
 			}
@@ -320,12 +371,12 @@ namespace WindowsFormsApplication1
 
 			if (antenna_rull_deg == 560 || antenna_rull_deg == 0)
 			{
-                picture_lamp_fr.Image = Properties.Resources.power;
-               
+				picture_lamp_fr.Image = Properties.Resources.power;
+
 			}
 
 
-            //Brightness_Picture(picture_lamp_fr, LAMP);
+			//Brightness_Picture(picture_lamp_fr, LAMP);
 
 			flag_auto = 0;
 		}
@@ -351,7 +402,7 @@ namespace WindowsFormsApplication1
 				}
 			}
 
-		
+
 			mymatrix.RotateAt(shum_rull_deg, center_picture);
 			Graphics g = Picture_shum.CreateGraphics();
 			g.Transform = mymatrix;
@@ -370,6 +421,7 @@ namespace WindowsFormsApplication1
 
 		private void timer3_Tick(object sender, EventArgs e)
 		{
+
 			Draw_circle(Picture_frequence.Image, Picture_frequence);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(Picture_frequence.Image.Width / 2, Picture_frequence.Image.Height / 2);
@@ -404,6 +456,7 @@ namespace WindowsFormsApplication1
 			Picture_frequence_table((frenquence_rull_deg / 2) * (-1));
 			flag_auto = 0;
 			draw_flag = false;
+
 		}
 
 		private void timer2_Tick(object sender, EventArgs e)
@@ -454,7 +507,7 @@ namespace WindowsFormsApplication1
 				Image img = Properties.Resources.vkl_2;
 				pictrure_shcala.Image = img;
 				flag = false;
-			
+
 				arr[4] = 0;
 				configuration_steps[0] = 0;
 			}
@@ -463,7 +516,7 @@ namespace WindowsFormsApplication1
 				Image img = Properties.Resources.vkl_1;
 				pictrure_shcala.Image = img;
 				flag = true;
-				
+
 				arr[4] = 1;
 			}
 
@@ -477,7 +530,7 @@ namespace WindowsFormsApplication1
 				Image img = Properties.Resources.vkl_1;
 				picture_power.Image = img;
 				flag_2 = true;
-		
+
 				arr[5] = 1;
 			}
 			else
@@ -485,7 +538,7 @@ namespace WindowsFormsApplication1
 				Image img = Properties.Resources.vkl_2;
 				picture_power.Image = img;
 				flag_2 = false;
-				
+
 				arr[5] = 0;
 				configuration_steps[0] = 0;
 			}
@@ -569,6 +622,16 @@ namespace WindowsFormsApplication1
 			right_picture.Add(Right_Perek_4);
 		}
 
+		private void button2_Click(object sender, EventArgs e)
+		{
+			double _x = label1.Location.X, _y = label1.Location.Y;
+			double _len = Math.Sqrt(Math.Pow(frenquence_table.Location.X - _x, 2) + Math.Pow(frenquence_table.Location.Y - _y, 2));
+			label1.Location =new Point(Convert.ToInt32(frenquence_table.Location.X + _len * Math.Sin(frenquence_rull_deg)),
+				Convert.ToInt32(frenquence_table.Location.Y + _len * Math.Cos(frenquence_rull_deg)));
+			//label1.Left = Convert.ToInt32(_len * Math.Sin(90));
+			//label1.Top = Convert.ToInt32(_len * Math.Cos(90));
+		}
+
 		private void button1_Click(object sender, EventArgs e)
 		{
 			if (open_frenquence_table.Visible == false)
@@ -585,7 +648,7 @@ namespace WindowsFormsApplication1
 				}
 			}
 		}
-		
+
 		private void timer7_Tick(object sender, EventArgs e) // Проверка выполнения задачи(отображается в справке)
 		{
 
@@ -595,7 +658,7 @@ namespace WindowsFormsApplication1
 				{
 					if (arr[i] == 0)
 					{
-						for(int j = 7; j < 44; j++)
+						for (int j = 7; j < 44; j++)
 						{
 							arr[j] = 0;
 						}
@@ -604,15 +667,16 @@ namespace WindowsFormsApplication1
 				}
 				configuration_steps[0] = 1;
 			}
-			switch(main_rull_deg) // Блок проверки настроенных частот
+			switch (main_rull_deg) // Блок проверки настроенных частот
 			{
 				case 0:
 					{
 						arr[7] = 1; // установили нужную частоту
 
-						if(fix == false) // Расфиксировали болтик
+						if (fix == false) // Расфиксировали болтик
 						{
 							arr[8] = 1;
+							set_arr_null(9, 15);
 						}
 						else
 						{
@@ -624,18 +688,18 @@ namespace WindowsFormsApplication1
 							else
 							{
 								set_arr_null(8, 15);
-							break;
-						}
+								break;
+							}
 						}
 
-						if(flag_perek_1 == false && frenquence_label.Text == frequency_1.ToString())
+						if (pictureBox2.Visible == true && frenquence_label.Text == frequency_1.ToString() && arr[9] == 1)
 						{
 							arr[10] = 1;
 							arr[11] = 1;
 						}
 						else
 						{
-							if (flag_perek_1 == true && frenquence_label.Text == frequency_2.ToString())
+							if (pictureBox2.Visible == false && frenquence_label.Text == frequency_2.ToString())
 							{
 								arr[10] = 1;
 								arr[11] = 1;
@@ -647,7 +711,7 @@ namespace WindowsFormsApplication1
 							}
 						}
 
-						if(antenna_rull_deg  <= 380 && antenna_rull_deg >= 320)
+						if (antenna_rull_deg <= 380 && antenna_rull_deg >= 320)
 						{
 							arr[12] = 1;
 							arr[13] = 1;
@@ -700,7 +764,10 @@ namespace WindowsFormsApplication1
 		private void Picture_frequence_MouseDown(object sender, MouseEventArgs e)
 		{
 			frequence_arg = e;
-			timer3.Enabled = true;
+			if (fix == false)
+			{
+				timer3.Enabled = true;
+			}
 		}
 
 		private void Picture_frequence_MouseUp(object sender, MouseEventArgs e)
@@ -739,22 +806,22 @@ namespace WindowsFormsApplication1
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(67, 66);
 
-            if (e.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
-            {
-                if (corrector_rull_deg < 50)
-                {
-                    corrector_rull_deg += 25;
-                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-                }
-            }
-            else
-            {
-                if (corrector_rull_deg > 0)
-                {
-                    corrector_rull_deg -= 25;
-                    new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
-                }
-            }
+			if (e.Button == MouseButtons.Left) //определиние какая клавиша мыши была нажата
+			{
+				if (corrector_rull_deg < 50)
+				{
+					corrector_rull_deg += 25;
+					new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+				}
+			}
+			else
+			{
+				if (corrector_rull_deg > 0)
+				{
+					corrector_rull_deg -= 25;
+					new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
+				}
+			}
 			mymatrix.RotateAt(corrector_rull_deg, center_picture);
 			Graphics g = Corrector.CreateGraphics();
 			g.Transform = mymatrix;
@@ -800,7 +867,7 @@ namespace WindowsFormsApplication1
 			if (voltage_control_rull_deg == 360 || voltage_control_rull_deg == -360)
 				voltage_control_rull_deg = 0;
 
-			
+
 			mymatrix.RotateAt(voltage_control_rull_deg, center_picture);
 			Graphics g = voltage_control_rull.CreateGraphics();
 			g.Transform = mymatrix;
@@ -879,10 +946,10 @@ namespace WindowsFormsApplication1
 				{
 					case 0:
 						{
-							pictureBox2.Visible = true;
-							pictureBox3.Visible = false;
-							pictureBox4.Visible = false;
-							pictureBox5.Visible = false;
+							//pictureBox2.Visible = true;
+							//pictureBox3.Visible = false;
+							//pictureBox4.Visible = false;
+							//pictureBox5.Visible = false;
 							picture_Lamp_II.Visible = false;
 							picture_Lamp_I.Visible = false;
 							Auto_(sender, e, 232, 1000);
@@ -891,120 +958,120 @@ namespace WindowsFormsApplication1
 						}
 					case 1:
 						{
-							pictureBox2.Visible = false;
-							pictureBox3.Visible = true;
-							pictureBox4.Visible = false;
-							pictureBox5.Visible = false;
+							//pictureBox2.Visible = false;
+							//pictureBox3.Visible = true;
+							//pictureBox4.Visible = false;
+							//pictureBox5.Visible = false;
 							picture_Lamp_II.Visible = false;
 							picture_Lamp_I.Visible = false;
 							break;
 						}
 					case 2:
 						{
-							pictureBox2.Visible = false;
-							pictureBox3.Visible = false;
-							pictureBox4.Visible = true;
-							pictureBox5.Visible = false;
+							//pictureBox2.Visible = false;
+							//pictureBox3.Visible = false;
+							//pictureBox4.Visible = true;
+							//pictureBox5.Visible = false;
 							picture_Lamp_II.Visible = false;
 							picture_Lamp_I.Visible = false;
 							break;
 						}
 					case 3:
 						{
-							pictureBox2.Visible = false;
-							pictureBox3.Visible = false;
-							pictureBox4.Visible = false;
-							pictureBox5.Visible = true;
+							//pictureBox2.Visible = false;
+							//pictureBox3.Visible = false;
+							//pictureBox4.Visible = false;
+							//pictureBox5.Visible = true;
 							picture_Lamp_II.Visible = false;
 							picture_Lamp_I.Visible = false;
 							break;
 						}
 					case 4:
 						{
-							pictureBox2.Visible = false;
-							pictureBox3.Visible = false;
-							pictureBox4.Visible = false;
-							pictureBox5.Visible = false;
+							//pictureBox2.Visible = false;
+							//pictureBox3.Visible = false;
+							//pictureBox4.Visible = false;
+							//pictureBox5.Visible = false;
 							picture_Lamp_I.Visible = false;
 							picture_Lamp_II.Visible = true;
 							break;
 						}
 					case 5:
 						{
-							pictureBox2.Visible = false;
-							pictureBox3.Visible = false;
-							pictureBox4.Visible = false;
-							pictureBox5.Visible = false;
+							//pictureBox2.Visible = false;
+							//pictureBox3.Visible = false;
+							//pictureBox4.Visible = false;
+							//pictureBox5.Visible = false;
 							picture_Lamp_II.Visible = false;
 							picture_Lamp_I.Visible = true;
 							break;
 						}
 					case 6:
 						{
-							pictureBox2.Visible = true;
-							pictureBox3.Visible = false;
-							pictureBox4.Visible = false;
-							pictureBox5.Visible = false;
+							//pictureBox2.Visible = true;
+							//pictureBox3.Visible = false;
+							//pictureBox4.Visible = false;
+							//pictureBox5.Visible = false;
 							picture_Lamp_II.Visible = false;
 							picture_Lamp_I.Visible = false;
 							break;
 						}
 					case -1:
 						{
-							pictureBox2.Visible = false;
-							pictureBox3.Visible = false;
-							pictureBox4.Visible = false;
-							pictureBox5.Visible = false;
+							//pictureBox2.Visible = false;
+							//pictureBox3.Visible = false;
+							//pictureBox4.Visible = false;
+							//pictureBox5.Visible = false;
 							picture_Lamp_II.Visible = false;
 							picture_Lamp_I.Visible = true;
 							break;
 						}
 					case -2:
 						{
-							pictureBox2.Visible = false;
-							pictureBox3.Visible = false;
-							pictureBox4.Visible = false;
-							pictureBox5.Visible = false;
+							//pictureBox2.Visible = false;
+							//pictureBox3.Visible = false;
+							//pictureBox4.Visible = false;
+							//pictureBox5.Visible = false;
 							picture_Lamp_I.Visible = false;
 							picture_Lamp_II.Visible = true;
 							break;
 						}
 					case -3:
 						{
-							pictureBox2.Visible = false;
-							pictureBox3.Visible = false;
-							pictureBox4.Visible = false;
-							pictureBox5.Visible = true;
+							//pictureBox2.Visible = false;
+							//pictureBox3.Visible = false;
+							//pictureBox4.Visible = false;
+							//pictureBox5.Visible = true;
 							picture_Lamp_II.Visible = false;
 							picture_Lamp_I.Visible = false;
 							break;
 						}
 					case -4:
 						{
-							pictureBox2.Visible = false;
-							pictureBox3.Visible = false;
-							pictureBox4.Visible = true;
-							pictureBox5.Visible = false;
+							//pictureBox2.Visible = false;
+							//pictureBox3.Visible = false;
+							//pictureBox4.Visible = true;
+							//pictureBox5.Visible = false;
 							picture_Lamp_II.Visible = false;
 							picture_Lamp_I.Visible = false;
 							break;
 						}
 					case -5:
 						{
-							pictureBox2.Visible = false;
-							pictureBox3.Visible = true;
-							pictureBox4.Visible = false;
-							pictureBox5.Visible = false;
+							//	pictureBox2.Visible = false;
+							//	pictureBox3.Visible = true;
+							//	pictureBox4.Visible = false;
+							//	pictureBox5.Visible = false;
 							picture_Lamp_II.Visible = false;
 							picture_Lamp_I.Visible = false;
 							break;
 						}
 					case -6:
 						{
-							pictureBox2.Visible = true;
-							pictureBox3.Visible = false;
-							pictureBox4.Visible = false;
-							pictureBox5.Visible = false;
+							//pictureBox2.Visible = true;
+							//pictureBox3.Visible = false;
+							//pictureBox4.Visible = false;
+							//pictureBox5.Visible = false;
 							picture_Lamp_II.Visible = false;
 							picture_Lamp_I.Visible = false;
 							break;
