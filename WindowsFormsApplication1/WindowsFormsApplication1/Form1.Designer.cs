@@ -41,6 +41,11 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer7 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
 			this.Right_Perek_4 = new System.Windows.Forms.PictureBox();
 			this.Right_Perek_3 = new System.Windows.Forms.PictureBox();
 			this.Right_Perek_2 = new System.Windows.Forms.PictureBox();
@@ -65,9 +70,6 @@
 			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.timer7 = new System.Windows.Forms.Timer(this.components);
-			this.button1 = new System.Windows.Forms.Button();
-			this.label2 = new System.Windows.Forms.Label();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).BeginInit();
@@ -108,7 +110,7 @@
 			// frenquence_label
 			// 
 			this.frenquence_label.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.frenquence_label.Location = new System.Drawing.Point(507, 93);
+            this.frenquence_label.Location = new System.Drawing.Point(507, 84);
 			this.frenquence_label.Name = "frenquence_label";
 			this.frenquence_label.Size = new System.Drawing.Size(157, 32);
 			this.frenquence_label.TabIndex = 39;
@@ -177,6 +179,49 @@
 			this.справкаToolStripMenuItem.Text = "Cправка";
 			this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
 			// 
+            // timer7
+            // 
+            this.timer7.Interval = 300;
+            this.timer7.Tick += new System.EventHandler(this.timer7_Tick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(511, 540);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 30);
+            this.button1.TabIndex = 55;
+            this.button1.Text = "РАСФИКСИРОВАТЬ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(508, 597);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 13);
+            this.button2.TabIndex = 56;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(544, 276);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 41);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "label1";
+            this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(508, 114);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(156, 11);
+            this.label2.TabIndex = 58;
+            this.label2.Text = "---------------------------------------------------------";
+            // 
 			// Right_Perek_4
 			// 
 			this.Right_Perek_4.BackColor = System.Drawing.Color.Transparent;
@@ -431,7 +476,7 @@
 			// pictureBox2
 			// 
 			this.pictureBox2.Image = global::WindowsFormsApplication1.Properties.Resources.Green_1;
-			this.pictureBox2.Location = new System.Drawing.Point(1029, 105);
+            this.pictureBox2.Location = new System.Drawing.Point(1028, 105);
 			this.pictureBox2.Margin = new System.Windows.Forms.Padding(5);
 			this.pictureBox2.Name = "pictureBox2";
 			this.pictureBox2.Size = new System.Drawing.Size(34, 34);
@@ -463,6 +508,24 @@
 			this.button1.Text = "РАСФИКСИРОВАТЬ";
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(508, 597);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(91, 13);
+			this.button2.TabIndex = 56;
+			this.button2.Text = "button2";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
+			// label1
+			// 
+			this.label1.Location = new System.Drawing.Point(544, 276);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(43, 41);
+			this.label1.TabIndex = 57;
+			this.label1.Text = "label1";
 			// 
 			// label2
 			// 
