@@ -18,6 +18,7 @@ namespace WindowsFormsApplication1
 	{
 		private
 			Timer timer1 = new Timer();
+		[Obsolete("Лучше не компилировать этот говонокод!", true)]
 		public Р123()
 		{
 			InitializeComponent();
@@ -447,6 +448,7 @@ namespace WindowsFormsApplication1
 			Graphics g = Picture_frequence.CreateGraphics();
 			g.Transform = mymatrix;
 			g.DrawImage(Picture_frequence.Image, 0, 0);
+
 			value_fr = (frenquence_rull_deg / 5) + 200;
 			frenquence_label.Text = value_fr.ToString();
 			value_fr = (frenquence_rull_deg / 5) + 358;
@@ -622,16 +624,6 @@ namespace WindowsFormsApplication1
 			right_picture.Add(Right_Perek_4);
 		}
 
-		private void button2_Click(object sender, EventArgs e)
-		{
-			double _x = label1.Location.X, _y = label1.Location.Y;
-			double _len = Math.Sqrt(Math.Pow(frenquence_table.Location.X - _x, 2) + Math.Pow(frenquence_table.Location.Y - _y, 2));
-			label1.Location =new Point(Convert.ToInt32(frenquence_table.Location.X + _len * Math.Sin(frenquence_rull_deg)),
-				Convert.ToInt32(frenquence_table.Location.Y + _len * Math.Cos(frenquence_rull_deg)));
-			//label1.Left = Convert.ToInt32(_len * Math.Sin(90));
-			//label1.Top = Convert.ToInt32(_len * Math.Cos(90));
-		}
-
 		private void button1_Click(object sender, EventArgs e)
 		{
 			if (open_frenquence_table.Visible == false)
@@ -744,11 +736,25 @@ namespace WindowsFormsApplication1
 		private void Picture_frequence_table(float frenquence_table_deg)
 		{
 			Draw_circle(frenquence_table.Image, frenquence_table);
+			Point rotated = new Point();
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(frenquence_table.Image.Width / 2, frenquence_table.Image.Height / 2);
 
 			mymatrix.RotateAt(frenquence_table_deg, center_picture);
 			Graphics g = frenquence_table.CreateGraphics();
+
+
+			//TODO доделать ебучий поворот болтов!!!
+			//исспользовать матрицу поворота(?)
+
+			//center_picture.X = frenquence_table.Location.X + 129;
+			//center_picture.Y = frenquence_table.Location.Y + 123;
+
+			//rotated.X = Convert.ToInt32(center_picture.X + (label1.Location.X - center_picture.X) * (float)Math.Cos(0.1)
+			//	+ (label1.Location.Y - center_picture.Y) * (float)Math.Sin(0.1));
+			//rotated.Y = Convert.ToInt32(center_picture.Y - (label1.Location.X - center_picture.X) * (float)Math.Sin(0.1)
+			//	+ (label1.Location.Y - center_picture.Y) * (float)Math.Cos(0.1));
+			//label1.Location = rotated;
 
 			g.Transform = mymatrix;
 			g.DrawImage(frenquence_table.Image, 0, 0);
