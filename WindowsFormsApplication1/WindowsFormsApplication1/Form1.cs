@@ -42,9 +42,9 @@ namespace WindowsFormsApplication1
 		int[] arr = new int[44]; // Массив флагов
 		int[] configuration_steps = new int[5];
 
-		bool flag = false, flag_2 = false, flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true, draw_flag = true,
-			fix = true;
-		int value_fr = 0;
+        bool flag = false, flag_2 = false, flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true, draw_flag = true,
+            fix = true, flag_antenn_fiks = true;
+        int value_fr = 0;
 		PointF a = new PointF(0, -111);
 		//Рисуем круг
 		private void Draw_circle(Image image, PictureBox box)
@@ -297,7 +297,6 @@ namespace WindowsFormsApplication1
 		}
 
 
-		float LAMP = 1f;
 		const int best_antenna = 280;
 		//Таймеры
 		private void timer5_Tick(object sender, EventArgs e) // Лампочка
@@ -305,80 +304,83 @@ namespace WindowsFormsApplication1
 			Draw_circle(picture_antenna.Image, picture_antenna);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(picture_antenna.Image.Width / 2, picture_antenna.Image.Height / 2);
+            if(flag_antenn_fiks)
+            {
+                if ((flag_auto == 1) || ((antenna_arg.Button == MouseButtons.Left) && (flag_auto == 0)))
+                {
+                    if (antenna_rull_deg < 1440)
+                    {
+                        antenna_rull_deg += 10;
+                    }
 
-			if ((flag_auto == 1) || ((antenna_arg.Button == MouseButtons.Left) && (flag_auto == 0)))
-			{
-				if (antenna_rull_deg < 1440)
-				{
-					antenna_rull_deg += 10;
-				}
+                    if ((best_antenna > antenna_rull_deg) && (antenna_rull_deg > 0))
+                    {
+                        Brightness_Picture(picture_lamp_fr, 1.05f);
+                    }
+                    else if ((best_antenna + 100 < antenna_rull_deg) && (antenna_rull_deg < 560))
+                    {
+                        Brightness_Picture(picture_lamp_fr, 0.95f);
+                    }
 
-				if ((best_antenna > antenna_rull_deg) && (antenna_rull_deg > 0))
-				{
-					Brightness_Picture(picture_lamp_fr, 1.05f);
-				}
-				else if ((best_antenna + 100 < antenna_rull_deg) && (antenna_rull_deg < 560))
-				{
-					Brightness_Picture(picture_lamp_fr, 0.95f);
-				}
+                    if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 50)
+                    {
+                        label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
+                    }
 
-				if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 50)
-				{
-					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
-				}
+                    if (antenna_rull_deg > best_antenna + 100 && antenna_rull_deg < best_antenna + 210)
+                    {
+                        label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
+                    }
+                }
+                else
+                {
+                    if (antenna_rull_deg > -720)
+                    {
+                        antenna_rull_deg -= 10;
+                    }
+                    if ((best_antenna > antenna_rull_deg) && (antenna_rull_deg > 60))
+                    {
+                        Brightness_Picture(picture_lamp_fr, 0.95f);
+                    }
+                    else if ((best_antenna + 100 < antenna_rull_deg) && (antenna_rull_deg < 560))
+                    {
+                        Brightness_Picture(picture_lamp_fr, 1.05f);
+                    }
 
-				if (antenna_rull_deg > best_antenna + 100 && antenna_rull_deg < best_antenna + 210)
-				{
-					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
-				}
-			}
-			else
-			{
-				if (antenna_rull_deg > -720)
-				{
-					antenna_rull_deg -= 10;
-				}
-				if ((best_antenna > antenna_rull_deg) && (antenna_rull_deg > 60))
-				{
-					Brightness_Picture(picture_lamp_fr, 0.95f);
-				}
-				else if ((best_antenna + 100 < antenna_rull_deg) && (antenna_rull_deg < 560))
-				{
-					Brightness_Picture(picture_lamp_fr, 1.05f);
-				}
+                    if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 40)
+                    {
+                        label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
+                    }
 
-				if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 40)
-				{
-					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
-				}
+                    if (antenna_rull_deg > best_antenna + 90 && antenna_rull_deg < best_antenna + 210)
+                    {
+                        label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
+                    }
+                }
 
-				if (antenna_rull_deg > best_antenna + 90 && antenna_rull_deg < best_antenna + 210)
-				{
-					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
-				}
-			}
+                if (antenna_rull_deg == best_antenna - 70)
+                {
+                    label_poddiapazon.Text = "20";
+                }
 
-			if (antenna_rull_deg == best_antenna - 70)
-			{
-				label_poddiapazon.Text = "20";
-			}
+                mymatrix.RotateAt(antenna_rull_deg, center_picture);
+                Graphics g = picture_antenna.CreateGraphics();
+                picture_lamp_fr.Visible = true;
+                g.Transform = mymatrix;
+                g.DrawImage(picture_antenna.Image, 0, 0);
 
-			mymatrix.RotateAt(antenna_rull_deg, center_picture);
-			Graphics g = picture_antenna.CreateGraphics();
-			picture_lamp_fr.Visible = true;
-			g.Transform = mymatrix;
-			g.DrawImage(picture_antenna.Image, 0, 0);
+                if (antenna_rull_deg == 560 || antenna_rull_deg == 0)
+                {
+                    picture_lamp_fr.Image = Properties.Resources.power;
 
-			if (antenna_rull_deg == 560 || antenna_rull_deg == 0)
-			{
-				picture_lamp_fr.Image = Properties.Resources.power;
-
-			}
+                }
 
 
-			//Brightness_Picture(picture_lamp_fr, LAMP);
+                //Brightness_Picture(picture_lamp_fr, LAMP);
 
-			flag_auto = 0;
+                flag_auto = 0;
+            }
+			
 		}
 
 		private void timer4_Tick(object sender, EventArgs e)
@@ -579,7 +581,23 @@ namespace WindowsFormsApplication1
 			Rotate(sender, e);
 		}
 
-		private void Р123_Shown(object sender, EventArgs e)
+        private void Fiks_antenn_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (flag_antenn_fiks)
+            {
+                Image img = Properties.Resources.fiks_antenn_block;
+                Fiks_antenn.Image = img;
+                flag_antenn_fiks = false;
+            }
+            else
+            {
+                Image img = Properties.Resources.fiks_antenn;
+                Fiks_antenn.Image = img;
+                flag_antenn_fiks = true;
+            }
+        }
+
+        private void Р123_Shown(object sender, EventArgs e)
 		{
 			Image img = Properties.Resources.R_123M;
 			this.BackgroundImage = new Bitmap(img);
@@ -601,8 +619,9 @@ namespace WindowsFormsApplication1
 
 			Draw_circle(Picture_frequence.Image, Picture_frequence);
 
+            Draw_circle(Fiks_antenn.Image, Fiks_antenn);
 
-			frenquence_label.Text = "357";
+            frenquence_label.Text = "357";
 			frenquence_label_2.Text = "515";
 
 			Draw_circle(picture_lamp_fr.Image, picture_lamp_fr);
@@ -632,7 +651,13 @@ namespace WindowsFormsApplication1
 			//label1.Top = Convert.ToInt32(_len * Math.Cos(90));
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+        private void Fiks_antenn_MouseDown(object sender, MouseEventArgs e)
+        {
+         
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
 		{
 			if (open_frenquence_table.Visible == false)
 			{
@@ -1114,16 +1139,16 @@ namespace WindowsFormsApplication1
 			timer5.Enabled = false;
 		}
 
-		private void picture_fiks_anten_MouseDown(object sender, MouseEventArgs e)
-		{
-			fiks_antenna = e;
-			timer6.Enabled = true;
-		}
+		//private void picture_fiks_anten_MouseDown(object sender, MouseEventArgs e)
+		//{
+		//	fiks_antenna = e;
+		//	timer6.Enabled = true;
+		//}
 
-		private void picture_fiks_anten_MouseUp(object sender, MouseEventArgs e)
-		{
-			timer6.Enabled = false;
-		}
+		//private void picture_fiks_anten_MouseUp(object sender, MouseEventArgs e)
+		//{
+		//	timer6.Enabled = false;
+		//}
 
 
 

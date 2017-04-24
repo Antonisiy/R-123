@@ -46,6 +46,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Fiks_antenn = new System.Windows.Forms.PictureBox();
             this.Right_Perek_4 = new System.Windows.Forms.PictureBox();
             this.Right_Perek_3 = new System.Windows.Forms.PictureBox();
             this.Right_Perek_2 = new System.Windows.Forms.PictureBox();
@@ -71,6 +72,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Fiks_antenn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_2)).BeginInit();
@@ -221,6 +223,17 @@
             this.label2.Size = new System.Drawing.Size(156, 11);
             this.label2.TabIndex = 58;
             this.label2.Text = "---------------------------------------------------------";
+            // 
+            // Fiks_antenn
+            // 
+            this.Fiks_antenn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Fiks_antenn.Image = global::WindowsFormsApplication1.Properties.Resources.fiks_antenn;
+            this.Fiks_antenn.Location = new System.Drawing.Point(813, 224);
+            this.Fiks_antenn.Name = "Fiks_antenn";
+            this.Fiks_antenn.Size = new System.Drawing.Size(82, 82);
+            this.Fiks_antenn.TabIndex = 59;
+            this.Fiks_antenn.TabStop = false;
+            this.Fiks_antenn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Fiks_antenn_MouseClick);
             // 
             // Right_Perek_4
             // 
@@ -499,6 +512,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1279, 742);
+            this.Controls.Add(this.Fiks_antenn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -540,6 +554,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Fiks_antenn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_2)).EndInit();
@@ -583,7 +598,6 @@
         private System.Windows.Forms.PictureBox picture_Lamp_I;
         private System.Windows.Forms.PictureBox picture_Lamp_II;
 		private System.Windows.Forms.PictureBox voltage_control_rull;
-		private System.Windows.Forms.PictureBox picture_antenna;
         private System.Windows.Forms.PictureBox Picture_shum;
         private System.Windows.Forms.PictureBox Picture_frequence;
         private System.Windows.Forms.Label frenquence_label;
@@ -612,6 +626,8 @@
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
-	}
+        private System.Windows.Forms.PictureBox picture_antenna;
+        private System.Windows.Forms.PictureBox Fiks_antenn;
+    }
 }
 
