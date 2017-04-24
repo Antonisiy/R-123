@@ -43,8 +43,6 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer7 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Fiks_antenn = new System.Windows.Forms.PictureBox();
             this.Right_Perek_4 = new System.Windows.Forms.PictureBox();
@@ -195,26 +193,6 @@
             this.button1.Text = "РАСФИКСИРОВАТЬ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(508, 597);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 13);
-            this.button2.TabIndex = 56;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(544, 276);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 41);
-            this.label1.TabIndex = 57;
-            this.label1.Text = "label1";
-            this.label1.Visible = false;
             // 
             // label2
             // 
@@ -507,6 +485,29 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+			// timer7
+			// 
+			this.timer7.Interval = 300;
+			this.timer7.Tick += new System.EventHandler(this.timer7_Tick);
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(511, 540);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(136, 30);
+			this.button1.TabIndex = 55;
+			this.button1.Text = "РАСФИКСИРОВАТЬ";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(481, 113);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(182, 24);
+			this.label2.TabIndex = 58;
+			this.label2.Text = "______________________________";
+			// 
             // Р123
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -514,8 +515,6 @@
             this.ClientSize = new System.Drawing.Size(1279, 742);
             this.Controls.Add(this.Fiks_antenn);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.frenquence_label_2);
@@ -623,11 +622,9 @@
         private System.Windows.Forms.ProgressBar progressBar1;
 		private System.Windows.Forms.Timer timer7;
 		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picture_antenna;
         private System.Windows.Forms.PictureBox Fiks_antenn;
-    }
+	}
 }
 
