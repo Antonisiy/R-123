@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1
 		int[] arr = new int[44]; // Массив флагов
 		int[] configuration_steps = new int[5];
 
-		bool flag = false, flag_2 = false, flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true, draw_flag = true,
+		bool flag = false, flag_2 = false,/* flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true,*/ draw_flag = true,
             fix = true, flag_antenn_fiks = true;
 		int value_fr = 0;
 		PointF a = new PointF(0, -111);
@@ -677,10 +677,10 @@ namespace WindowsFormsApplication1
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			double _x = label1.Location.X, _y = label1.Location.Y;
-			double _len = Math.Sqrt(Math.Pow(frenquence_table.Location.X - _x, 2) + Math.Pow(frenquence_table.Location.Y - _y, 2));
-			label1.Location =new Point(Convert.ToInt32(frenquence_table.Location.X + _len * Math.Sin(frenquence_rull_deg)),
-				Convert.ToInt32(frenquence_table.Location.Y + _len * Math.Cos(frenquence_rull_deg)));
+			//double _x = label1.Location.X, _y = label1.Location.Y;
+			//double _len = Math.Sqrt(Math.Pow(frenquence_table.Location.X - _x, 2) + Math.Pow(frenquence_table.Location.Y - _y, 2));
+			//label1.Location =new Point(Convert.ToInt32(frenquence_table.Location.X + _len * Math.Sin(frenquence_rull_deg)),
+			//	Convert.ToInt32(frenquence_table.Location.Y + _len * Math.Cos(frenquence_rull_deg)));
 			//label1.Left = Convert.ToInt32(_len * Math.Sin(90));
 			//label1.Top = Convert.ToInt32(_len * Math.Cos(90));
 		}
@@ -702,7 +702,12 @@ namespace WindowsFormsApplication1
 			}
 		}
 
-		private void timer7_Tick(object sender, EventArgs e) // Проверка выполнения задачи(отображается в справке)
+        private void Main_rull_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer7_Tick(object sender, EventArgs e) // Проверка выполнения задачи(отображается в справке)
 		{
 
 			if (configuration_steps[0] == 0) // Блок подготовки к работе
