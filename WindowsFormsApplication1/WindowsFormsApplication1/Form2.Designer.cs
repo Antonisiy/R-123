@@ -35,6 +35,7 @@
 			// richTextBox1
 			// 
 			this.richTextBox1.AcceptsTab = true;
+			this.richTextBox1.AutoWordSelection = true;
 			this.richTextBox1.Location = new System.Drawing.Point(3, 8);
 			this.richTextBox1.Name = "richTextBox1";
 			this.richTextBox1.ReadOnly = true;

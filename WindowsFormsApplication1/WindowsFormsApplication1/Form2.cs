@@ -32,7 +32,6 @@ namespace WindowsFormsApplication1
 			String[] val = { "\tНЕ ГОТОВО", "\tГОТОВО" };
 
 			richTextBox1.Text = richTextBox1.Text.Insert(richTextBox1.Text.IndexOf("\n", richTextBox1.Text.IndexOf("№" + num)), val[value]);
-
 		}
 
 		void set_color()

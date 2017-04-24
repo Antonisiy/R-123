@@ -29,6 +29,7 @@ namespace WindowsFormsApplication1
 			  corrector_rull_deg = 0, antenna_rull_deg = 0,
 			  voltage_control_rull_deg = 0, shum_rull_deg = 0, frenquence_rull_deg = 785;
 
+
 		int flag_auto;
 
 		MouseEventArgs Volume_arg = null,
@@ -43,8 +44,11 @@ namespace WindowsFormsApplication1
 		int[] arr = new int[44]; // Массив флагов
 		int[] configuration_steps = new int[5];
 
-		bool flag = false, flag_2 = false,/* flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true,*/ draw_flag = true,
-            fix = true, flag_antenn_fiks = true;
+		int[] best_antenna = { 100, 520, 1000 }; // Значения предельного отклонения стрелки 
+		int[] best_luminosity = { 80, 520, 900 }; // Максимальное свечение лампы
+
+
+		bool flag = false, flag_2 = false, draw_flag = true, fix = true, flag_antenn_fiks = true;
 		int value_fr = 0;
 		PointF a = new PointF(0, -111);
 		//Рисуем круг
@@ -68,45 +72,15 @@ namespace WindowsFormsApplication1
 		//
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			//Image img = Properties.Resources.R_123M;
-			//this.BackgroundImage = new Bitmap(img);
-			//Open_Panel.Visible = true;
-			//Image img_2 = Properties.Resources.rull_I;
-			//Draw_circle(img_2, Main_rull);
+			label_poddiapazon.Text = "20";
+			System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+			PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
 
-			//Draw_circle(Volume_rull.Image, Volume_rull);
+			matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
+			Graphics gr = arrow_image.CreateGraphics();
+			gr.Transform = matrix;
+			gr.DrawImage(arrow_image.Image, 0, 0);
 
-			//Draw_circle(Corrector.Image, Corrector);
-
-			//Draw_circle(frenquence_table.Image, frenquence_table);
-
-			//Draw_circle(picture_antenna.Image, picture_antenna);
-
-			//Draw_circle(voltage_control_rull.Image, voltage_control_rull);
-
-			//Draw_circle(Picture_shum.Image, Picture_shum);
-
-			//Draw_circle(Picture_frequence.Image, Picture_frequence);
-
-
-			//frenquence_label.Text = "357";
-			//frenquence_label_2.Text = "515";
-
-			//Draw_circle(picture_lamp_fr.Image, picture_lamp_fr);
-
-			////Draw_circle(picture_fiks_anten.Image, picture_fiks_anten);
-
-			//for (int i = 0; i < 44; i++)
-			//	arr[i] = 0;
-			//arr[0] = 1;
-			//for (int i = 0; i < 5; i++)
-			//	configuration_steps[i] = 0;
-			//timer7.Start();
-
-			//right_picture.Add(Right_Perek_1);
-			//right_picture.Add(Right_Perek_2);
-			//right_picture.Add(Right_Perek_3);
-			//right_picture.Add(Right_Perek_4);
 		}
 
 		//Рисуем маленький круг
@@ -176,18 +150,6 @@ namespace WindowsFormsApplication1
 		//Правый угол переключатели
 		private void Right_Perek_1_MouseClick(object sender, MouseEventArgs e)
 		{
-			//if (flag_perek_1)
-			//{
-			//	Image img = Properties.Resources.perek_I;
-			//	Right_Perek_1.Image = img;
-			//	flag_perek_1 = false;
-			//}
-			//else
-			//{
-			//	Image img = Properties.Resources.perek_II;
-			//	Right_Perek_1.Image = img;
-			//	flag_perek_1 = true;
-			//}
 			if (pictureBox2.Visible == false)
 			{
 				pictureBox2.Visible = true;
@@ -206,19 +168,6 @@ namespace WindowsFormsApplication1
 
 		private void Right_Perek_2_MouseClick(object sender, MouseEventArgs e)
 		{
-			//if (flag_perek_2)
-			//{
-			//	Image img = Properties.Resources.perek_I;
-			//	Right_Perek_2.Image = img;
-			//	flag_perek_2 = false;
-			//}
-			//else
-			//{
-			//	Image img = Properties.Resources.perek_II;
-			//	Right_Perek_2.Image = img;
-			//	flag_perek_2 = true;
-			//}
-
 			if (pictureBox3.Visible == false)
 			{
 				pictureBox3.Visible = true;
@@ -237,19 +186,6 @@ namespace WindowsFormsApplication1
 
 		private void Right_Perek_3_MouseClick(object sender, MouseEventArgs e)
 		{
-			//if (flag_perek_3)
-			//{
-			//	Image img = Properties.Resources.perek_I;
-			//	Right_Perek_3.Image = img;
-			//	flag_perek_3 = false;
-			//}
-			//else
-			//{
-			//	Image img = Properties.Resources.perek_II;
-			//	Right_Perek_3.Image = img;
-			//	flag_perek_3 = true;
-			//}
-
 			if (pictureBox4.Visible == false)
 			{
 				pictureBox4.Visible = true;
@@ -268,19 +204,6 @@ namespace WindowsFormsApplication1
 
 		private void Right_Perek_4_MouseClick(object sender, MouseEventArgs e)
 		{
-			//if (flag_perek_4)
-			//{
-			//	Image img = Properties.Resources.perek_I;
-			//	Right_Perek_4.Image = img;
-			//	flag_perek_4 = false;
-			//}
-			//else
-			//{
-			//	Image img = Properties.Resources.perek_II;
-			//	Right_Perek_4.Image = img;
-			//	flag_perek_4 = true;
-			//}
-
 			if (pictureBox5.Visible == false)
 			{
 				pictureBox5.Visible = true;
@@ -296,9 +219,6 @@ namespace WindowsFormsApplication1
 
 			new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
 		}
-
-
-		const int best_antenna = 280;
 		//Таймеры
 		private void timer5_Tick(object sender, EventArgs e) // Лампочка
 		{
@@ -306,118 +226,89 @@ namespace WindowsFormsApplication1
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(picture_antenna.Image.Width / 2, picture_antenna.Image.Height / 2);
 			if (flag_antenn_fiks)
-            {
-			if ((flag_auto == 1) || ((antenna_arg.Button == MouseButtons.Left) && (flag_auto == 0)))
 			{
-				if (antenna_rull_deg < 1440)
+				if ((flag_auto == 1) || ((antenna_arg.Button == MouseButtons.Left) && (flag_auto == 0)))
 				{
-					antenna_rull_deg += 10;
+					if (antenna_rull_deg < 1440)
+					{
+						antenna_rull_deg += 10;
+					}
+				}
+				else
+				{
+					if (antenna_rull_deg > -720)
+					{
+						antenna_rull_deg -= 10;
+					}
 				}
 
-				if ((best_antenna > antenna_rull_deg) && (antenna_rull_deg > 0))
+				foreach (int best in best_luminosity) // яркость лампочки
 				{
-					Brightness_Picture(picture_lamp_fr, 1.05f);
-				}
-				else if ((best_antenna + 100 < antenna_rull_deg) && (antenna_rull_deg < 560))
-				{
-					Brightness_Picture(picture_lamp_fr, 0.95f);
+					if ((best - antenna_rull_deg < 220 && best - antenna_rull_deg > 0 && antenna_arg.Button == MouseButtons.Left)
+						|| (best - antenna_rull_deg < -100 && best - antenna_rull_deg > -320 && antenna_arg.Button == MouseButtons.Right))
+					{
+						Brightness_Picture(picture_lamp_fr, 1.015f);
+					}
+
+					if ((best - antenna_rull_deg < 220 && best - antenna_rull_deg > 0 && antenna_arg.Button == MouseButtons.Right)
+						|| (best - antenna_rull_deg < -100 && best - antenna_rull_deg > -320 && antenna_arg.Button == MouseButtons.Left))
+					{
+						Brightness_Picture(picture_lamp_fr, 1.015f);
+					}
+
+					if (best - antenna_rull_deg == 0 || best - antenna_rull_deg == -320)
+					{
+						picture_lamp_fr.Image = Properties.Resources.power;
+					}
 				}
 
-				if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 100)
+				foreach (int best in best_antenna) // вроверка вхождения значения поворота крутилки в границы необходимые для отклонения стрелки
 				{
-					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
+					if ((antenna_rull_deg > best - 70 && antenna_rull_deg < best + 100 && antenna_arg.Button == MouseButtons.Left)
+						|| (antenna_rull_deg > best + 140 && antenna_rull_deg < best + 310 && antenna_arg.Button == MouseButtons.Right))
+					{
+						label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
 
-					System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
-					PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
+						System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+						PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
 
 						matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
-					Graphics gr = arrow_image.CreateGraphics();
-					gr.Transform = matrix;
-					gr.DrawImage(arrow_image.Image, 0, 0);
-				}
+						Graphics gr = arrow_image.CreateGraphics();
+						gr.Transform = matrix;
+						gr.DrawImage(arrow_image.Image, 0, 0);
+					}
 
-				if (antenna_rull_deg > best_antenna + 140 && antenna_rull_deg < best_antenna + 310)
-				{
-					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
+					if ((antenna_rull_deg > best + 140 && antenna_rull_deg < best + 310 && antenna_arg.Button == MouseButtons.Left)
+						|| (antenna_rull_deg > best - 70 && antenna_rull_deg < best + 100 && antenna_arg.Button == MouseButtons.Right))
+					{
+						label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
 
-					System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
-					PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
+						System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+						PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
 
 						matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
-					Graphics gr = arrow_image.CreateGraphics();
-					gr.Transform = matrix;
-					gr.DrawImage(arrow_image.Image, 0, 0);
-				}
-			}
-			else
-			{
-				if (antenna_rull_deg > -720)
-				{
-					antenna_rull_deg -= 10;
-				}
-				if ((best_antenna > antenna_rull_deg) && (antenna_rull_deg > 60))
-				{
-					Brightness_Picture(picture_lamp_fr, 0.95f);
-				}
-				else if ((best_antenna + 100 < antenna_rull_deg) && (antenna_rull_deg < 560))
-				{
-					Brightness_Picture(picture_lamp_fr, 1.05f);
+						Graphics gr = arrow_image.CreateGraphics();
+						gr.Transform = matrix;
+						gr.DrawImage(arrow_image.Image, 0, 0);
+					}
 				}
 
-				if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 100)
-				{
-					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
+				mymatrix.RotateAt(antenna_rull_deg, center_picture);
+				Graphics g = picture_antenna.CreateGraphics();
+				picture_lamp_fr.Visible = true;
+				g.Transform = mymatrix;
+				g.DrawImage(picture_antenna.Image, 0, 0);
 
-					System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
-					PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
-
-					matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
-					Graphics gr = arrow_image.CreateGraphics();
-					gr.Transform = matrix;
-					gr.DrawImage(arrow_image.Image, 0, 0);
-				}
-				
-				if (antenna_rull_deg > best_antenna + 140 && antenna_rull_deg < best_antenna + 310)
-				{
-					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
-
-					System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
-					PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
-
-					matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
-					Graphics gr = arrow_image.CreateGraphics();
-					gr.Transform = matrix;
-					gr.DrawImage(arrow_image.Image, 0, 0);
-				}
-			}
-
-			if (antenna_rull_deg == best_antenna - 70)
-			{
-				label_poddiapazon.Text = "20";
-			}
-
-			mymatrix.RotateAt(antenna_rull_deg, center_picture);
-			Graphics g = picture_antenna.CreateGraphics();
-			picture_lamp_fr.Visible = true;
-			g.Transform = mymatrix;
-			g.DrawImage(picture_antenna.Image, 0, 0);
-
-			if (antenna_rull_deg == 560 || antenna_rull_deg == 0)
-			{
-				picture_lamp_fr.Image = Properties.Resources.power;
-
-			}
-
-			mymatrix = new System.Drawing.Drawing2D.Matrix();
-			center_picture = new PointF(Fiks_antenn.Image.Width / 2, Fiks_antenn.Image.Height / 2);
-			mymatrix.RotateAt(antenna_rull_deg, center_picture);
-			g = Fiks_antenn.CreateGraphics();
-			g.Transform = mymatrix;
-			g.DrawImage(Fiks_antenn.Image, 0, 0);
+				mymatrix = new System.Drawing.Drawing2D.Matrix();
+				center_picture = new PointF(Fiks_antenn.Image.Width / 2, Fiks_antenn.Image.Height / 2);
+				mymatrix.RotateAt(antenna_rull_deg, center_picture);
+				g = Fiks_antenn.CreateGraphics();
+				g.Transform = mymatrix;
+				g.DrawImage(Fiks_antenn.Image, 0, 0);
 				//Brightness_Picture(picture_lamp_fr, LAMP);
 
 				flag_auto = 0;
-		}
+			}
 
 		}
 		//Шум
@@ -620,19 +511,19 @@ namespace WindowsFormsApplication1
 			Rotate(sender, e);
 		}
 
-        private void Fiks_antenn_MouseClick(object sender, MouseEventArgs e)
-        {
+		private void Fiks_antenn_MouseClick(object sender, MouseEventArgs e)
+		{
 			int turn = 0;
-            if (flag_antenn_fiks)
-            {
+			if (flag_antenn_fiks)
+			{
 				turn = 90;
 				flag_antenn_fiks = false;
-            }
-            else
-            {
+			}
+			else
+			{
 				turn = 0;
 				flag_antenn_fiks = true;
-            }
+			}
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(Fiks_antenn.Image.Width / 2, Fiks_antenn.Image.Height / 2);
 			mymatrix.RotateAt(antenna_rull_deg + turn, center_picture);
@@ -663,7 +554,7 @@ namespace WindowsFormsApplication1
 
 			Draw_circle(Picture_frequence.Image, Picture_frequence);
 
-            Draw_circle(Fiks_antenn.Image, Fiks_antenn);
+			Draw_circle(Fiks_antenn.Image, Fiks_antenn);
 
 			frenquence_label.Text = "357";
 			frenquence_label_2.Text = "515";
@@ -683,6 +574,15 @@ namespace WindowsFormsApplication1
 			right_picture.Add(Right_Perek_2);
 			right_picture.Add(Right_Perek_3);
 			right_picture.Add(Right_Perek_4);
+
+			label_poddiapazon.Text = "20";
+			System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+			PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
+
+			matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
+			Graphics gr = arrow_image.CreateGraphics();
+			gr.Transform = matrix;
+			gr.DrawImage(arrow_image.Image, 0, 0);
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -702,8 +602,8 @@ namespace WindowsFormsApplication1
 			}
 		}
 
-        private void Main_rull_Click(object sender, EventArgs e)
-        {
+		private void Main_rull_Click(object sender, EventArgs e)
+		{
 
 		}
 
@@ -732,66 +632,71 @@ namespace WindowsFormsApplication1
 
 			arr[7 + 9 * i] = 1; // установили нужную частоту
 
-						if (fix == false) // Расфиксировали болтик
-						{
+			if (fix == false) // Расфиксировали болтик
+			{
 				arr[8 + 9 * i] = 1;
 				set_arr_null(9 + 9 * i, 15 + 9 * i);
-						}
-						else
-						{
-							if ((frenquence_label.Text == frequency_1.ToString() || frenquence_label.Text == frequency_2.ToString()) && (fix == true)
-					&& arr[8 + 9 * i] == 1)
-							{
+			}
+			else
+			{
+				if ((frenquence_label.Text == frequency_1.ToString() || frenquence_label.Text == frequency_2.ToString()) 
+					&& (fix == true) && arr[8 + 9 * i] == 1)
+				{
 					arr[9 + 9 * i] = 1;
-							}
-							else
-							{
+				}
+				else
+				{
 					set_arr_null(8 + 9 * i, 15 + 9 * i);
 					return;
-							}
-						}
+				}
+			}
 
 			if (pictureBox2.Visible == true && frenquence_label.Text == frequency_1.ToString() && arr[9 + 9 * i] == 1)
-						{
+			{
 				arr[10 + 9 * i] = 1;
-				arr[11 + 9 * i] = 1;
-						}
-						else
-						{
-							if (pictureBox2.Visible == false && frenquence_label.Text == frequency_2.ToString())
-							{
+			}
+			else
+			{
+				if (pictureBox2.Visible == false && frenquence_label.Text == frequency_2.ToString())
+				{
 					arr[10 + 9 * i] = 1;
-					arr[11 + 9 * i] = 1;
-							}
-							else
-							{
+				}
+				else
+				{
 					set_arr_null(10 + 9 * i, 15 + 9 * i);
 					return;
-							}
-						}
+				}
+			}
+			
 
-						if (antenna_rull_deg <= 380 && antenna_rull_deg >= 320)
-						{
+			if (antenna_rull_deg <= 380 && antenna_rull_deg >= 320)
+			{
 				arr[12 + 9 * i] = 1;
 				arr[13 + 9 * i] = 1;
 				arr[14 + 9 * i] = 1;
 				arr[15 + 9 * i] = 1;
-						}
-						else
-						{
+			}
+			else
+			{
 				set_arr_null(12 + 9 * i, 15 + 9 * i);
 				return;
-						}
-
-
-
-
 			}
+
+
+
+
+		}
 
 		private void Form1_Paint(object sender, PaintEventArgs e)
 		{
-			//if (draw_flag)
-			//	Rotate(sender, e);
+			label_poddiapazon.Text = "20";
+			System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+			PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
+
+			matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
+			Graphics gr = arrow_image.CreateGraphics();
+			gr.Transform = matrix;
+			gr.DrawImage(arrow_image.Image, 0, 0);
 		}
 
 		private void Picture_frequence_table(float frenquence_table_deg)
