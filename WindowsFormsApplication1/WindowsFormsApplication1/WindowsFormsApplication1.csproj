@@ -185,6 +185,7 @@
     <None Include="Resources\rull_2_1.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\scala.bmp" />
     <None Include="Resources\tangenta_prd.bmp" />
     <None Include="Resources\tangenta_prm.jpg" />
     <None Include="Resources\tangenta_prd.jpg" />

@@ -273,8 +273,8 @@ namespace WindowsFormsApplication1
 					System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
 					PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
 
-					matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
-					Graphics gr = arrow_image.CreateGraphics();
+                        matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
+                        Graphics gr = arrow_image.CreateGraphics();
 					gr.Transform = matrix;
 					gr.DrawImage(arrow_image.Image, 0, 0);
 				}
@@ -282,13 +282,13 @@ namespace WindowsFormsApplication1
 					if ((antenna_rull_deg > best + 140 && antenna_rull_deg < best + 310 && antenna_arg.Button == MouseButtons.Left)
 						|| (antenna_rull_deg > best - 70 && antenna_rull_deg < best + 100 && antenna_arg.Button == MouseButtons.Right))
 				{
-						label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
+                        label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
 
-					System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+                        System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
 					PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
 
-					matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
-					Graphics gr = arrow_image.CreateGraphics();
+                        matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
+                        Graphics gr = arrow_image.CreateGraphics();
 					gr.Transform = matrix;
 					gr.DrawImage(arrow_image.Image, 0, 0);
 				}
@@ -535,7 +535,7 @@ namespace WindowsFormsApplication1
 
 		private void Р123_Shown(object sender, EventArgs e)
 		{
-
+            
 			Open_Panel.Visible = true;
 			Image img_2 = Properties.Resources.rull_I;
 			Draw_circle(img_2, Main_rull);
@@ -575,12 +575,12 @@ namespace WindowsFormsApplication1
 			right_picture.Add(Right_Perek_3);
 			right_picture.Add(Right_Perek_4);
 
-			label_poddiapazon.Text = "20";
-			System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+            label_poddiapazon.Text = "20";
+            System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
 
-			matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
-			Graphics gr = arrow_image.CreateGraphics();
+            matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
+            Graphics gr = arrow_image.CreateGraphics();
 			gr.Transform = matrix;
 			gr.DrawImage(arrow_image.Image, 0, 0);
 		}
@@ -618,16 +618,17 @@ namespace WindowsFormsApplication1
             {
                 tangenta_picture.Image = Properties.Resources.tangenta_prd;
                 tangenta_flag = true;
+                new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             }
             else
             {
                 tangenta_picture.Image = Properties.Resources.tangenta_prm;
                 tangenta_flag = false;
+                new System.Media.SoundPlayer(Properties.Resources.Click_Sound).Play();
             }
         }
 
-
-		private void timer7_Tick(object sender, EventArgs e) // Проверка выполнения задачи(отображается в справке)
+        private void timer7_Tick(object sender, EventArgs e) // Проверка выполнения задачи(отображается в справке)
 		{
 
 			if (configuration_steps[0] == 0) // Блок подготовки к работе
@@ -645,8 +646,14 @@ namespace WindowsFormsApplication1
 				}
 				configuration_steps[0] = 1;
 			}
-			// Блок проверки настроенных частот
-			int i = Math.Abs(main_rull_deg / 60) % 6;
+
+            if (configuration_steps[0] == 1)
+            {
+                checkBox1.Checked = true;
+            }
+
+            // Блок проверки настроенных частот
+            int i = Math.Abs(main_rull_deg / 60) % 6;
 			if (i > 3)
 				return;
 
@@ -698,33 +705,68 @@ namespace WindowsFormsApplication1
                 return;
             }
 
+                if(flag_antenn_fiks == true)
+            {
 
-						if (antenna_rull_deg <= 380 && antenna_rull_deg >= 320)
-						{
-				arr[12 + 9 * i] = 1;
-				arr[13 + 9 * i] = 1;
-				arr[14 + 9 * i] = 1;
-				arr[15 + 9 * i] = 1;
-						}
-						else
-						{
-				set_arr_null(12 + 9 * i, 15 + 9 * i);
-				return;
-						}
+                if (antenna_rull_deg <= 380 && antenna_rull_deg >= 320)
+                {
+                    arr[12 + 9 * i] = 1;
+                }
+                else
+                {
+                    set_arr_null(12 + 9 * i, 15 + 9 * i);
+                    return;
+                }
+            }
+
+                if((flag_antenn_fiks == false)&&(arr[12 + 9 * i] == 1))
+            {
+                arr[13 + 9 * i] = 1;
+                arr[14 + 9 * i] = 1;
+            }
+                else
+            {
+                set_arr_null(13 + 9 * i, 15 + 9 * i);
+                return;
+            }
 
 
+             if (tangenta_flag == false)
+            {
+                arr[15 + 9 * i] = 1;
+            }
+            else
+            {
+                set_arr_null(15 + 9 * i, 15 + 9 * i);
+                return;
+            }
 
-
-			}
+            if (arr[15 + 9] == 1)
+            {
+                checkBox2.Checked = true;
+            }
+            else if (arr[15 + 18] == 1)
+            {
+                checkBox3.Checked = true;
+            }
+            else if (arr[15 + 27] == 1)
+            {
+                checkBox4.Checked = true;
+            }
+            else if (arr[15 + 36] == 1)
+            {
+                checkBox5.Checked = true;
+            }
+        }
 
 		private void Form1_Paint(object sender, PaintEventArgs e)
 		{
-			label_poddiapazon.Text = "20";
-			System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+            label_poddiapazon.Text = "20";
+            System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
-
-			matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
-			Graphics gr = arrow_image.CreateGraphics();
+            
+            matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
+            Graphics gr = arrow_image.CreateGraphics();
 			gr.Transform = matrix;
 			gr.DrawImage(arrow_image.Image, 0, 0);
 		}
@@ -804,6 +846,7 @@ namespace WindowsFormsApplication1
 		//Переключатель Симплекс-Прием-
 		private void Corrector_MouseClick(object sender, MouseEventArgs e)
 		{
+           
 			Draw_circle(Corrector.Image, Corrector);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(67, 66);

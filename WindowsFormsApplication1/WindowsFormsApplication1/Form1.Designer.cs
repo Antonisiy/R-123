@@ -34,7 +34,6 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
-            this.label_poddiapazon = new System.Windows.Forms.Label();
             this.timer6 = new System.Windows.Forms.Timer(this.components);
             this.frenquence_label_2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -43,6 +42,7 @@
             this.timer7 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.label_poddiapazon = new System.Windows.Forms.Label();
             this.tangenta_picture = new System.Windows.Forms.PictureBox();
             this.Fiks_antenn = new System.Windows.Forms.PictureBox();
             this.arrow_image = new System.Windows.Forms.PictureBox();
@@ -70,6 +70,12 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tangenta_picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Fiks_antenn)).BeginInit();
@@ -125,19 +131,9 @@
             // 
             this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
             // 
-            // label_poddiapazon
-            // 
-            this.label_poddiapazon.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_poddiapazon.Location = new System.Drawing.Point(1000, 357);
-            this.label_poddiapazon.Name = "label_poddiapazon";
-            this.label_poddiapazon.Size = new System.Drawing.Size(118, 17);
-            this.label_poddiapazon.TabIndex = 44;
-            this.label_poddiapazon.Text = "*значение*";
-            this.label_poddiapazon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // frenquence_label_2
             // 
-            this.frenquence_label_2.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.frenquence_label_2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.frenquence_label_2.Location = new System.Drawing.Point(455, 137);
             this.frenquence_label_2.Name = "frenquence_label_2";
             this.frenquence_label_2.Size = new System.Drawing.Size(157, 28);
@@ -152,7 +148,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.ShowItemToolTips = true;
-			this.menuStrip1.Size = new System.Drawing.Size(1362, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1434, 24);
             this.menuStrip1.TabIndex = 53;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -194,6 +190,17 @@
             this.label2.TabIndex = 58;
             this.label2.Text = "______________________________";
             // 
+            // label_poddiapazon
+            // 
+            this.label_poddiapazon.Font = new System.Drawing.Font("Txt", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_poddiapazon.ForeColor = System.Drawing.Color.White;
+            this.label_poddiapazon.Image = global::WindowsFormsApplication1.Properties.Resources.scala;
+            this.label_poddiapazon.Location = new System.Drawing.Point(1004, 274);
+            this.label_poddiapazon.Name = "label_poddiapazon";
+            this.label_poddiapazon.Size = new System.Drawing.Size(109, 14);
+            this.label_poddiapazon.TabIndex = 44;
+            this.label_poddiapazon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tangenta_picture
             // 
             this.tangenta_picture.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -221,7 +228,7 @@
             this.arrow_image.Image = global::WindowsFormsApplication1.Properties.Resources.arrow;
             this.arrow_image.Location = new System.Drawing.Point(1004, 277);
             this.arrow_image.Name = "arrow_image";
-            this.arrow_image.Size = new System.Drawing.Size(110, 80);
+            this.arrow_image.Size = new System.Drawing.Size(110, 76);
             this.arrow_image.TabIndex = 59;
             this.arrow_image.TabStop = false;
             // 
@@ -498,11 +505,103 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoCheck = false;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox1.ForeColor = System.Drawing.Color.MediumBlue;
+            this.checkBox1.Location = new System.Drawing.Point(29, 27);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(196, 25);
+            this.checkBox1.TabIndex = 62;
+            this.checkBox1.Text = "Подготовка к работе";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoCheck = false;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.checkBox2.Location = new System.Drawing.Point(260, 27);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(199, 25);
+            this.checkBox2.TabIndex = 63;
+            this.checkBox2.Text = "Настройка 1 частоты";
+            this.checkBox2.UseVisualStyleBackColor = false;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoCheck = false;
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox3.ForeColor = System.Drawing.Color.MediumBlue;
+            this.checkBox3.Location = new System.Drawing.Point(503, 27);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(109, 25);
+            this.checkBox3.TabIndex = 64;
+            this.checkBox3.Text = "2 частоты";
+            this.checkBox3.UseVisualStyleBackColor = false;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoCheck = false;
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox4.ForeColor = System.Drawing.Color.MediumBlue;
+            this.checkBox4.Location = new System.Drawing.Point(645, 27);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(109, 25);
+            this.checkBox4.TabIndex = 65;
+            this.checkBox4.Text = "3 частоты";
+            this.checkBox4.UseVisualStyleBackColor = false;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoCheck = false;
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox5.ForeColor = System.Drawing.Color.MediumBlue;
+            this.checkBox5.Location = new System.Drawing.Point(791, 27);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(109, 25);
+            this.checkBox5.TabIndex = 66;
+            this.checkBox5.Text = "4 частоты";
+            this.checkBox5.UseVisualStyleBackColor = false;
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoCheck = false;
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox6.ForeColor = System.Drawing.Color.MediumBlue;
+            this.checkBox6.Location = new System.Drawing.Point(935, 27);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(181, 25);
+            this.checkBox6.TabIndex = 67;
+            this.checkBox6.Text = "Окончание работы";
+            this.checkBox6.UseVisualStyleBackColor = false;
+            // 
             // Р123
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1484, 742);
+            this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.R_123M;
+            this.ClientSize = new System.Drawing.Size(1434, 742);
+            this.Controls.Add(this.checkBox6);
+            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.label_poddiapazon);
             this.Controls.Add(this.tangenta_picture);
             this.Controls.Add(this.Fiks_antenn);
             this.Controls.Add(this.arrow_image);
@@ -514,7 +613,6 @@
             this.Controls.Add(this.Right_Perek_3);
             this.Controls.Add(this.Right_Perek_2);
             this.Controls.Add(this.Right_Perek_1);
-            this.Controls.Add(this.label_poddiapazon);
             this.Controls.Add(this.picture_power);
             this.Controls.Add(this.pictrure_shcala);
             this.Controls.Add(this.picture_lamp_fr);
@@ -617,6 +715,12 @@
         private System.Windows.Forms.PictureBox Fiks_antenn;
 		private System.Windows.Forms.PictureBox arrow_image;
         private System.Windows.Forms.PictureBox tangenta_picture;
-	}
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox6;
+    }
 }
 
