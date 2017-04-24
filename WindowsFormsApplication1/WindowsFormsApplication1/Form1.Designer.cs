@@ -41,9 +41,10 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.timer7 = new System.Windows.Forms.Timer(this.components);
-			this.button1 = new System.Windows.Forms.Button();
-			this.label2 = new System.Windows.Forms.Label();
+            this.timer7 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Fiks_antenn = new System.Windows.Forms.PictureBox();
 			this.arrow_image = new System.Windows.Forms.PictureBox();
 			this.Right_Perek_4 = new System.Windows.Forms.PictureBox();
 			this.Right_Perek_3 = new System.Windows.Forms.PictureBox();
@@ -71,6 +72,7 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.menuStrip1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.arrow_image)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Fiks_antenn)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Right_Perek_2)).BeginInit();
@@ -110,7 +112,7 @@
 			// frenquence_label
 			// 
 			this.frenquence_label.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.frenquence_label.Location = new System.Drawing.Point(507, 84);
+            this.frenquence_label.Location = new System.Drawing.Point(507, 84);
 			this.frenquence_label.Name = "frenquence_label";
 			this.frenquence_label.Size = new System.Drawing.Size(157, 32);
 			this.frenquence_label.TabIndex = 39;
@@ -179,27 +181,27 @@
 			this.справкаToolStripMenuItem.Text = "Cправка";
 			this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
 			// 
-			// timer7
-			// 
-			this.timer7.Interval = 300;
-			this.timer7.Tick += new System.EventHandler(this.timer7_Tick);
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(511, 540);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(136, 30);
-			this.button1.TabIndex = 55;
-			this.button1.Text = "РАСФИКСИРОВАТЬ";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// label2
-			// 
+            // timer7
+            // 
+            this.timer7.Interval = 300;
+            this.timer7.Tick += new System.EventHandler(this.timer7_Tick);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(511, 540);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(136, 30);
+            this.button1.TabIndex = 55;
+            this.button1.Text = "РАСФИКСИРОВАТЬ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
 			this.label2.Location = new System.Drawing.Point(481, 113);
-			this.label2.Name = "label2";
+            this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(182, 24);
-			this.label2.TabIndex = 58;
+            this.label2.TabIndex = 58;
 			this.label2.Text = "______________________________";
 			// 
 			// arrow_image
@@ -210,7 +212,18 @@
 			this.arrow_image.Size = new System.Drawing.Size(109, 79);
 			this.arrow_image.TabIndex = 59;
 			this.arrow_image.TabStop = false;
-			// 
+            // 
+            // Fiks_antenn
+            // 
+            this.Fiks_antenn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Fiks_antenn.Image = global::WindowsFormsApplication1.Properties.Resources.fiks_antenn;
+            this.Fiks_antenn.Location = new System.Drawing.Point(813, 224);
+            this.Fiks_antenn.Name = "Fiks_antenn";
+            this.Fiks_antenn.Size = new System.Drawing.Size(82, 82);
+            this.Fiks_antenn.TabIndex = 59;
+            this.Fiks_antenn.TabStop = false;
+            this.Fiks_antenn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Fiks_antenn_MouseClick);
+            // 
 			// Right_Perek_4
 			// 
 			this.Right_Perek_4.BackColor = System.Drawing.Color.Transparent;
@@ -465,7 +478,7 @@
 			// pictureBox2
 			// 
 			this.pictureBox2.Image = global::WindowsFormsApplication1.Properties.Resources.Green_1;
-			this.pictureBox2.Location = new System.Drawing.Point(1028, 105);
+            this.pictureBox2.Location = new System.Drawing.Point(1028, 105);
 			this.pictureBox2.Margin = new System.Windows.Forms.Padding(5);
 			this.pictureBox2.Name = "pictureBox2";
 			this.pictureBox2.Size = new System.Drawing.Size(34, 34);
@@ -488,6 +501,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1279, 742);
+            this.Controls.Add(this.Fiks_antenn);
 			this.Controls.Add(this.arrow_image);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.button1);
@@ -528,6 +542,7 @@
 			this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Fiks_antenn)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.arrow_image)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).EndInit();
@@ -572,7 +587,6 @@
         private System.Windows.Forms.PictureBox picture_Lamp_I;
         private System.Windows.Forms.PictureBox picture_Lamp_II;
 		private System.Windows.Forms.PictureBox voltage_control_rull;
-		private System.Windows.Forms.PictureBox picture_antenna;
         private System.Windows.Forms.PictureBox Picture_shum;
         private System.Windows.Forms.PictureBox Picture_frequence;
         private System.Windows.Forms.Label frenquence_label;
@@ -599,6 +613,8 @@
 		private System.Windows.Forms.Timer timer7;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox picture_antenna;
+        private System.Windows.Forms.PictureBox Fiks_antenn;
 		private System.Windows.Forms.PictureBox arrow_image;
 	}
 }
