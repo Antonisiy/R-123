@@ -633,8 +633,7 @@ namespace WindowsFormsApplication1
 
 		private void Р123_Shown(object sender, EventArgs e)
 		{
-			Image img = Properties.Resources.R_123M;
-			this.BackgroundImage = new Bitmap(img);
+		
 			Open_Panel.Visible = true;
 			Image img_2 = Properties.Resources.rull_I;
 			Draw_circle(img_2, Main_rull);

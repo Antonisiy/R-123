@@ -50,7 +50,6 @@
             this.Right_Perek_3 = new System.Windows.Forms.PictureBox();
             this.Right_Perek_2 = new System.Windows.Forms.PictureBox();
             this.Right_Perek_1 = new System.Windows.Forms.PictureBox();
-            this.button_pic = new System.Windows.Forms.PictureBox();
             this.picture_power = new System.Windows.Forms.PictureBox();
             this.pictrure_shcala = new System.Windows.Forms.PictureBox();
             this.picture_lamp_fr = new System.Windows.Forms.PictureBox();
@@ -77,7 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.button_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_power)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_lamp_fr)).BeginInit();
@@ -103,7 +101,7 @@
             // 
             this.open_frenquence_table.BackColor = System.Drawing.Color.Transparent;
             this.open_frenquence_table.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.open_frenquence_table.Location = new System.Drawing.Point(476, 304);
+            this.open_frenquence_table.Location = new System.Drawing.Point(424, 316);
             this.open_frenquence_table.Name = "open_frenquence_table";
             this.open_frenquence_table.Size = new System.Drawing.Size(25, 28);
             this.open_frenquence_table.TabIndex = 32;
@@ -112,7 +110,7 @@
             // frenquence_label
             // 
             this.frenquence_label.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.frenquence_label.Location = new System.Drawing.Point(507, 81);
+            this.frenquence_label.Location = new System.Drawing.Point(455, 93);
             this.frenquence_label.Name = "frenquence_label";
             this.frenquence_label.Size = new System.Drawing.Size(157, 32);
             this.frenquence_label.TabIndex = 39;
@@ -138,7 +136,7 @@
             // label_poddiapazon
             // 
             this.label_poddiapazon.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_poddiapazon.Location = new System.Drawing.Point(1052, 345);
+            this.label_poddiapazon.Location = new System.Drawing.Point(1000, 357);
             this.label_poddiapazon.Name = "label_poddiapazon";
             this.label_poddiapazon.Size = new System.Drawing.Size(118, 17);
             this.label_poddiapazon.TabIndex = 44;
@@ -148,7 +146,7 @@
             // frenquence_label_2
             // 
             this.frenquence_label_2.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.frenquence_label_2.Location = new System.Drawing.Point(507, 125);
+            this.frenquence_label_2.Location = new System.Drawing.Point(455, 137);
             this.frenquence_label_2.Name = "frenquence_label_2";
             this.frenquence_label_2.Size = new System.Drawing.Size(157, 28);
             this.frenquence_label_2.TabIndex = 52;
@@ -188,7 +186,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(511, 540);
+            this.button1.Location = new System.Drawing.Point(459, 552);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(136, 30);
             this.button1.TabIndex = 55;
@@ -198,7 +196,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(508, 105);
+            this.label2.Location = new System.Drawing.Point(456, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(156, 24);
             this.label2.TabIndex = 58;
@@ -208,7 +206,7 @@
             // 
             this.Fiks_antenn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Fiks_antenn.Image = global::WindowsFormsApplication1.Properties.Resources.fiks_antenn;
-            this.Fiks_antenn.Location = new System.Drawing.Point(813, 224);
+            this.Fiks_antenn.Location = new System.Drawing.Point(761, 236);
             this.Fiks_antenn.Name = "Fiks_antenn";
             this.Fiks_antenn.Size = new System.Drawing.Size(82, 82);
             this.Fiks_antenn.TabIndex = 59;
@@ -218,7 +216,7 @@
             // arrow_image
             // 
             this.arrow_image.Image = global::WindowsFormsApplication1.Properties.Resources.arrow;
-            this.arrow_image.Location = new System.Drawing.Point(1056, 265);
+            this.arrow_image.Location = new System.Drawing.Point(1004, 277);
             this.arrow_image.Name = "arrow_image";
             this.arrow_image.Size = new System.Drawing.Size(110, 80);
             this.arrow_image.TabIndex = 59;
@@ -229,7 +227,7 @@
             this.Right_Perek_4.BackColor = System.Drawing.Color.Transparent;
             this.Right_Perek_4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Right_Perek_4.Image = global::WindowsFormsApplication1.Properties.Resources.perek_II;
-            this.Right_Perek_4.Location = new System.Drawing.Point(1152, 191);
+            this.Right_Perek_4.Location = new System.Drawing.Point(1100, 203);
             this.Right_Perek_4.Name = "Right_Perek_4";
             this.Right_Perek_4.Size = new System.Drawing.Size(32, 39);
             this.Right_Perek_4.TabIndex = 50;
@@ -241,7 +239,7 @@
             this.Right_Perek_3.BackColor = System.Drawing.Color.Transparent;
             this.Right_Perek_3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Right_Perek_3.Image = global::WindowsFormsApplication1.Properties.Resources.perek_II;
-            this.Right_Perek_3.Location = new System.Drawing.Point(1112, 193);
+            this.Right_Perek_3.Location = new System.Drawing.Point(1060, 205);
             this.Right_Perek_3.Name = "Right_Perek_3";
             this.Right_Perek_3.Size = new System.Drawing.Size(32, 39);
             this.Right_Perek_3.TabIndex = 49;
@@ -253,7 +251,7 @@
             this.Right_Perek_2.BackColor = System.Drawing.Color.Transparent;
             this.Right_Perek_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Right_Perek_2.Image = global::WindowsFormsApplication1.Properties.Resources.perek_II;
-            this.Right_Perek_2.Location = new System.Drawing.Point(1074, 193);
+            this.Right_Perek_2.Location = new System.Drawing.Point(1022, 205);
             this.Right_Perek_2.Name = "Right_Perek_2";
             this.Right_Perek_2.Size = new System.Drawing.Size(32, 39);
             this.Right_Perek_2.TabIndex = 48;
@@ -265,30 +263,19 @@
             this.Right_Perek_1.BackColor = System.Drawing.Color.Transparent;
             this.Right_Perek_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Right_Perek_1.Image = global::WindowsFormsApplication1.Properties.Resources.perek_II;
-            this.Right_Perek_1.Location = new System.Drawing.Point(1034, 193);
+            this.Right_Perek_1.Location = new System.Drawing.Point(982, 205);
             this.Right_Perek_1.Name = "Right_Perek_1";
             this.Right_Perek_1.Size = new System.Drawing.Size(32, 39);
             this.Right_Perek_1.TabIndex = 47;
             this.Right_Perek_1.TabStop = false;
             this.Right_Perek_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Right_Perek_1_MouseClick);
             // 
-            // button_pic
-            // 
-            this.button_pic.BackColor = System.Drawing.Color.Transparent;
-            this.button_pic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_pic.Location = new System.Drawing.Point(166, 377);
-            this.button_pic.Name = "button_pic";
-            this.button_pic.Size = new System.Drawing.Size(31, 38);
-            this.button_pic.TabIndex = 43;
-            this.button_pic.TabStop = false;
-            this.button_pic.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button_pic_MouseClick);
-            // 
             // picture_power
             // 
             this.picture_power.BackColor = System.Drawing.Color.Transparent;
             this.picture_power.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picture_power.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_2;
-            this.picture_power.Location = new System.Drawing.Point(215, 377);
+            this.picture_power.Location = new System.Drawing.Point(163, 389);
             this.picture_power.Name = "picture_power";
             this.picture_power.Size = new System.Drawing.Size(32, 39);
             this.picture_power.TabIndex = 42;
@@ -300,7 +287,7 @@
             this.pictrure_shcala.BackColor = System.Drawing.Color.Transparent;
             this.pictrure_shcala.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictrure_shcala.Image = global::WindowsFormsApplication1.Properties.Resources.vkl_2;
-            this.pictrure_shcala.Location = new System.Drawing.Point(122, 377);
+            this.pictrure_shcala.Location = new System.Drawing.Point(70, 389);
             this.pictrure_shcala.Name = "pictrure_shcala";
             this.pictrure_shcala.Size = new System.Drawing.Size(32, 39);
             this.pictrure_shcala.TabIndex = 41;
@@ -310,7 +297,7 @@
             // picture_lamp_fr
             // 
             this.picture_lamp_fr.Image = global::WindowsFormsApplication1.Properties.Resources.power;
-            this.picture_lamp_fr.Location = new System.Drawing.Point(771, 119);
+            this.picture_lamp_fr.Location = new System.Drawing.Point(719, 131);
             this.picture_lamp_fr.Name = "picture_lamp_fr";
             this.picture_lamp_fr.Size = new System.Drawing.Size(50, 50);
             this.picture_lamp_fr.TabIndex = 40;
@@ -321,7 +308,7 @@
             // 
             this.Picture_frequence.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Picture_frequence.Image = global::WindowsFormsApplication1.Properties.Resources.frequency_rull;
-            this.Picture_frequence.Location = new System.Drawing.Point(297, 283);
+            this.Picture_frequence.Location = new System.Drawing.Point(245, 295);
             this.Picture_frequence.Name = "Picture_frequence";
             this.Picture_frequence.Size = new System.Drawing.Size(105, 105);
             this.Picture_frequence.TabIndex = 38;
@@ -334,7 +321,7 @@
             // 
             this.Picture_shum.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Picture_shum.Image = global::WindowsFormsApplication1.Properties.Resources.shum;
-            this.Picture_shum.Location = new System.Drawing.Point(204, 117);
+            this.Picture_shum.Location = new System.Drawing.Point(152, 129);
             this.Picture_shum.Name = "Picture_shum";
             this.Picture_shum.Size = new System.Drawing.Size(73, 73);
             this.Picture_shum.TabIndex = 37;
@@ -346,7 +333,7 @@
             // 
             this.picture_antenna.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picture_antenna.Image = global::WindowsFormsApplication1.Properties.Resources.antenna;
-            this.picture_antenna.Location = new System.Drawing.Point(758, 168);
+            this.picture_antenna.Location = new System.Drawing.Point(706, 180);
             this.picture_antenna.Name = "picture_antenna";
             this.picture_antenna.Size = new System.Drawing.Size(194, 194);
             this.picture_antenna.TabIndex = 36;
@@ -358,7 +345,7 @@
             // 
             this.voltage_control_rull.Cursor = System.Windows.Forms.Cursors.Hand;
             this.voltage_control_rull.Image = global::WindowsFormsApplication1.Properties.Resources.voltage_control_rull;
-            this.voltage_control_rull.Location = new System.Drawing.Point(124, 232);
+            this.voltage_control_rull.Location = new System.Drawing.Point(72, 244);
             this.voltage_control_rull.Name = "voltage_control_rull";
             this.voltage_control_rull.Size = new System.Drawing.Size(122, 125);
             this.voltage_control_rull.TabIndex = 35;
@@ -368,7 +355,7 @@
             // picture_Lamp_II
             // 
             this.picture_Lamp_II.Image = global::WindowsFormsApplication1.Properties.Resources.Green_II;
-            this.picture_Lamp_II.Location = new System.Drawing.Point(1138, 391);
+            this.picture_Lamp_II.Location = new System.Drawing.Point(1086, 403);
             this.picture_Lamp_II.Name = "picture_Lamp_II";
             this.picture_Lamp_II.Size = new System.Drawing.Size(30, 30);
             this.picture_Lamp_II.TabIndex = 34;
@@ -378,7 +365,7 @@
             // picture_Lamp_I
             // 
             this.picture_Lamp_I.Image = global::WindowsFormsApplication1.Properties.Resources.Green_I;
-            this.picture_Lamp_I.Location = new System.Drawing.Point(1054, 393);
+            this.picture_Lamp_I.Location = new System.Drawing.Point(1002, 405);
             this.picture_Lamp_I.Name = "picture_Lamp_I";
             this.picture_Lamp_I.Size = new System.Drawing.Size(30, 30);
             this.picture_Lamp_I.TabIndex = 33;
@@ -388,7 +375,7 @@
             // frenquence_table
             // 
             this.frenquence_table.Image = global::WindowsFormsApplication1.Properties.Resources.frequency_table;
-            this.frenquence_table.Location = new System.Drawing.Point(456, 232);
+            this.frenquence_table.Location = new System.Drawing.Point(404, 244);
             this.frenquence_table.Name = "frenquence_table";
             this.frenquence_table.Size = new System.Drawing.Size(254, 254);
             this.frenquence_table.TabIndex = 31;
@@ -400,7 +387,7 @@
             this.Volume_rull.BackColor = System.Drawing.Color.Transparent;
             this.Volume_rull.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Volume_rull.Image = global::WindowsFormsApplication1.Properties.Resources.volume_rull;
-            this.Volume_rull.Location = new System.Drawing.Point(1056, 432);
+            this.Volume_rull.Location = new System.Drawing.Point(1004, 444);
             this.Volume_rull.Name = "Volume_rull";
             this.Volume_rull.Size = new System.Drawing.Size(109, 108);
             this.Volume_rull.TabIndex = 30;
@@ -412,7 +399,7 @@
             // 
             this.Corrector.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Corrector.Image = global::WindowsFormsApplication1.Properties.Resources.rull_2_1;
-            this.Corrector.Location = new System.Drawing.Point(303, 104);
+            this.Corrector.Location = new System.Drawing.Point(251, 116);
             this.Corrector.Name = "Corrector";
             this.Corrector.Size = new System.Drawing.Size(130, 128);
             this.Corrector.TabIndex = 29;
@@ -423,7 +410,7 @@
             // 
             this.Open_Panel.BackColor = System.Drawing.Color.Transparent;
             this.Open_Panel.Image = global::WindowsFormsApplication1.Properties.Resources.Panel_1;
-            this.Open_Panel.Location = new System.Drawing.Point(1008, 159);
+            this.Open_Panel.Location = new System.Drawing.Point(956, 171);
             this.Open_Panel.Name = "Open_Panel";
             this.Open_Panel.Size = new System.Drawing.Size(205, 100);
             this.Open_Panel.TabIndex = 25;
@@ -435,7 +422,7 @@
             this.Main_rull.BackColor = System.Drawing.Color.Transparent;
             this.Main_rull.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Main_rull.Image = global::WindowsFormsApplication1.Properties.Resources.rull_I;
-            this.Main_rull.Location = new System.Drawing.Point(765, 382);
+            this.Main_rull.Location = new System.Drawing.Point(713, 394);
             this.Main_rull.Name = "Main_rull";
             this.Main_rull.Size = new System.Drawing.Size(223, 229);
             this.Main_rull.TabIndex = 9;
@@ -446,7 +433,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::WindowsFormsApplication1.Properties.Resources.Green_4;
-            this.pictureBox5.Location = new System.Drawing.Point(1152, 104);
+            this.pictureBox5.Location = new System.Drawing.Point(1100, 116);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(34, 34);
@@ -457,7 +444,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::WindowsFormsApplication1.Properties.Resources.Green_3;
-            this.pictureBox4.Location = new System.Drawing.Point(1112, 104);
+            this.pictureBox4.Location = new System.Drawing.Point(1060, 116);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(34, 34);
@@ -468,7 +455,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::WindowsFormsApplication1.Properties.Resources.Green_2;
-            this.pictureBox3.Location = new System.Drawing.Point(1072, 105);
+            this.pictureBox3.Location = new System.Drawing.Point(1020, 117);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(34, 34);
@@ -479,7 +466,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::WindowsFormsApplication1.Properties.Resources.Green_1;
-            this.pictureBox2.Location = new System.Drawing.Point(1028, 105);
+            this.pictureBox2.Location = new System.Drawing.Point(976, 117);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(34, 34);
@@ -491,9 +478,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.R_123M;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(-53, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1280, 765);
+            this.pictureBox1.Size = new System.Drawing.Size(1500, 765);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -513,7 +500,6 @@
             this.Controls.Add(this.Right_Perek_2);
             this.Controls.Add(this.Right_Perek_1);
             this.Controls.Add(this.label_poddiapazon);
-            this.Controls.Add(this.button_pic);
             this.Controls.Add(this.picture_power);
             this.Controls.Add(this.pictrure_shcala);
             this.Controls.Add(this.picture_lamp_fr);
@@ -549,7 +535,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.button_pic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_power)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictrure_shcala)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_lamp_fr)).EndInit();
@@ -594,7 +579,6 @@
         private System.Windows.Forms.PictureBox picture_lamp_fr;
         private System.Windows.Forms.PictureBox pictrure_shcala;
         private System.Windows.Forms.PictureBox picture_power;
-        private System.Windows.Forms.PictureBox button_pic;
 		private System.Windows.Forms.Timer timer2;
 		private System.Windows.Forms.Timer timer3;
 		private System.Windows.Forms.Timer timer4;
