@@ -205,7 +205,7 @@
             // 
             this.tangenta_picture.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tangenta_picture.Image = global::WindowsFormsApplication1.Properties.Resources.tangenta_prm;
-            this.tangenta_picture.Location = new System.Drawing.Point(1252, 153);
+            this.tangenta_picture.Location = new System.Drawing.Point(1192, 155);
             this.tangenta_picture.Name = "tangenta_picture";
             this.tangenta_picture.Size = new System.Drawing.Size(195, 459);
             this.tangenta_picture.TabIndex = 60;
