@@ -194,6 +194,7 @@
     <None Include="Resources\frequency_rull.bmp" />
     <None Include="Resources\shum.bmp" />
     <None Include="Resources\antenna.bmp" />
+    <None Include="Resources\arrow.bmp" />
     <Content Include="Resources\Click_Sound.wav" />
     <None Include="Resources\voltage_control_rull.bmp" />
     <None Include="Resources\Green_II.bmp" />

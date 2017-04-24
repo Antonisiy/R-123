@@ -18,7 +18,7 @@ namespace WindowsFormsApplication1
 	{
 		private
 			Timer timer1 = new Timer();
-		[Obsolete("Лучше не компилировать этот говонокод!", true)]
+		[Obsolete("Лучше не компилировать этот говонокод!", false)]
 		public Р123()
 		{
 			InitializeComponent();
@@ -323,14 +323,30 @@ namespace WindowsFormsApplication1
 					Brightness_Picture(picture_lamp_fr, 0.95f);
 				}
 
-				if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 50)
+				if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 100)
 				{
 					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
+
+					System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+					PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
+
+					matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60)/5, center);
+					Graphics gr = arrow_image.CreateGraphics();
+					gr.Transform = matrix;
+					gr.DrawImage(arrow_image.Image, 0, 0);
 				}
 
-				if (antenna_rull_deg > best_antenna + 100 && antenna_rull_deg < best_antenna + 210)
+				if (antenna_rull_deg > best_antenna + 140 && antenna_rull_deg < best_antenna + 310)
 				{
 					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
+
+					System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+					PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
+
+					matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60)/5, center);
+					Graphics gr = arrow_image.CreateGraphics();
+					gr.Transform = matrix;
+					gr.DrawImage(arrow_image.Image, 0, 0);
 				}
 			}
 			else
@@ -348,14 +364,30 @@ namespace WindowsFormsApplication1
 					Brightness_Picture(picture_lamp_fr, 1.05f);
 				}
 
-				if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 40)
+				if (antenna_rull_deg > best_antenna - 70 && antenna_rull_deg < best_antenna + 100)
 				{
 					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) - 5);
+
+					System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+					PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
+
+					matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
+					Graphics gr = arrow_image.CreateGraphics();
+					gr.Transform = matrix;
+					gr.DrawImage(arrow_image.Image, 0, 0);
 				}
 
-				if (antenna_rull_deg > best_antenna + 90 && antenna_rull_deg < best_antenna + 210)
+				if (antenna_rull_deg > best_antenna + 140 && antenna_rull_deg < best_antenna + 310)
 				{
 					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
+
+					System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
+					PointF center = new PointF(arrow_image.Image.Width / 2, frenquence_table.Image.Height);
+
+					matrix.RotateAt((Convert.ToInt32(label_poddiapazon.Text) - 60) / 5, center);
+					Graphics gr = arrow_image.CreateGraphics();
+					gr.Transform = matrix;
+					gr.DrawImage(arrow_image.Image, 0, 0);
 				}
 			}
 
