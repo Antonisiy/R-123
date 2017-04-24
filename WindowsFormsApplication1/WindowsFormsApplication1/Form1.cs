@@ -50,7 +50,8 @@ namespace WindowsFormsApplication1
 
 		bool flag = false, flag_2 = false, draw_flag = true, fix = true, flag_antenn_fiks = true;
 		int value_fr = 0;
-		PointF a = new PointF(0, -111);
+        bool tangenta_flag = false;
+        PointF a = new PointF(0, -111);
 		//Рисуем круг
 		private void Draw_circle(Image image, PictureBox box)
 		{
