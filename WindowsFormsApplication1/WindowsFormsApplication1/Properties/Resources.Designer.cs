@@ -362,6 +362,26 @@ namespace WindowsFormsApplication1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap tangenta_prd {
+            get {
+                object obj = ResourceManager.GetObject("tangenta_prd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tangenta_prm {
+            get {
+                object obj = ResourceManager.GetObject("tangenta_prm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tumblr {
             get {
                 object obj = ResourceManager.GetObject("tumblr", resourceCulture);

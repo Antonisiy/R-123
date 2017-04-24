@@ -38,7 +38,6 @@
 			this.richTextBox1.AutoWordSelection = true;
 			this.richTextBox1.Location = new System.Drawing.Point(3, 8);
 			this.richTextBox1.Name = "richTextBox1";
-			this.richTextBox1.ReadOnly = true;
 			this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
 			this.richTextBox1.Size = new System.Drawing.Size(669, 382);
 			this.richTextBox1.TabIndex = 0;

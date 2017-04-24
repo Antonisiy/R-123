@@ -54,6 +54,5 @@ namespace WindowsFormsApplication1
 			richTextBox1.SelectionLength = 0;
 			richTextBox1.SelectionStart = 0;
 		}
-
-	}
+    }
 }
