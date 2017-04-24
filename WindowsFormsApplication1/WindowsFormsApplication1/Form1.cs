@@ -376,7 +376,7 @@ namespace WindowsFormsApplication1
 					gr.Transform = matrix;
 					gr.DrawImage(arrow_image.Image, 0, 0);
 				}
-
+				
 				if (antenna_rull_deg > best_antenna + 140 && antenna_rull_deg < best_antenna + 310)
 				{
 					label_poddiapazon.Text = Convert.ToString(Convert.ToInt32(label_poddiapazon.Text) + 5);
@@ -408,10 +408,15 @@ namespace WindowsFormsApplication1
 
 			}
 
+			mymatrix = new System.Drawing.Drawing2D.Matrix();
+			center_picture = new PointF(Fiks_antenn.Image.Width / 2, Fiks_antenn.Image.Height / 2);
+			mymatrix.RotateAt(antenna_rull_deg, center_picture);
+			g = Fiks_antenn.CreateGraphics();
+			g.Transform = mymatrix;
+			g.DrawImage(Fiks_antenn.Image, 0, 0);
+				//Brightness_Picture(picture_lamp_fr, LAMP);
 
-			//Brightness_Picture(picture_lamp_fr, LAMP);
-
-			flag_auto = 0;
+				flag_auto = 0;
 		}
 
 		}
@@ -617,19 +622,24 @@ namespace WindowsFormsApplication1
 
         private void Fiks_antenn_MouseClick(object sender, MouseEventArgs e)
         {
+			int turn = 0;
             if (flag_antenn_fiks)
             {
-                Image img = Properties.Resources.fiks_antenn_block;
-                Fiks_antenn.Image = img;
-                flag_antenn_fiks = false;
+				turn = 90;
+				flag_antenn_fiks = false;
             }
             else
             {
-                Image img = Properties.Resources.fiks_antenn;
-                Fiks_antenn.Image = img;
-                flag_antenn_fiks = true;
+				turn = 0;
+				flag_antenn_fiks = true;
             }
-        }
+			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
+			PointF center_picture = new PointF(Fiks_antenn.Image.Width / 2, Fiks_antenn.Image.Height / 2);
+			mymatrix.RotateAt(antenna_rull_deg + turn, center_picture);
+			Graphics g = Fiks_antenn.CreateGraphics();
+			g.Transform = mymatrix;
+			g.DrawImage(Fiks_antenn.Image, 0, 0);
+		}
 
 		private void Р123_Shown(object sender, EventArgs e)
 		{
