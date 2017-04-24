@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.open_frenquence_table = new System.Windows.Forms.Label();
             this.frenquence_label = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
@@ -44,6 +43,7 @@
             this.timer7 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.tangenta_picture = new System.Windows.Forms.PictureBox();
             this.Fiks_antenn = new System.Windows.Forms.PictureBox();
             this.arrow_image = new System.Windows.Forms.PictureBox();
             this.Right_Perek_4 = new System.Windows.Forms.PictureBox();
@@ -59,6 +59,7 @@
             this.voltage_control_rull = new System.Windows.Forms.PictureBox();
             this.picture_Lamp_II = new System.Windows.Forms.PictureBox();
             this.picture_Lamp_I = new System.Windows.Forms.PictureBox();
+            this.open_frenquence_table = new System.Windows.Forms.Label();
             this.frenquence_table = new System.Windows.Forms.PictureBox();
             this.Volume_rull = new System.Windows.Forms.PictureBox();
             this.Corrector = new System.Windows.Forms.PictureBox();
@@ -70,6 +71,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tangenta_picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Fiks_antenn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.arrow_image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).BeginInit();
@@ -96,16 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // open_frenquence_table
-            // 
-            this.open_frenquence_table.BackColor = System.Drawing.Color.Transparent;
-            this.open_frenquence_table.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.open_frenquence_table.Location = new System.Drawing.Point(424, 316);
-            this.open_frenquence_table.Name = "open_frenquence_table";
-            this.open_frenquence_table.Size = new System.Drawing.Size(25, 28);
-            this.open_frenquence_table.TabIndex = 32;
-            this.open_frenquence_table.Click += new System.EventHandler(this.open_frenquence_table_Click);
             // 
             // frenquence_label
             // 
@@ -201,6 +193,17 @@
             this.label2.Size = new System.Drawing.Size(156, 24);
             this.label2.TabIndex = 58;
             this.label2.Text = "______________________________";
+            // 
+            // tangenta_picture
+            // 
+            this.tangenta_picture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tangenta_picture.Image = global::WindowsFormsApplication1.Properties.Resources.tangenta_prm;
+            this.tangenta_picture.Location = new System.Drawing.Point(1252, 153);
+            this.tangenta_picture.Name = "tangenta_picture";
+            this.tangenta_picture.Size = new System.Drawing.Size(195, 459);
+            this.tangenta_picture.TabIndex = 60;
+            this.tangenta_picture.TabStop = false;
+            this.tangenta_picture.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tangenta_picture_MouseClick_1);
             // 
             // Fiks_antenn
             // 
@@ -372,6 +375,17 @@
             this.picture_Lamp_I.TabStop = false;
             this.picture_Lamp_I.Visible = false;
             // 
+            // open_frenquence_table
+            // 
+            this.open_frenquence_table.BackColor = System.Drawing.Color.Transparent;
+            this.open_frenquence_table.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.open_frenquence_table.Image = global::WindowsFormsApplication1.Properties.Resources.open_frenquency_table;
+            this.open_frenquence_table.Location = new System.Drawing.Point(424, 316);
+            this.open_frenquence_table.Name = "open_frenquence_table";
+            this.open_frenquence_table.Size = new System.Drawing.Size(25, 28);
+            this.open_frenquence_table.TabIndex = 32;
+            this.open_frenquence_table.Click += new System.EventHandler(this.open_frenquence_table_Click);
+            // 
             // frenquence_table
             // 
             this.frenquence_table.Image = global::WindowsFormsApplication1.Properties.Resources.frequency_table;
@@ -489,6 +503,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 742);
+            this.Controls.Add(this.tangenta_picture);
             this.Controls.Add(this.Fiks_antenn);
             this.Controls.Add(this.arrow_image);
             this.Controls.Add(this.label2);
@@ -529,6 +544,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tangenta_picture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Fiks_antenn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.arrow_image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Right_Perek_4)).EndInit();
@@ -600,6 +616,7 @@
         private System.Windows.Forms.PictureBox picture_antenna;
         private System.Windows.Forms.PictureBox Fiks_antenn;
 		private System.Windows.Forms.PictureBox arrow_image;
-	}
+        private System.Windows.Forms.PictureBox tangenta_picture;
+    }
 }
 

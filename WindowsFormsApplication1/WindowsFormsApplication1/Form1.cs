@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1
 		int[] arr = new int[44]; // Массив флагов
 		int[] configuration_steps = new int[5];
 
-		bool flag = false, flag_2 = false,/* flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true,*/ draw_flag = true,
+        bool flag = false, flag_2 = false, tangenta = false,/* flag_perek_1 = true, flag_perek_2 = true, flag_perek_3 = true, flag_perek_4 = true,*/ draw_flag = true,
             fix = true, flag_antenn_fiks = true;
 		int value_fr = 0;
 		PointF a = new PointF(0, -111);
@@ -706,7 +706,27 @@ namespace WindowsFormsApplication1
 
 		}
 
-		private void timer7_Tick(object sender, EventArgs e) // Проверка выполнения задачи(отображается в справке)
+        private void tangenta_prd_picture_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void tangenta_picture_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            if (!tangenta)
+            {
+                tangenta_picture.Image = Properties.Resources.tangenta_prd;
+                tangenta = true;
+            }
+            else
+            {
+                tangenta_picture.Image = Properties.Resources.tangenta_prm;
+                tangenta = false;
+            }
+        }
+
+
+        private void timer7_Tick(object sender, EventArgs e) // Проверка выполнения задачи(отображается в справке)
 		{
 
 			if (configuration_steps[0] == 0) // Блок подготовки к работе
