@@ -823,8 +823,8 @@ namespace WindowsFormsApplication1
 			///TODO доделать ебучий поворот болтов!!!
 			///Код готов, надо исправить картинку, в ней неправильный центр
 			// выставить центр
-			center_picture.X = frenquence_table.Location.X + 129;
-			center_picture.Y = frenquence_table.Location.Y + 123;
+			center_picture.X = frenquence_table.Location.X + 122;
+			center_picture.Y = frenquence_table.Location.Y + 122;
 
 			rotated.X = Convert.ToInt32(center_picture.X + (label1.Location.X - center_picture.X) * (float)Math.Cos(-2.2 / (180 / 3.14))
 				+ (label1.Location.Y - center_picture.Y) * (float)Math.Sin(-2.2 / (180 / 3.14)));
