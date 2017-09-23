@@ -188,7 +188,6 @@
     <None Include="Resources\scala.bmp" />
     <None Include="Resources\tangenta_prd.bmp" />
     <None Include="Resources\tangenta_prm.jpg" />
-    <None Include="Resources\tangenta_prd.jpg" />
     <None Include="Resources\fiks_antenn_block.bmp" />
     <None Include="Resources\perek_II.bmp" />
     <None Include="Resources\perek_I.bmp" />

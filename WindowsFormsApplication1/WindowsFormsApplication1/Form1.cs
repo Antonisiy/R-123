@@ -738,9 +738,10 @@ namespace WindowsFormsApplication1
 					return;
 				}
 			}
-			// Включили радиостанцию на передачу через тангенту
-			if (tangenta_flag && check[i - 1].Checked == false)
-			{
+            // Включили радиостанцию на передачу через тангенту
+            // ПОМЕНЯЛ ИНДЕКС
+            if (tangenta_flag && check[i].Checked == false) //[i - 1]
+            {
 				arr[11 + 9 * i] = 1;
 			}
 			else
@@ -774,23 +775,27 @@ namespace WindowsFormsApplication1
 				return;
 			}
 
-			// отпустили тангенту
-			if (tangenta_flag == false)
+            // отпустили тангенту
+            // НЕ ЛОВИТ ПЕРЕКЛЮЧЕНИЕ ТАНГЕНТЫ В ПРИЕМ
+            if (tangenta_flag == false)
 			{
 				arr[15 + 9 * i] = 1;
 			}
 
-
-			// Устанавливаем чекбоксы
-			for (int k = 1; i <= 4; i++)
+            // НЕ РАБОТАЕТ НАСТРОЙКА 1 ЧАСТОТЫ ИСПРАВИТЬ
+            // ПОМЕНЯЛ К = 1 НА К = 0
+            // И [K-1] НА [K]
+            // Устанавливаем чекбоксы
+            for (int k = 0; i <= 3; i++)
 			{
+
 				if (arr[15 + 9 * k] == 1)
 				{
-					check[k - 1].Checked = true;
+					check[k].Checked = true;
 				}
 				else
 				{
-					check[k - 1].Checked = false;
+					check[k].Checked = false;
 				}
 			}
 

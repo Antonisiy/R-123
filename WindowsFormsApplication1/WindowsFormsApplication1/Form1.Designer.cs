@@ -596,6 +596,7 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 68;
             this.label1.Text = "label1";
+            this.label1.Visible = false;
             // 
             // Р123
             // 
@@ -730,7 +731,7 @@
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox6;
-		private System.Windows.Forms.Label label1;
-	}
+        private System.Windows.Forms.Label label1;
+    }
 }
 
