@@ -24,8 +24,9 @@ namespace WindowsFormsApplication1
 			InitializeComponent();
 		}
 
-		int[] frequency_1 = { 220, 380, 201, 309 };
-		int[] frequency_2 = { 500, 480, 460, 440 };
+		int[] arr_freq_I_diap = { 220, 240, 201, 309,0,0 };
+		int[] arr_freq_II_diap = { 500, 480, 460, 440,0,0 };
+
 		int main_rull_deg = 300, volume_rull_deg = 0,
 			  corrector_rull_deg = 0, antenna_rull_deg = 0,
 			  voltage_control_rull_deg = 0, shum_rull_deg = 0, frenquence_rull_deg = 785;
@@ -632,11 +633,17 @@ namespace WindowsFormsApplication1
 				if (fix == true)
 				{
 					fix = false;
-					button1.Text = "ЗАФИКСИРОВАТЬ";
+                    arr_freq_I_diap[(Math.Abs(main_rull_deg / 60) % 6)] = 0;
+                    arr_freq_II_diap[(Math.Abs(main_rull_deg / 60) % 6)] = 0;
+                    MessageBox.Show("Частота сброшена!");
+                    button1.Text = "ЗАФИКСИРОВАТЬ";
 				}
 				else
 				{
 					fix = true;
+                    arr_freq_I_diap[(Math.Abs(main_rull_deg / 60) % 6)] = (frenquence_rull_deg / 5) + 200;
+                    arr_freq_II_diap[(Math.Abs(main_rull_deg / 60) % 6)] = (frenquence_rull_deg / 5) + 358;
+                    MessageBox.Show("Частота зафиксирована!");
 					button1.Text = "РАЗФИКСИРОВАТЬ";
 				}
 			}
@@ -710,7 +717,7 @@ namespace WindowsFormsApplication1
 			else
 			{
 				//если болтик расфиксирован, проверяем установку нужной частоты 
-				if ((frenquence_label.Text == frequency_1[i].ToString() || frenquence_label_2.Text == frequency_2[i].ToString())
+				if ((frenquence_label.Text == arr_freq_I_diap[i].ToString() || frenquence_label_2.Text == arr_freq_II_diap[i].ToString())
 					&& (fix == true) && arr[8 + 9 * i] == 1) //Если болтик зафиксирован и установлена нужная чатота, то ставим ГОТОВО
 				{
 					arr[9 + 9 * i] = 1;
@@ -723,13 +730,13 @@ namespace WindowsFormsApplication1
 			}
 			// Устанавливаем рабочий поддиапазон
 			///TODO переделать, сейчас поддиапазоны устанавливаются неправильно
-			if (right_perek[i] = true && frenquence_label.Text == frequency_1[i].ToString() && arr[9 + 9 * i] == 1)
+			if (right_perek[i] = true && frenquence_label.Text == arr_freq_I_diap[i].ToString() && arr[9 + 9 * i] == 1)
 			{
 				arr[10 + 9 * i] = 1;
 			}
 			else
 			{
-				if (right_perek[i] = false && frenquence_label_2.Text == frequency_2[i].ToString())
+				if (right_perek[i] = false && frenquence_label_2.Text == arr_freq_II_diap[i].ToString())
 				{
 					arr[10 + 9 * i] = 1;
 				}
@@ -794,6 +801,7 @@ namespace WindowsFormsApplication1
 				{
 					check[k].Checked = true;
                     check[k].ForeColor = Color.Green;
+                   
 				}
 				else
 				{
@@ -801,10 +809,23 @@ namespace WindowsFormsApplication1
 				}
 			}
 
-
 		}
 
-		private void Form1_Paint(object sender, PaintEventArgs e)
+        private void End_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (checkBox2.Checked && checkBox3.Checked && checkBox4.Checked && checkBox5.Checked)
+            {
+                checkBox6.Checked = true;
+                checkBox6.ForeColor = Color.Green;
+                MessageBox.Show("Настройка закончена!","Успешно!");
+            }
+            else
+            {
+                MessageBox.Show("Настройка не закончена!","Warning!");
+            }
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
 		{
 			//label_poddiapazon.Text = "20";
 			System.Drawing.Drawing2D.Matrix matrix = new System.Drawing.Drawing2D.Matrix();
@@ -1038,7 +1059,8 @@ namespace WindowsFormsApplication1
 				{
 					case 0: //1 частота
 						{
-							//Auto_(sender, e, 232, 1000);
+                            //ДОДЕЛАТЬ!!!!!!!!!!
+							//Auto_(sender, e, ****, ****);
 							// Включили лампочку нужной частоты(и выключили лампочки соседних частот)
 							pictureBox2.Visible = true;
 							pictureBox3.Visible = false;

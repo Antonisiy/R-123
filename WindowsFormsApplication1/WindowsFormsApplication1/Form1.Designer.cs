@@ -77,6 +77,7 @@
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.End = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tangenta_picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Fiks_antenn)).BeginInit();
@@ -598,12 +599,23 @@
             this.label1.Text = "label1";
             this.label1.Visible = false;
             // 
+            // End
+            // 
+            this.End.Location = new System.Drawing.Point(81, 559);
+            this.End.Name = "End";
+            this.End.Size = new System.Drawing.Size(95, 75);
+            this.End.TabIndex = 69;
+            this.End.Text = "Закончить настройку";
+            this.End.UseVisualStyleBackColor = true;
+            this.End.MouseClick += new System.Windows.Forms.MouseEventHandler(this.End_MouseClick);
+            // 
             // Р123
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.R_123M;
             this.ClientSize = new System.Drawing.Size(1284, 742);
+            this.Controls.Add(this.End);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBox6);
             this.Controls.Add(this.checkBox5);
@@ -732,6 +744,7 @@
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button End;
     }
 }
 
