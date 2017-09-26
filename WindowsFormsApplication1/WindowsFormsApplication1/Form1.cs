@@ -47,8 +47,10 @@ namespace WindowsFormsApplication1
 		int[] arr = new int[44]; // Массив флагов
 		int[] configuration_steps = new int[5];
 
-		int[] best_antenna = { 420, 900 }; // Значения предельного отклонения стрелки 
-		int[] best_luminosity = { -280, 500, 1100 }; // Максимальное свечение лампы
+		// значения я накидал примерные хз насколько они совпадают
+		int[,] best_antenna = { { 420, 900 }, { 660, 920 }, { 510, 960 }, { 300, 680 } }; // Значения предельного отклонения стрелки 
+		int[,] best_luminosity = { { -280, 500, 1100 }, { -280, 700, 1200 }, { -100, 450, 1000 }, { 0, 370, 900 } }; // Максимальное свечение лампы
+		int[] best_antenna_found = {540, 780, 1080, 420 }; // это значения в которых должна быть крутиллка антенны для каждой частоты чтобы считать что она настроена(-+20)
 
 
 		bool flag = false, flag_2 = false, draw_flag = true, fix = true, flag_antenn_fiks = true;
@@ -65,6 +67,17 @@ namespace WindowsFormsApplication1
 			box.BackColor = System.Drawing.SystemColors.ActiveCaption;
 		}
 
+		private void return_all()
+		{
+			label_poddiapazon.Text = "20"; // это какойто костыль или нам просто было лень его убирать, но эте хрень связана со стрелкой
+            antenna_rull_deg = 0; // вернули значение поворота антены на 0
+			picture_lamp_fr.Image = Properties.Resources.power; // сбросили яркость лампочки
+			picture_antenna.Image = Properties.Resources.antenna; // сбросили крутилку антены на начало
+			arrow_image.Image = Properties.Resources.arrow; // сбросили стрелку
+			//arrow_image.Invalidate();
+			arrow_image.Refresh();
+		}
+
 		private void set_arr_null(int begin, int end)
 		{
 			for (int i = begin; i <= end; i++)
@@ -76,6 +89,7 @@ namespace WindowsFormsApplication1
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			label_poddiapazon.Text = "20";
+			return_all();
 		}
 
 		//Рисуем маленький круг
@@ -279,10 +293,11 @@ namespace WindowsFormsApplication1
 					}
 				}
 				//лампочка начинает загораться начиная от best - 220 до best 
-				// И начинает затухать от best + 100 до best + 320
+				// И начинает затухать от best + 100 до best + 320 
 
-				foreach (int best in best_luminosity) // яркость лампочки
+				for (int i = 0; i < 3; i++) // яркость лампочки
 				{
+					int best = best_luminosity[Math.Abs(main_rull_deg / 60) % 6 % 4,i];
 					if ((best - 220 < antenna_rull_deg && best > antenna_rull_deg && antenna_arg.Button == MouseButtons.Left)
 						|| (best + 100 < antenna_rull_deg && best + 320 > antenna_rull_deg && antenna_arg.Button == MouseButtons.Right))
 					{
@@ -303,8 +318,9 @@ namespace WindowsFormsApplication1
 
 				// стрелка дергается от [x-70, x+100] и [x + 140, x + 310]
 
-				foreach (int best in best_antenna) // вроверка вхождения значения поворота крутилки в границы необходимые для отклонения стрелки
+				for (int i = 0; i < 2; i++) // вроверка вхождения значения поворота крутилки в границы необходимые для отклонения стрелки
 				{
+					int best = best_antenna[Math.Abs(main_rull_deg / 60) % 6 % 4, i];
 					if ((antenna_rull_deg > best - 70 && antenna_rull_deg <= best + 100 && antenna_arg.Button == MouseButtons.Left)
 						|| (antenna_rull_deg >= best + 140 && antenna_rull_deg < best + 310 && antenna_arg.Button == MouseButtons.Right))
 					{
@@ -761,7 +777,7 @@ namespace WindowsFormsApplication1
 			if (flag_antenn_fiks == true)
 			{
 
-				if (antenna_rull_deg <= 560 && antenna_rull_deg >= 520)
+				if (antenna_rull_deg <= best_antenna_found[i] + 20 && antenna_rull_deg >= best_antenna_found[i] - 20)   
 				{
 					arr[12 + 9 * i] = 1;
 				}
@@ -1035,6 +1051,8 @@ namespace WindowsFormsApplication1
 		// Переключатель частот(главная крутилка)
 		private void Main_rull_MouseClick(object sender, MouseEventArgs e)
 		{
+			return_all(); // сбросили все
+
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(111, 114);
 			if (fix == true)
@@ -1059,9 +1077,10 @@ namespace WindowsFormsApplication1
 				{
 					case 0: //1 частота
 						{
-                            //ДОДЕЛАТЬ!!!!!!!!!!
+							//ДОДЕЛАТЬ!!!!!!!!!!
 							//Auto_(sender, e, ****, ****);
 							// Включили лампочку нужной частоты(и выключили лампочки соседних частот)
+							
 							pictureBox2.Visible = true;
 							pictureBox3.Visible = false;
 
@@ -1080,6 +1099,7 @@ namespace WindowsFormsApplication1
 						}
 					case 1: // 2 частота
 						{
+							
 							pictureBox2.Visible = false;
 							pictureBox3.Visible = true;
 							pictureBox4.Visible = false;
@@ -1141,6 +1161,7 @@ namespace WindowsFormsApplication1
 						}
 					case 5: // 1 поддиапазон
 						{
+							
 							pictureBox2.Visible = false;
 
 							picture_Lamp_I.Visible = true;
