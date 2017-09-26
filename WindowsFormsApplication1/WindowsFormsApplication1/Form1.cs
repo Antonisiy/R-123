@@ -24,8 +24,8 @@ namespace WindowsFormsApplication1
 			InitializeComponent();
 		}
 
-		int[] arr_freq_I_diap = { 220, 240, 201, 309,0,0 };
-		int[] arr_freq_II_diap = { 500, 480, 460, 440,0,0 };
+		static int[] arr_freq_I_diap = { 220, 240, 200, 300,0,0 };
+		static int[] arr_freq_II_diap = { 500, 480, 460, 440,0,0 };
 
 		int main_rull_deg = 300, volume_rull_deg = 0,
 			  corrector_rull_deg = 0, antenna_rull_deg = 0,
@@ -34,10 +34,10 @@ namespace WindowsFormsApplication1
 
 		int flag_auto;
 
-		MouseEventArgs Volume_arg = null,
-			frequence_arg = null,
-			shum_arg = null,
-			antenna_arg = null,
+        MouseEventArgs Volume_arg = null,
+            frequence_arg = new MouseEventArgs(MouseButtons.Left,0,0,0,0),
+            shum_arg = null,
+            antenna_arg = new MouseEventArgs(MouseButtons.Left,0,0,0,0),
 			fiks_antenna = null;
 		bool[] right_perek = { false, false, false, false };
 
@@ -48,9 +48,19 @@ namespace WindowsFormsApplication1
 		int[] configuration_steps = new int[5];
 
 		// значения я накидал примерные хз насколько они совпадают
-		int[,] best_antenna = { { 420, 900 }, { 660, 920 }, { 510, 960 }, { 300, 680 } }; // Значения предельного отклонения стрелки 
-		int[,] best_luminosity = { { -280, 500, 1100 }, { -280, 700, 1200 }, { -100, 450, 1000 }, { 0, 370, 900 } }; // Максимальное свечение лампы
-		int[] best_antenna_found = {540, 780, 1080, 420 }; // это значения в которых должна быть крутиллка антенны для каждой частоты чтобы считать что она настроена(-+20)
+		int[,] best_antenna = { { r10(arr_freq_I_diap[0]*1.9), r10(arr_freq_I_diap[0]*4.09) },
+            { r10(arr_freq_I_diap[1]*2.75), r10(arr_freq_I_diap[1]*3.83) },
+            { r10(arr_freq_I_diap[2]*2.55), r10(arr_freq_I_diap[2]*4.8) },
+            { r10(arr_freq_I_diap[3]*1), r10(arr_freq_I_diap[3]*2.26) } };// Значения предельного отклонения стрелки 
+
+        
+
+        int[,] best_luminosity = { { r10(arr_freq_I_diap[0]*-1.27), r10(arr_freq_I_diap[0]*2.27), arr_freq_I_diap[0]*5 }, 
+            { r10(arr_freq_I_diap[1]*-1.16), r10(arr_freq_I_diap[1]*2.92), r10(arr_freq_I_diap[1]*5) }, 
+            { r10(arr_freq_I_diap[2]*-1.16*-0.5), r10(arr_freq_I_diap[2]*2.25), r10(arr_freq_I_diap[2]*5) }, 
+            { r10(arr_freq_I_diap[3]*0), r10(arr_freq_I_diap[3]*1.23), r10(arr_freq_I_diap[3]*3) } }; // Максимальное свечение лампы
+
+		int[] best_antenna_found  = { r10(arr_freq_I_diap[0]*2.45), r10(arr_freq_I_diap[1]*3.25), r10(arr_freq_I_diap[2] * 5.4), r10(arr_freq_I_diap[3] * 1.4) }; // это значения в которых должна быть крутиллка антенны для каждой частоты чтобы считать что она настроена(-+20)
 
 
 		bool flag = false, flag_2 = false, draw_flag = true, fix = true, flag_antenn_fiks = true;
@@ -67,7 +77,19 @@ namespace WindowsFormsApplication1
 			box.BackColor = System.Drawing.SystemColors.ActiveCaption;
 		}
 
-		private void return_all()
+        public static int r10(double d)
+        {
+            d = Math.Floor(d);
+
+            int i;
+
+            i = Convert.ToInt16(d);
+            if (i % 10 != 0) i = (i / 10) * 10;
+
+            return i;
+        }
+
+        private void return_all()
 		{
 			label_poddiapazon.Text = "20"; // это какойто костыль или нам просто было лень его убирать, но эте хрень связана со стрелкой
             antenna_rull_deg = 0; // вернули значение поворота антены на 0
@@ -276,22 +298,22 @@ namespace WindowsFormsApplication1
 			Draw_circle(picture_antenna.Image, picture_antenna);
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(picture_antenna.Image.Width / 2, picture_antenna.Image.Height / 2);
-			if (flag_antenn_fiks)
-			{
-				if ((flag_auto == 1) || ((antenna_arg.Button == MouseButtons.Left) && (flag_auto == 0)))
-				{
-					if (antenna_rull_deg < 1440)
-					{
-						antenna_rull_deg += 10;
-					}
-				}
-				else
-				{
-					if (antenna_rull_deg > -720)
-					{
-						antenna_rull_deg -= 10;
-					}
-				}
+            if ((flag_antenn_fiks)||(flag_auto > 0))
+            {
+            if ((flag_auto == 1) || ((antenna_arg.Button == MouseButtons.Left) && (flag_auto == 0)))
+            {
+                if (antenna_rull_deg < 1440)
+                {
+                    antenna_rull_deg += 10;
+                }
+            }
+            else
+            {
+                if (antenna_rull_deg > -720)
+                {
+                    antenna_rull_deg -= 10;
+                }
+            }
 				//лампочка начинает загораться начиная от best - 220 до best 
 				// И начинает затухать от best + 100 до best + 320 
 
@@ -649,8 +671,8 @@ namespace WindowsFormsApplication1
 				if (fix == true)
 				{
 					fix = false;
-                    arr_freq_I_diap[(Math.Abs(main_rull_deg / 60) % 6)] = 0;
-                    arr_freq_II_diap[(Math.Abs(main_rull_deg / 60) % 6)] = 0;
+                    arr_freq_I_diap[(Math.Abs(main_rull_deg / 60) % 6)] = 200;
+                    arr_freq_II_diap[(Math.Abs(main_rull_deg / 60) % 6)] = 357;
                     MessageBox.Show("Частота сброшена!");
                     button1.Text = "ЗАФИКСИРОВАТЬ";
 				}
@@ -1016,7 +1038,7 @@ namespace WindowsFormsApplication1
 
 		private void Auto_(object sender, MouseEventArgs e, int value, int value_2)
 		{
-
+            
 			while (((frenquence_rull_deg / 5) + 200) != value)
 			{
 				if (((frenquence_rull_deg / 5) + 200) >= value)
@@ -1078,7 +1100,7 @@ namespace WindowsFormsApplication1
 					case 0: //1 частота
 						{
 							//ДОДЕЛАТЬ!!!!!!!!!!
-							//Auto_(sender, e, ****, ****);
+							Auto_(sender, e, arr_freq_I_diap[0], best_antenna_found[0]);
 							// Включили лампочку нужной частоты(и выключили лампочки соседних частот)
 							
 							pictureBox2.Visible = true;
@@ -1099,8 +1121,8 @@ namespace WindowsFormsApplication1
 						}
 					case 1: // 2 частота
 						{
-							
-							pictureBox2.Visible = false;
+                            Auto_(sender, e, arr_freq_I_diap[1], best_antenna_found[1]);
+                            pictureBox2.Visible = false;
 							pictureBox3.Visible = true;
 							pictureBox4.Visible = false;
 
@@ -1118,7 +1140,8 @@ namespace WindowsFormsApplication1
 						}
 					case 2: // 3 частота
 						{
-							pictureBox3.Visible = false;
+                            Auto_(sender, e, arr_freq_I_diap[2], best_antenna_found[2]);
+                            pictureBox3.Visible = false;
 							pictureBox4.Visible = true;
 							pictureBox5.Visible = false;
 
@@ -1136,7 +1159,8 @@ namespace WindowsFormsApplication1
 						}
 					case 3: // 4 частота
 						{
-							pictureBox4.Visible = false;
+                            Auto_(sender, e, arr_freq_I_diap[3], best_antenna_found[3]);
+                            pictureBox4.Visible = false;
 							pictureBox5.Visible = true;
 
 							if (right_perek[3] == false)
@@ -1153,6 +1177,7 @@ namespace WindowsFormsApplication1
 						}
 					case 4: // 2 поддиапазон
 						{
+
 							pictureBox5.Visible = false;
 
 							picture_Lamp_I.Visible = false;
