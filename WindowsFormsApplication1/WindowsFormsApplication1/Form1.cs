@@ -24,7 +24,7 @@ namespace WindowsFormsApplication1
 			InitializeComponent();
 		}
 
-		int[] frequency_1 = { 220, 260, 280, 300 };
+		int[] frequency_1 = { 220, 380, 201, 309 };
 		int[] frequency_2 = { 500, 480, 460, 440 };
 		int main_rull_deg = 300, volume_rull_deg = 0,
 			  corrector_rull_deg = 0, antenna_rull_deg = 0,
@@ -152,7 +152,7 @@ namespace WindowsFormsApplication1
 					picture_Lamp_I.Visible = false;
 					picture_Lamp_II.Visible = true;
 				}
-				Image img = Properties.Resources.perek_I;
+				Image img = Properties.Resources.perek_II;
 				Right_Perek_1.Image = img;
 				right_perek[0] = true;
 			}
@@ -163,7 +163,7 @@ namespace WindowsFormsApplication1
 					picture_Lamp_I.Visible = true;
 					picture_Lamp_II.Visible = false;
 				}
-				Image img = Properties.Resources.perek_II;
+				Image img = Properties.Resources.perek_I;
 				Right_Perek_1.Image = img;
 				right_perek[0] = false;
 			}
@@ -181,7 +181,7 @@ namespace WindowsFormsApplication1
 					picture_Lamp_I.Visible = false;
 					picture_Lamp_II.Visible = true;
 				}
-				Image img = Properties.Resources.perek_I;
+				Image img = Properties.Resources.perek_II;
 				Right_Perek_2.Image = img;
 				right_perek[1] = true;
 			}
@@ -192,7 +192,7 @@ namespace WindowsFormsApplication1
 					picture_Lamp_I.Visible = true;
 					picture_Lamp_II.Visible = false;
 				}
-				Image img = Properties.Resources.perek_II;
+				Image img = Properties.Resources.perek_I;
 				Right_Perek_2.Image = img;
 				right_perek[1] = false;
 			}
@@ -209,7 +209,7 @@ namespace WindowsFormsApplication1
 					picture_Lamp_I.Visible = false;
 					picture_Lamp_II.Visible = true;
 				}
-				Image img = Properties.Resources.perek_I;
+				Image img = Properties.Resources.perek_II;
 				Right_Perek_3.Image = img;
 				right_perek[2] = true;
 			}
@@ -220,7 +220,7 @@ namespace WindowsFormsApplication1
 					picture_Lamp_I.Visible = true;
 					picture_Lamp_II.Visible = false;
 				}
-				Image img = Properties.Resources.perek_II;
+				Image img = Properties.Resources.perek_I;
 				Right_Perek_3.Image = img;
 				right_perek[2] = false;
 			}
@@ -237,7 +237,7 @@ namespace WindowsFormsApplication1
 					picture_Lamp_I.Visible = false;
 					picture_Lamp_II.Visible = true;
 				}
-				Image img = Properties.Resources.perek_I;
+				Image img = Properties.Resources.perek_II;
 				Right_Perek_4.Image = img;
 				right_perek[3] = true;
 			}
@@ -248,7 +248,7 @@ namespace WindowsFormsApplication1
 					picture_Lamp_I.Visible = true;
 					picture_Lamp_II.Visible = false;
 				}
-				Image img = Properties.Resources.perek_II;
+				Image img = Properties.Resources.perek_I;
 				Right_Perek_4.Image = img;
 				right_perek[3] = false;
 			}
@@ -557,14 +557,14 @@ namespace WindowsFormsApplication1
 			int turn = 0;
 			if (flag_antenn_fiks)
 			{
-				turn = 90;
-				flag_antenn_fiks = false;
-			}
+                turn = 90;
+                flag_antenn_fiks = false;
+            }
 			else
 			{
-				turn = 0;
-				flag_antenn_fiks = true;
-			}
+                turn = 0;
+                flag_antenn_fiks = true;
+            }
 			System.Drawing.Drawing2D.Matrix mymatrix = new System.Drawing.Drawing2D.Matrix();
 			PointF center_picture = new PointF(Fiks_antenn.Image.Width / 2, Fiks_antenn.Image.Height / 2);
 			mymatrix.RotateAt(antenna_rull_deg + turn, center_picture);
@@ -687,6 +687,7 @@ namespace WindowsFormsApplication1
 				}
 				configuration_steps[0] = 1;
 				checkBox1.Checked = true;
+                checkBox1.ForeColor = Color.Green;
 			}
 
 			//if (configuration_steps[0] == 1)
@@ -722,13 +723,13 @@ namespace WindowsFormsApplication1
 			}
 			// Устанавливаем рабочий поддиапазон
 			///TODO переделать, сейчас поддиапазоны устанавливаются неправильно
-			if (pictureBox2.Visible == true && frenquence_label.Text == frequency_1[i].ToString() && arr[9 + 9 * i] == 1)
+			if (right_perek[i] = true && frenquence_label.Text == frequency_1[i].ToString() && arr[9 + 9 * i] == 1)
 			{
 				arr[10 + 9 * i] = 1;
 			}
 			else
 			{
-				if (pictureBox2.Visible == false && frenquence_label_2.Text == frequency_2[i].ToString())
+				if (right_perek[i] = false && frenquence_label_2.Text == frequency_2[i].ToString())
 				{
 					arr[10 + 9 * i] = 1;
 				}
@@ -740,7 +741,7 @@ namespace WindowsFormsApplication1
 			}
             // Включили радиостанцию на передачу через тангенту
             // ПОМЕНЯЛ ИНДЕКС
-            if (tangenta_flag && check[i].Checked == false) //[i - 1]
+            if ((tangenta_flag && check[i].Checked == false)||(arr[14+9*i]==1)) //[i - 1]
             {
 				arr[11 + 9 * i] = 1;
 			}
@@ -786,12 +787,13 @@ namespace WindowsFormsApplication1
             // ПОМЕНЯЛ К = 1 НА К = 0
             // И [K-1] НА [K]
             // Устанавливаем чекбоксы
-            for (int k = 0; i <= 3; i++)
+            for (int k = 0; k <= 3; k++)
 			{
 
 				if (arr[15 + 9 * k] == 1)
 				{
 					check[k].Checked = true;
+                    check[k].ForeColor = Color.Green;
 				}
 				else
 				{

@@ -149,7 +149,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.ShowItemToolTips = true;
-            this.menuStrip1.Size = new System.Drawing.Size(1362, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1284, 24);
             this.menuStrip1.TabIndex = 53;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -510,8 +510,8 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
             this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.checkBox1.Location = new System.Drawing.Point(29, 27);
+            this.checkBox1.ForeColor = System.Drawing.Color.Red;
+            this.checkBox1.Location = new System.Drawing.Point(29, 37);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(196, 25);
             this.checkBox1.TabIndex = 62;
@@ -524,12 +524,12 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.BackColor = System.Drawing.Color.Transparent;
             this.checkBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.checkBox2.Location = new System.Drawing.Point(260, 27);
+            this.checkBox2.ForeColor = System.Drawing.Color.Red;
+            this.checkBox2.Location = new System.Drawing.Point(260, 37);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(199, 25);
+            this.checkBox2.Size = new System.Drawing.Size(104, 25);
             this.checkBox2.TabIndex = 63;
-            this.checkBox2.Text = "Настройка 1 частоты";
+            this.checkBox2.Text = "1 частота";
             this.checkBox2.UseVisualStyleBackColor = false;
             // 
             // checkBox3
@@ -538,12 +538,12 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.BackColor = System.Drawing.Color.Transparent;
             this.checkBox3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox3.ForeColor = System.Drawing.Color.MediumBlue;
-            this.checkBox3.Location = new System.Drawing.Point(503, 27);
+            this.checkBox3.ForeColor = System.Drawing.Color.Red;
+            this.checkBox3.Location = new System.Drawing.Point(409, 37);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(109, 25);
+            this.checkBox3.Size = new System.Drawing.Size(104, 25);
             this.checkBox3.TabIndex = 64;
-            this.checkBox3.Text = "2 частоты";
+            this.checkBox3.Text = "2 частота";
             this.checkBox3.UseVisualStyleBackColor = false;
             // 
             // checkBox4
@@ -552,12 +552,12 @@
             this.checkBox4.AutoSize = true;
             this.checkBox4.BackColor = System.Drawing.Color.Transparent;
             this.checkBox4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox4.ForeColor = System.Drawing.Color.MediumBlue;
-            this.checkBox4.Location = new System.Drawing.Point(645, 27);
+            this.checkBox4.ForeColor = System.Drawing.Color.Red;
+            this.checkBox4.Location = new System.Drawing.Point(549, 37);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(109, 25);
+            this.checkBox4.Size = new System.Drawing.Size(104, 25);
             this.checkBox4.TabIndex = 65;
-            this.checkBox4.Text = "3 частоты";
+            this.checkBox4.Text = "3 частота";
             this.checkBox4.UseVisualStyleBackColor = false;
             // 
             // checkBox5
@@ -566,12 +566,12 @@
             this.checkBox5.AutoSize = true;
             this.checkBox5.BackColor = System.Drawing.Color.Transparent;
             this.checkBox5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox5.ForeColor = System.Drawing.Color.MediumBlue;
-            this.checkBox5.Location = new System.Drawing.Point(791, 27);
+            this.checkBox5.ForeColor = System.Drawing.Color.Red;
+            this.checkBox5.Location = new System.Drawing.Point(686, 37);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(109, 25);
+            this.checkBox5.Size = new System.Drawing.Size(104, 25);
             this.checkBox5.TabIndex = 66;
-            this.checkBox5.Text = "4 частоты";
+            this.checkBox5.Text = "4 частота";
             this.checkBox5.UseVisualStyleBackColor = false;
             // 
             // checkBox6
@@ -580,8 +580,8 @@
             this.checkBox6.AutoSize = true;
             this.checkBox6.BackColor = System.Drawing.Color.Transparent;
             this.checkBox6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox6.ForeColor = System.Drawing.Color.MediumBlue;
-            this.checkBox6.Location = new System.Drawing.Point(935, 27);
+            this.checkBox6.ForeColor = System.Drawing.Color.Red;
+            this.checkBox6.Location = new System.Drawing.Point(829, 37);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(181, 25);
             this.checkBox6.TabIndex = 67;
@@ -603,7 +603,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.R_123M;
-            this.ClientSize = new System.Drawing.Size(1362, 742);
+            this.ClientSize = new System.Drawing.Size(1284, 742);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBox6);
             this.Controls.Add(this.checkBox5);
